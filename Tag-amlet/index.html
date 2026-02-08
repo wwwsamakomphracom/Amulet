@@ -3,168 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TAG Verification</title>
+<title>TAG Silver Card</title>
 
 <style>
-/* reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+*{
+  box-sizing:border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
-body {
-  background: linear-gradient(#444, #777);
-  color: #000;
+body{
+  margin:0;
+  background: linear-gradient(#3f3f3f,#6c6c6c);
+  color:#000;
 }
 
-/* header */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
+/* ===== HEADER ===== */
+header{
+  height:64px;
+  background: linear-gradient(#2e2e2e,#151515);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 14px;
 }
 
-.logo {
-  height: 36px;
+.logo-text{
+  font-size:26px;
+  font-weight:bold;
+  color:#f2c94c;
 }
 
-.menu {
-  background: #222;
-  border-radius: 20px;
-  padding: 6px 14px;
-  color: #fff;
-  font-size: 18px;
+.menu{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#0f0f0f;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:22px;
 }
 
-.lang img {
-  height: 18px;
-  margin-left: 6px;
+.flags img{
+  height:18px;
+  margin-left:6px;
 }
 
-/* title */
-.title {
-  text-align: center;
-  font-size: 34px;
-  letter-spacing: 2px;
-  color: rgba(255,255,255,0.4);
-  margin: 30px 0;
+/* ===== NAV ===== */
+nav{
+  background:#262626;
+  display:flex;
+  justify-content:space-around;
+  padding:8px 0;
 }
 
-/* content box */
-.box {
-  border: 2px dashed #2b6cb0;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 16px;
-  background: rgba(255,255,255,0.1);
+nav a{
+  color:#fff;
+  font-size:13px;
+  text-decoration:none;
 }
 
-.box p {
-  text-align: center;
-  color: #1a365d;
-  font-size: 18px;
+/* ===== CONTENT ===== */
+.container{
+  padding:22px 16px 30px;
+  text-align:center;
 }
 
-/* description */
-.desc {
-  padding: 0 20px;
-  margin-top: 10px;
-  font-size: 15px;
-  line-height: 1.6;
+.silver{
+  font-size:44px;
+  letter-spacing:2px;
+  color:rgba(255,255,255,0.18);
+  margin-bottom:18px;
 }
 
-/* search */
-.search {
-  margin: 30px 20px;
+.box{
+  border:2px dashed #5a7fa3;
+  border-radius:18px;
+  padding:28px 12px;
+  color:#5a7fa3;
+  margin-bottom:16px;
 }
 
-.search label {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 16px;
+.desc{
+  font-size:16px;
+  line-height:1.8;
+  margin:14px 0;
 }
 
-.search input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 20px;
-  border: 3px solid #d4a017;
-  font-size: 16px;
+.label{
+  font-size:18px;
+  margin-top:14px;
 }
 
-.search button {
-  margin-top: 12px;
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 20px;
-  background: #2b6cb0;
-  color: #fff;
-  font-size: 16px;
+input{
+  width:100%;
+  height:54px;
+  border-radius:30px;
+  border:3px solid #f2c94c;
+  padding:0 18px;
+  font-size:18px;
+  margin:10px 0 14px;
 }
 
-/* footer */
-.footer {
-  margin-top: 40px;
-  background: #111;
-  color: #d4a017;
-  text-align: center;
-  padding: 20px 10px;
+button{
+  width:150px;
+  height:48px;
+  border:none;
+  border-radius:30px;
+  background:#1f5fa8;
+  color:#fff;
+  font-size:18px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.3);
 }
 
-.footer small {
-  color: #ccc;
-  display: block;
-  margin-top: 6px;
+/* ===== FOOTER ===== */
+footer{
+  background:#151515;
+  color:#fff;
+  text-align:center;
+  padding:18px 10px;
+  font-size:13px;
+}
+
+footer .title{
+  font-weight:bold;
+  letter-spacing:1px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- header -->
-<div class="header">
-  <img src="logo.png" class="logo" alt="TAG">
+<header>
+  <div class="logo-text">TAG</div>
   <div class="menu">☰</div>
-  <div class="lang">
-    🇨🇳 🇺🇸 🇹🇭
+  <div class="flags">
+    <img src="https://flagcdn.com/w20/cn.png">
+    <img src="https://flagcdn.com/w20/us.png">
+    <img src="https://flagcdn.com/w20/th.png">
   </div>
+</header>
+
+<nav>
+  <a href="https://tag-amulet.com/">หน้าแรก</a>
+  <a href="https://tag-amulet.com/about-us/">เกี่ยวกับเรา</a>
+  <a href="https://tag-amulet.com/%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%A0%E0%B8%97%E0%B8%9A%E0%B8%B1%E0%B8%95%E0%B8%A3%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%A3%E0%B8%AD%E0%B8%87/">ประเภทใบรับรอง</a>
+  <a href="#">ค้นหาใบรับรอง</a>
+  <a href="https://tag-amulet.com/certificate-process/">ขั้นตอนการออกบัตร</a>
+  <a href="https://tag-amulet.com/contact-us/">ติดต่อเรา</a>
+</nav>
+
+<div class="container">
+  <div class="silver">SILVER CARD</div>
+
+  <div class="box">ไม่พบข้อมูลบัตร</div>
+
+  <div class="desc">
+    พระเครื่อง วัตถุมงคล ชิ้นนี้ ได้รับการตรวจสอบจากสถาบัน TAG  
+    ขอรับรองว่าเป็นพระแท้ตามมาตรฐานสากล พร้อมรับซื้อวัตถุ
+  </div>
+
+  <div class="box">ไม่พบข้อมูลบัตร</div>
+
+  <div class="label">เลขบัตร</div>
+  <input id="tag" placeholder="กรอกเลข TAG">
+  <button onclick="go()">ค้นหา</button>
 </div>
 
-<!-- title -->
-<div class="title">SILVER CARD</div>
+<footer>
+  <div class="title">CERTIFICATE THAI AMULET GUARANTEE</div>
+  <div>© Copyright 2023 Thai Amulet Guarantee. All rights reserved.</div>
+</footer>
 
-<!-- box 1 -->
-<div class="box">
-  <p>ไม่พบข้อมูลบัตร</p>
-</div>
-
-<!-- description -->
-<div class="desc">
-  พระเครื่อง วัตถุมงคล ชิ้นนี้ ได้รับการตรวจสอบจากสถาบัน TAG  
-  ขอรับรองว่าเป็นพระแท้ตามมาตรฐานสากล พร้อมรับซื้อวัตถุ
-</div>
-
-<!-- box 2 -->
-<div class="box">
-  <p>ไม่พบข้อมูลบัตร</p>
-</div>
-
-<!-- search -->
-<div class="search">
-  <label>เลขบัตร</label>
-  <input type="text" placeholder="">
-  <button>ค้นหา</button>
-</div>
-
-<!-- footer -->
-<div class="footer">
-  <div>TAG</div>
-  <small>© Copyright 2023 Thai Amulet Guarantee. All rights reserved.</small>
-</div>
+<script>
+function go(){
+  const t=document.getElementById("tag").value.trim();
+  const map={
+    "TAG836628463":"https://wirakan90-ai.github.io/tag-verification/TAG836628463/",
+    "TAG725538266":"https://wirakan90-ai.github.io/tag-verification/TAG725538266/",
+    "TAG736628325":"https://wirakan90-ai.github.io/tag-verification/TAG736628325/"
+  };
+  if(map[t]) location.href=map[t];
+  else alert("ไม่พบข้อมูลบัตร");
+}
+</script>
 
 </body>
 </html>
