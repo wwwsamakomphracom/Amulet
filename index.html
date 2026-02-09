@@ -1,213 +1,190 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TAG Verification</title>
-
-<!-- Google Font ใกล้ต้นฉบับ -->
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>TAG Amulet Verification</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  font-family: 'Prompt', sans-serif;
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#fff;
+    text-align:center;
 }
 
-body {
-  margin: 0;
-  background: linear-gradient(#5f5f5f, #7a7a7a);
-  color: #fff;
+/* ===== HEADER ===== */
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 20px;
+    border-bottom:1px solid #ddd;
 }
 
-/* ===== Header ===== */
-header {
-  background: #5a5a5a;
-  padding: 14px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:2px;
 }
 
-.logo {
-  font-size: 28px;
-  font-weight: 600;
-  color: #d4b15f;
-  letter-spacing: 2px;
+.menu{
+    display:flex;
+    gap:30px;
+    font-size:14px;
 }
 
-.menu {
-  font-size: 22px;
-  color: #ccc;
+.menu a{
+    text-decoration:none;
+    color:#000;
 }
 
-/* ===== Nav ===== */
-nav {
-  background: #666;
-  padding: 10px;
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
+.flags img{
+    width:26px;
+    margin-left:8px;
 }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  white-space: nowrap;
-  opacity: 0.85;
+/* ===== BODY ===== */
+.container{
+    max-width:420px;
+    margin:30px auto;
+    padding:0 15px;
 }
 
-nav a:hover {
-  opacity: 1;
+.title{
+    font-size:26px;
+    color:#9a9a9a;
+    font-weight:bold;
+    -webkit-text-stroke:1px #000;
+    margin-bottom:20px;
 }
 
-/* ===== Content ===== */
-.container {
-  padding: 22px 16px 40px;
+/* Card box */
+.card{
+    border:2px dashed #999;
+    border-radius:10px;
+    height:220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
+    font-size:18px;
+    color:#555;
 }
 
-.title {
-  text-align: center;
-  font-size: 38px;
-  letter-spacing: 6px;
-  opacity: 0.35;
-  margin-bottom: 20px;
+.card.blue{
+    border-color:#1e90ff;
 }
 
-/* dashed box */
-.box {
-  border: 2px dashed #2f7fd8;
-  border-radius: 18px;
-  padding: 28px 16px;
-  text-align: center;
-  margin-bottom: 20px;
-  opacity: 0.9;
+/* Text */
+.verify-text{
+    font-size:14px;
+    color:#000;
+    line-height:1.6;
+    margin:20px 0;
 }
 
-.box span {
-  font-size: 18px;
+/* Input */
+.label{
+    text-align:left;
+    font-size:14px;
+    margin-top:20px;
+    margin-bottom:6px;
 }
 
-/* input */
-.label {
-  margin: 18px 0 6px;
-  font-size: 14px;
-  opacity: 0.85;
+input{
+    width:100%;
+    padding:12px;
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    outline:none;
+    background:#fff;
 }
 
-input {
-  width: 100%;
-  padding: 14px;
-  border-radius: 14px;
-  border: 2px solid #4fa0ff;
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-  font-size: 16px;
-  outline: none;
+/* Button */
+button{
+    margin-top:15px;
+    padding:12px;
+    width:100%;
+    font-size:18px;
+    color:#1e90ff;
+    background:#eaf3ff;
+    border:2px solid #1e90ff;
+    border-radius:6px;
+    cursor:pointer;
 }
 
-input::placeholder {
-  color: rgba(255,255,255,0.7);
-}
-
-/* description */
-.desc {
-  font-size: 15px;
-  line-height: 1.6;
-  opacity: 0.95;
-  margin: 20px 0;
-}
-
-/* button */
-button {
-  width: 140px;
-  padding: 12px;
-  border: none;
-  border-radius: 20px;
-  background: #1f5fa8;
-  color: #fff;
-  font-size: 16px;
-  display: block;
-  margin: 18px auto 0;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #2f7fd8;
-}
-
-/* ===== Footer ===== */
-footer {
-  background: #1c1c1c;
-  padding: 20px 10px;
-  text-align: center;
-  font-size: 12px;
-  opacity: 0.9;
+/* Footer logo */
+.footer-logo{
+    margin:40px 0 10px;
+    font-size:22px;
+    font-weight:bold;
+    letter-spacing:2px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">TAG</div>
-  <div class="menu">≡</div>
-</header>
+<!-- HEADER -->
+<div class="header">
+    <div class="logo">TAG</div>
 
-<nav>
-  <a href="https://tag-amulet.com/">หน้าแรก</a>
-  <a href="https://tag-amulet.com/about-us/">เกี่ยวกับเรา</a>
-  <a href="https://tag-amulet.com/%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%A0%E0%B8%97%E0%B8%9A%E0%B8%B1%E0%B8%95%E0%B8%A3%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%A3%E0%B8%AD%E0%B8%87/">ประเภทใบรับรอง</a>
-  <a href="#">ค้นหาใบรับรอง</a>
-  <a href="https://tag-amulet.com/certificate-process/">ขั้นตอนการออกบัตร</a>
-  <a href="https://tag-amulet.com/contact-us/">ติดต่อเรา</a>
-</nav>
+    <div class="menu">
+        <a href="https://tag-amulet.com/">หน้าแรก</a>
+        <a href="https://tag-amulet.com/about-us/">เกี่ยวกับเรา</a>
+        <a href="https://tag-amulet.com/%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%A0%E0%B8%97%E0%B8%9A%E0%B8%B1%E0%B8%95%E0%B8%A3%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%A3%E0%B8%AD%E0%B8%87/">ประเภทใบรับรอง</a>
+        <a href="#">ค้นหาใบรับรอง</a>
+        <a href="https://tag-amulet.com/certificate-process/">ขั้นตอนการออกบัตร</a>
+        <a href="https://tag-amulet.com/contact-us/">ติดต่อเรา</a>
+    </div>
 
-<div class="container">
-
-  <div class="title">SILVER CARD</div>
-
-  <div class="box">
-    <span>ไม่พบข้อมูลบัตร</span>
-  </div>
-
-  <div class="label">เลขบัตร</div>
-  <input id="codeInput" placeholder="กรอกเลขบัตรเพื่อตรวจสอบ" />
-
-  <div class="desc">
-    พระเครื่อง วัตถุมงคล ชิ้นนี้ ได้รับการตรวจสอบจากสถาบัน TAG  
-    ขอรับรองว่าเป็นพระแท้ตามมาตรฐานสากล  
-    พร้อมรับซื้อวัตถุมงคลชิ้นนี้ในราคาที่ทางสถาบันประเมินไว้
-  </div>
-
-  <div class="box">
-    <span>ไม่พบข้อมูลบัตร</span>
-  </div>
-
-  <button onclick="searchCard()">ค้นหา</button>
+    <div class="flags">
+        <img src="https://flagcdn.com/w20/th.png">
+        <img src="https://flagcdn.com/w20/cn.png">
+        <img src="https://flagcdn.com/w20/us.png">
+    </div>
 </div>
 
-<footer>
-  CERTIFICATE THAI AMULET GUARANTEE<br>
-  © Copyright 2023 Thai Amulet Guarantee.
-</footer>
+<!-- BODY -->
+<div class="container">
+
+    <div class="title">SILVER CARD</div>
+
+    <div class="card">ไม่พบข้อมูลบัตร</div>
+
+    <div class="verify-text">
+        พระเครื่องวัตถุมงคลอาทิตย์นี้<br>
+        ได้ผ่านการตรวจสอบจากสถาบัน TRACK<br>
+        ขอรับรองว่าเป็นพระแท้ตามมาตรฐานสากล<br>
+        พร้อมรับซื้อวัตถุมงคลชิ้นนี้<br>
+        ในราคาที่สถาบันประเมินไว้
+    </div>
+
+    <div class="card blue">ไม่พบข้อมูลบัตร</div>
+
+    <div class="label">เลขบัตร</div>
+    <input id="code" type="text">
+
+    <button onclick="search()">ค้นหา</button>
+
+    <div class="footer-logo">TRACK</div>
+
+</div>
 
 <script>
-function searchCard() {
-  const code = document.getElementById("codeInput").value.trim();
-
-  const routes = {
-    "TAG836628463": "https://wirakan90-ai.github.io/tag-verification/TAG836628463/",
-    "TAG725538266": "https://wirakan90-ai.github.io/tag-verification/TAG725538266/",
-    "TAG736628325": "https://wirakan90-ai.github.io/tag-verification/TAG736628325/"
-  };
-
-  if (routes[code]) {
-    window.location.href = routes[code];
-  } else {
-    alert("ไม่พบข้อมูลบัตร");
-  }
+function search(){
+    const v = document.getElementById("code").value.trim();
+    const map = {
+        "TAG836628463":"https://wirakan90-ai.github.io/tag-verification/TAG836628463/",
+        "TAG725538266":"https://wirakan90-ai.github.io/tag-verification/TAG725538266/",
+        "TAG736628325":"https://wirakan90-ai.github.io/tag-verification/TAG736628325/"
+    };
+    if(map[v]){
+        window.location.href = map[v];
+    }else{
+        alert("ไม่พบข้อมูลบัตร");
+    }
 }
 </script>
 
