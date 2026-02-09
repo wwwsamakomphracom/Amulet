@@ -1,108 +1,143 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<title>ตรวจสอบใบรับรองพระเครื่อง | TAG</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TAG Amulet Verification</title>
+
+  <style>
     body {
-        margin: 0;
-        font-family: "Tahoma", sans-serif;
-        background: #6c6c6c;
-        color: #000;
+      margin: 0;
+      font-family: "Prompt", sans-serif;
+      background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
     }
+
     .container {
-        max-width: 420px;
-        margin: auto;
-        padding: 20px;
+      max-width: 420px;
+      margin: auto;
+      padding: 20px;
     }
+
     .card {
-        background: #777;
-        border-radius: 16px;
-        padding: 20px;
-        margin-bottom: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
     }
-    .card p {
-        font-size: 16px;
-        line-height: 1.6;
+
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 10px;
     }
-    .image-box {
-        height: 220px;
-        border: 3px dashed #3b82c4;
-        border-radius: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #3b82c4;
-        font-size: 20px;
-        margin-bottom: 20px;
+
+    .desc {
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: center;
+      color: #e0e0e0;
     }
-    label {
-        font-weight: bold;
-        font-size: 18px;
-        display: block;
-        margin-bottom: 8px;
+
+    .verify-box {
+      border: 2px dashed #4fc3f7;
+      border-radius: 12px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+      color: #81d4fa;
+      font-size: 18px;
     }
+
     input {
-        width: 100%;
-        padding: 14px;
-        font-size: 18px;
-        border-radius: 25px;
-        border: 3px solid #d4a84f;
-        outline: none;
-        box-sizing: border-box;
-        text-align: center;
+      width: 100%;
+      padding: 14px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      text-align: center;
+      outline: none;
+      margin-bottom: 12px;
     }
+
     button {
-        width: 100%;
-        margin-top: 16px;
-        padding: 14px;
-        font-size: 20px;
-        border-radius: 25px;
-        border: none;
-        background: #2f6fa7;
-        color: #fff;
-        cursor: pointer;
+      width: 100%;
+      padding: 14px;
+      border-radius: 30px;
+      border: none;
+      background: #4fc3f7;
+      color: #003c5f;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
     }
+
     button:hover {
-        background: #245a88;
+      background: #29b6f6;
     }
-</style>
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.7;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
+
+  <div class="container">
 
     <div class="card">
-        <p>
-            พระเครื่อง วัตถุมงคล ชิ้นนี้ ได้รับการตรวจสอบจากสถาบัน TAG
-            ขอรับรองว่าเป็นพระแท้ตามมาตรฐานสากล
-            พร้อมรับซื้อวัตถุมงคลชิ้นนี้ในราคาที่ทางสถาบันประเมินไว้
-        </p>
+      <h1>ระบบตรวจสอบใบรับรอง TAG</h1>
+      <p class="desc">
+        พระเครื่อง / วัตถุมงคลชิ้นนี้  
+        ได้รับการตรวจสอบจากสถาบัน TAG  
+        รับรองความแท้ตามมาตรฐานสากล
+      </p>
     </div>
 
-    <div class="image-box">
+    <div class="card">
+      <div class="verify-box">
         ไม่พบข้อมูลบัตร
+      </div>
+
+      <input
+        type="text"
+        id="tagInput"
+        placeholder="กรอกเลข TAG เช่น TAG836628463"
+      />
+
+      <button onclick="verifyTag()">ตรวจสอบ</button>
     </div>
 
-    <div class="card">
-        <label>เลขบัตร</label>
-        <input id="tagInput" type="text" placeholder="กรอกเลข TAG เช่น TAG836628463">
-        <button onclick="goVerify()">ค้นหา</button>
+    <div class="footer">
+      © TAG Amulet Certification System
     </div>
 
-</div>
+  </div>
 
-<script>
-function goVerify() {
-    let code = document.getElementById("tagInput").value.trim().toUpperCase();
-    if (!code.startsWith("TAG")) {
-        alert("กรุณากรอกเลข TAG ให้ถูกต้อง");
-        return;
+  <script>
+    function verifyTag() {
+      const tag = document.getElementById("tagInput").value.trim().toUpperCase();
+
+      const routes = {
+        "TAG836628463": "https://wirakan90-ai.github.io/tag-verification/TAG836628463/",
+        "TAG725538266": "https://wirakan90-ai.github.io/tag-verification/TAG725538266/",
+        "TAG736628325": "https://wirakan90-ai.github.io/tag-verification/TAG736628325/"
+      };
+
+      if (routes[tag]) {
+        window.location.href = routes[tag];
+      } else {
+        alert("ไม่พบข้อมูลบัตรใบรับรองนี้");
+      }
     }
-    window.location.href = "/" + code + "/";
-}
-</script>
+  </script>
 
 </body>
 </html>
