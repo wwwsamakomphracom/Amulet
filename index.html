@@ -13,6 +13,7 @@
       color: #000;
     }
 
+    /* ===== Header ===== */
     header {
       background: #2f2f2f;
       padding: 10px 15px;
@@ -21,10 +22,8 @@
       justify-content: space-between;
     }
 
-    .logo {
-      color: gold;
-      font-weight: bold;
-      font-size: 22px;
+    .logo img {
+      height: 32px;
     }
 
     .menu-btn {
@@ -40,6 +39,7 @@
       margin-left: 6px;
     }
 
+    /* ===== Dropdown Menu ===== */
     nav {
       display: none;
       background: #1f1f1f;
@@ -55,6 +55,7 @@
       font-size: 16px;
     }
 
+    /* ===== Main ===== */
     main {
       padding: 20px;
       text-align: center;
@@ -78,8 +79,10 @@
       font-size: 16px;
       line-height: 1.6;
       margin: 20px 0;
+      color: #000;
     }
 
+    /* ===== Search ===== */
     .search-box input {
       width: 90%;
       max-width: 400px;
@@ -101,15 +104,18 @@
       cursor: pointer;
     }
 
-    /* ===== TAG LOGO BELOW SEARCH ===== */
+    /* ===== Bottom Logo ===== */
     .bottom-logo {
-      margin: 30px 0 10px;
-      font-size: 36px;
-      font-weight: bold;
-      color: gold;
-      letter-spacing: 2px;
+      text-align: center;
+      margin: 30px 0;
     }
 
+    .bottom-logo img {
+      height: 40px;
+      opacity: 0.8;
+    }
+
+    /* ===== Footer ===== */
     footer {
       background: #1a1a1a;
       color: #fff;
@@ -122,8 +128,13 @@
 <body>
 
 <header>
-  <div class="logo">TAG</div>
+  <!-- โลโก้ซ้ายบน -->
+  <div class="logo">
+    <img src="tag-logo.png" alt="TAG Logo">
+  </div>
+
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
   <div class="flags">
     <img src="https://flagcdn.com/w40/cn.png">
     <img src="https://flagcdn.com/w40/us.png">
@@ -147,7 +158,8 @@
 
   <div class="description">
     พระเครื่อง วัตถุมงคล ชิ้นนี้ ได้รับการตรวจสอบจากสถาบัน TAG  
-    ขอรับรองว่าเป็นพระแท้ตามมาตรฐานสากล พร้อมรับซื้อวัตถุ
+    ขอรับรองว่าเป็นพระแท้ตามมาตรฐานสากล  
+    พร้อมรับซื้อวัตถุมงคลชิ้นนี้ในราคาที่สถาบันประเมินไว้
   </div>
 
   <div class="card-box">ไม่พบข้อมูลบัตร</div>
@@ -159,9 +171,10 @@
     <button onclick="searchTag()">ค้นหา</button>
   </div>
 
-  <!-- ✅ LOGO TAG ADDED HERE -->
-  <div class="bottom-logo">TAG</div>
-
+  <!-- โลโก้ล่างสุดตรงกลาง -->
+  <div class="bottom-logo">
+    <img src="tag-logo.png" alt="TAG Logo">
+  </div>
 </main>
 
 <footer>
