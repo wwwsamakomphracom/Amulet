@@ -13,7 +13,6 @@
       color: #000;
     }
 
-    /* ===== Header ===== */
     header {
       background: #2f2f2f;
       padding: 10px 15px;
@@ -41,7 +40,6 @@
       margin-left: 6px;
     }
 
-    /* ===== Dropdown Menu ===== */
     nav {
       display: none;
       background: #1f1f1f;
@@ -57,7 +55,6 @@
       font-size: 16px;
     }
 
-    /* ===== Main ===== */
     main {
       padding: 20px;
       text-align: center;
@@ -83,7 +80,6 @@
       margin: 20px 0;
     }
 
-    /* ===== Search ===== */
     .search-box input {
       width: 90%;
       max-width: 400px;
@@ -105,7 +101,15 @@
       cursor: pointer;
     }
 
-    /* ===== Footer ===== */
+    /* ===== TAG LOGO BELOW SEARCH ===== */
+    .bottom-logo {
+      margin: 30px 0 10px;
+      font-size: 36px;
+      font-weight: bold;
+      color: gold;
+      letter-spacing: 2px;
+    }
+
     footer {
       background: #1a1a1a;
       color: #fff;
@@ -119,9 +123,7 @@
 
 <header>
   <div class="logo">TAG</div>
-
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
   <div class="flags">
     <img src="https://flagcdn.com/w40/cn.png">
     <img src="https://flagcdn.com/w40/us.png">
@@ -156,6 +158,10 @@
     <br>
     <button onclick="searchTag()">ค้นหา</button>
   </div>
+
+  <!-- ✅ LOGO TAG ADDED HERE -->
+  <div class="bottom-logo">TAG</div>
+
 </main>
 
 <footer>
