@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>Amulet Tag Verification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #111827, #1f2933);
+      color: #fff;
+    }
+
+    header {
+      background: #000;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 16px;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 40px auto;
+      padding: 24px;
+      background: #0f172a;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.4);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #cbd5f5;
+      margin-bottom: 24px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      background: #22c55e;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <strong>TAG AMULET</strong>
+  <nav>
+    <a href="https://tag-amulet.com/">หน้าแรก</a>
+    <a href="https://tag-amulet.com/about-us/">เกี่ยวกับเรา</a>
+    <a href="https://tag-amulet.com/ประเภทบัตรรับรอง/">ประเภทใบรับรอง</a>
+    <a href="https://tag-amulet.com/certificate-process/">ขั้นตอน</a>
+    <a href="https://tag-amulet.com/contact-us/">ติดต่อ</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h1>ตรวจสอบใบรับรองแท็ก</h1>
+  <p class="subtitle">กรอกเลข TAG เพื่อยืนยันความถูกต้อง</p>
+
+  <input
+    id="tagInput"
+    type="text"
+    placeholder="เช่น TAG836628463"
+  />
+
+  <button onclick="verifyTag()">ตรวจสอบใบรับรอง</button>
+
+  <footer>
+    ระบบยืนยันแท็กอย่างเป็นทางการ © TAG AMULET
+  </footer>
+</div>
+
+<script>
+  function verifyTag() {
+    const tag = document.getElementById("tagInput").value.trim().toUpperCase();
+
+    if (!tag.startsWith("TAG")) {
+      alert("กรุณากรอกเลข TAG ให้ถูกต้อง");
+      return;
+    }
+
+    window.location.href = "/" + tag + "/";
+  }
+</script>
+
+</body>
+</html>
