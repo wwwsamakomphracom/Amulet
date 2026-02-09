@@ -8,8 +8,8 @@
 <style>
 body{
     margin:0;
-    font-family: Tahoma, sans-serif;
-    background: linear-gradient(#3c3c3c,#6b6b6b);
+    font-family: Tahoma, Arial, sans-serif;
+    background:#5f5f5f;
     color:#fff;
 }
 
@@ -18,107 +18,75 @@ header{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:12px 14px;
-    background:#2b2b2b;
+    padding:14px 18px;
+    background:#555;
 }
 
-.logo img{height:34px;}
+.logo{
+    font-size:34px;
+    font-weight:bold;
+    letter-spacing:2px;
+    color:#c9a24d;
+    text-shadow:2px 2px 4px rgba(0,0,0,.6);
+}
 
-.menu-btn{
-    background:#1e1e1e;
-    border-radius:30px;
-    padding:8px 18px;
+.menu{
     font-size:22px;
 }
 
-.flags img{
-    height:22px;
-    margin-left:6px;
-}
-
-/* ===== MENU ===== */
-.nav{
-    display:none;
-    background:#1f1f1f;
-    margin:10px;
-    border-radius:20px;
-    padding:14px 0;
-    text-align:center;
-}
-
-.nav a{
-    display:block;
-    padding:8px;
-    color:#fff;
-    text-decoration:none;
-    font-size:18px;
-}
-
-/* ===== MAIN ===== */
-.container{
-    max-width:420px;
-    margin:auto;
-    padding:20px;
-}
-
+/* ===== TITLE ===== */
 .title{
     text-align:center;
-    font-size:44px;
-    opacity:.35;
-    letter-spacing:2px;
-    margin:20px 0;
+    margin:30px 0 10px;
+    font-size:38px;
+    letter-spacing:6px;
+    color:#dcdcdc;
+    text-shadow:3px 3px 6px rgba(0,0,0,.6);
 }
 
-.dashed{
-    border:2px dashed #3b8cff;
-    border-radius:16px;
-    padding:30px;
+/* ===== VERIFY BOX ===== */
+.box{
+    margin:20px;
+    padding:40px 20px;
+    border:3px dashed #2aa1ff;
+    border-radius:14px;
     text-align:center;
-    color:#2f6fc0;
-    margin-bottom:18px;
+    color:#ffffff;
+    font-size:20px;
 }
 
-.desc{
-    background:#9b9b9b;
-    color:#000;
-    border-radius:16px;
-    padding:18px;
+/* ===== SEARCH INPUT ===== */
+.search{
+    margin:20px;
+}
+
+.search input{
+    width:100%;
+    padding:14px;
+    font-size:18px;
+    background:transparent;
+    border:2px solid #2aa1ff;
+    border-radius:10px;
+    color:#ffffff;
+    outline:none;
+}
+
+.search input::placeholder{
+    color:rgba(255,255,255,0.6);
+}
+
+/* ===== INFO TEXT ===== */
+.info{
+    margin:20px;
     font-size:16px;
     line-height:1.6;
-    margin-bottom:18px;
+    color:#f0f0f0;
 }
 
-/* ===== SEARCH ===== */
-label{font-weight:bold;}
-
-input{
-    width:100%;
-    margin-top:6px;
-    padding:14px;
-    border-radius:20px;
-    border:3px solid #d7b15b;
-    background:#fff;
-    font-size:16px;
-}
-
-button{
-    width:100%;
-    margin-top:14px;
-    padding:14px;
-    border:none;
-    border-radius:22px;
-    background:#2f6fa8;
-    color:#fff;
-    font-size:18px;
-}
-
-/* ===== FOOTER ===== */
-footer{
-    margin-top:40px;
-    background:#1e1e1e;
-    text-align:center;
-    padding:20px;
-    font-size:13px;
+/* ===== FOOTER BOX ===== */
+.box.small{
+    padding:30px 20px;
+    font-size:20px;
 }
 </style>
 </head>
@@ -126,68 +94,32 @@ footer{
 <body>
 
 <header>
-    <div class="logo">
-        <img src="logo.png" alt="TAG">
-    </div>
-    <div class="menu-btn" onclick="toggleMenu()">≡</div>
-    <div class="flags">
-        <img src="https://flagcdn.com/w20/cn.png">
-        <img src="https://flagcdn.com/w20/us.png">
-        <img src="https://flagcdn.com/w20/th.png">
-    </div>
+    <div class="logo">TAG</div>
+    <div class="menu">☰</div>
 </header>
 
-<div class="nav" id="nav">
-    <a href="https://tag-amulet.com/">หน้าแรก</a>
-    <a href="https://tag-amulet.com/about-us/">เกี่ยวกับเรา</a>
-    <a href="https://tag-amulet.com/ประเภทบัตรรับรอง/">ประเภทบัตรรับรอง</a>
-    <a href="#">ค้นหาบัตรรับรอง</a>
-    <a href="https://tag-amulet.com/certificate-process/">ขั้นตอนการออกบัตร</a>
-    <a href="https://tag-amulet.com/contact-us/">ติดต่อเรา</a>
+<div class="title">SILVER CARD</div>
+
+<!-- กล่องบน -->
+<div class="box">
+    ไม่พบข้อมูลบัตร
 </div>
 
-<div class="container">
-    <div class="title">SILVER CARD</div>
-
-    <div class="dashed">ไม่พบข้อมูลบัตร</div>
-
-    <div class="desc">
-        พระเครื่อง วัตถุมงคล ชิ้นนี้ ได้รับการตรวจสอบจากสถาบัน TAG
-        ขอรับรองว่าเป็นพระแท้ตามมาตรฐานสากล
-        พร้อมรับซื้อวัตถุมงคลชิ้นนี้ในราคาที่ทางสถาบันประเมินไว้
-    </div>
-
-    <div class="dashed">ไม่พบข้อมูลบัตร</div>
-
-    <label>เลขบัตร</label>
-    <input id="tagInput" placeholder="กรอกเลข TAG เช่น TAG836628463">
-    <button onclick="searchTag()">ค้นหา</button>
+<!-- ช่องกรอกเลขบัตร -->
+<div class="search">
+    <input type="text" placeholder="กรอกเลขบัตรเพื่อตรวจสอบ">
 </div>
 
-<footer>
-    © Copyright 2023 Thai Amulet Guarantee.
-</footer>
+<div class="info">
+    พระเครื่อง วัตถุมงคล ชิ้นนี้ ได้รับการตรวจสอบจากสถาบัน TAG
+    ขอรับรองว่าเป็นพระแท้ตามมาตรฐานสากล
+    พร้อมรับซื้อวัตถุมงคลชิ้นนี้ในราคาที่ทางสถาบันประเมินไว้
+</div>
 
-<script>
-function toggleMenu(){
-    const nav = document.getElementById("nav");
-    nav.style.display = nav.style.display === "block" ? "none" : "block";
-}
-
-function searchTag(){
-    const tag = document.getElementById("tagInput").value.trim().toUpperCase();
-    const map = {
-        "TAG836628463":"https://wirakan90-ai.github.io/tag-verification/TAG836628463/",
-        "TAG725538266":"https://wirakan90-ai.github.io/tag-verification/TAG725538266/",
-        "TAG736628325":"https://wirakan90-ai.github.io/tag-verification/TAG736628325/"
-    };
-    if(map[tag]){
-        window.location.href = map[tag];
-    }else{
-        alert("ไม่พบเลขบัตรนี้");
-    }
-}
-</script>
+<!-- กล่องล่าง -->
+<div class="box small">
+    ไม่พบข้อมูลบัตร
+</div>
 
 </body>
 </html>
