@@ -10,12 +10,13 @@ margin:0;
 padding:0;
 background:url("img/Gg.png") no-repeat center center fixed;
 background-size:cover;
+font-family:sans-serif;
 }
 
 /* กล่องค้นหา */
 .search-box{
 position:absolute;
-bottom:160px;
+bottom:140px;
 width:100%;
 text-align:center;
 }
@@ -43,7 +44,7 @@ border:none;
 border-radius:12px;
 }
 
-/* ซ่อน placeholder */
+/* ซ่อนตัวหนังสือในช่อง */
 ::placeholder{
 color:transparent;
 }
@@ -55,7 +56,7 @@ color:transparent;
 
 <div class="search-box">
 
-<input type="text" id="track">
+<input type="text" id="track" placeholder="">
 
 <br>
 
@@ -69,12 +70,12 @@ function search(){
 
 var code = document.getElementById("track").value;
 
-if(code == ""){
+if(code==""){
 alert("กรุณากรอกเลขพัสดุ");
 return;
 }
 
-if(code == "TAG945728551"){
+if(code=="TAG945728551"){
 alert("พบข้อมูลพัสดุ");
 }
 else{
