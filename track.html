@@ -4,31 +4,52 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Track Parcel</title>
+<title>Track</title>
 
 <style>
 
 body{
-font-family:Arial;
-text-align:center;
-padding:40px;
+margin:0;
+padding:0;
 }
 
+.container{
+position:relative;
+width:100%;
+max-width:500px;
+margin:auto;
+}
+
+.bg{
+width:100%;
+display:block;
+}
+
+/* ช่องค้นหาให้เท่ากล่องในรูป */
 #track{
-width:90%;
+position:absolute;
+top:55%;
+left:50%;
+transform:translate(-50%,-50%);
+width:80%;
 height:60px;
 font-size:22px;
-padding:10px;
 border:3px solid black;
 border-radius:15px;
-background:#fff;
+background:white;
+padding:10px;
 box-sizing:border-box;
 outline:none;
+text-align:center;
 }
 
+/* ปุ่มค้นหา */
 button{
-margin-top:20px;
-width:90%;
+position:absolute;
+top:70%;
+left:50%;
+transform:translate(-50%,-50%);
+width:80%;
 height:60px;
 font-size:22px;
 background:red;
@@ -42,13 +63,15 @@ border-radius:15px;
 
 <body>
 
-<h2>ติดตามสถานะสิ่งของ</h2>
+<div class="container">
+
+<img src="img/Gg.png" class="bg">
 
 <input type="text" id="track">
 
-<br>
-
 <button onclick="search()">ค้นหา</button>
+
+</div>
 
 <script>
 
@@ -59,7 +82,6 @@ var code=document.getElementById("track").value;
 if(code=="OB7544195356TH"){
 window.location.href="OB7544195356TH/";
 }
-
 else{
 alert("ไม่พบข้อมูล");
 }
