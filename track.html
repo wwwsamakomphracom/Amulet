@@ -6,84 +6,140 @@
 <title>ติดตามสถานะสิ่งของ</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: linear-gradient(135deg,#f5e6b3,#e4c97a,#f5e6b3);
-  height: 100vh;
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#f2f2f2;
 }
 
-.header {
-  background: #e60000;
-  color: white;
-  padding: 15px;
-  font-size: 20px;
-  text-align: center;
-  font-weight: bold;
+.header{
+background:#e31c23;
+color:white;
+padding:12px;
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 
-.container {
-  padding: 20px;
+.logo{
+display:flex;
+align-items:center;
 }
 
-.box {
-  background: white;
-  border-radius: 15px;
-  padding: 25px;
-  margin-top: 40px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.logo img{
+height:35px;
+margin-right:10px;
 }
 
-h2 {
-  margin-bottom: 10px;
+.logo-text{
+font-size:18px;
+font-weight:bold;
+line-height:18px;
 }
 
-input {
-  width: 100%;
-  padding: 15px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 18px;
-  margin-top: 10px;
+.menu{
+font-size:28px;
 }
 
-button {
-  width: 100%;
-  padding: 15px;
-  background: #e60000;
-  border: none;
-  color: white;
-  font-size: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
+.banner{
+background:white;
+padding:10px;
+text-align:center;
 }
 
-button:hover {
-  background: #c40000;
+.banner img{
+width:100%;
+border-radius:10px;
 }
+
+.container{
+padding:20px;
+}
+
+h1{
+font-size:26px;
+margin-bottom:10px;
+}
+
+label{
+color:#003366;
+}
+
+input{
+width:100%;
+padding:20px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:18px;
+margin-top:10px;
+background:#fafafa;
+}
+
+button{
+width:100%;
+padding:18px;
+background:#e31c23;
+border:none;
+color:white;
+font-size:20px;
+border-radius:10px;
+margin-top:20px;
+}
+
+.footer{
+text-align:center;
+color:#777;
+margin-top:40px;
+font-size:14px;
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="header">
-ไปรษณีย์ไทย Thailand Post
+<div class="logo">
+<img src="tag-logo.png">
+<div class="logo-text">
+ไปรษณีย์ไทย<br>
+Thailand Post
+</div>
+</div>
+<div class="menu">☰</div>
+</div>
+
+<div class="banner">
+<img src="https://i.imgur.com/6Iej2c3.jpg">
 </div>
 
 <div class="container">
-  <div class="box">
-    <h2>ติดตามสถานะสิ่งของ</h2>
-    <p>กรอกหมายเลขสิ่งของ 13 หลัก</p>
+<h1>ติดตามสถานะสิ่งของ</h1>
 
-    <input id="track" placeholder="เช่น TAG123456789TH">
-    <button onclick="search()">ค้นหา</button>
-  </div>
+<label>กรอกหมายเลขสิ่งของ 13 หลัก [ตัวอย่าง : EF582568151TH]</label>
+
+<input id="track" placeholder="">
+
+<button onclick="search()">ค้นหา</button>
+
+<p style="margin-top:20px;color:#003366;">
+* กรุณาใส่ , (Comma) คั่นหมายเลขสิ่งของ กรณีติดตามมากกว่า 1 รายการ
+</p>
+
+<div class="footer">
+© Thailand Post Co., Ltd.<br>
+Privacy & Terms
+</div>
+
 </div>
 
 <script>
 function search(){
 let code=document.getElementById("track").value;
+if(code!=""){
 window.location.href=code;
+}
 }
 </script>
 
