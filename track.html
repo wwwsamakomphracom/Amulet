@@ -8,15 +8,17 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  font-family: sans-serif;
+  background: linear-gradient(135deg,#f5e6b3,#e4c97a,#f5e6b3);
+  height: 100vh;
 }
 
 .header {
   background: #e60000;
   color: white;
   padding: 15px;
-  font-size: 22px;
+  font-size: 20px;
+  text-align: center;
   font-weight: bold;
 }
 
@@ -24,37 +26,40 @@ body {
   padding: 20px;
 }
 
-h1 {
-  font-size: 26px;
-}
-
-.input-box {
-  width: 100%;
-  padding: 15px;
-  font-size: 18px;
-  margin-top: 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-.btn-search {
-  width: 100%;
-  background: #e60000;
-  color: white;
-  border: none;
-  padding: 15px;
-  font-size: 20px;
-  border-radius: 8px;
-  margin-top: 15px;
-  cursor: pointer;
-}
-
-.result-box {
+.box {
   background: white;
-  padding: 20px;
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 40px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background: #e60000;
+  border: none;
+  color: white;
+  font-size: 20px;
   border-radius: 10px;
   margin-top: 20px;
-  display: none;
+}
+
+button:hover {
+  background: #c40000;
 }
 </style>
 </head>
@@ -62,41 +67,23 @@ h1 {
 <body>
 
 <div class="header">
-  ไปรษณีย์ไทย Thailand Post
+ไปรษณีย์ไทย Thailand Post
 </div>
 
 <div class="container">
+  <div class="box">
+    <h2>ติดตามสถานะสิ่งของ</h2>
+    <p>กรอกหมายเลขสิ่งของ 13 หลัก</p>
 
-<h1>ติดตามสถานะสิ่งของ</h1>
-
-<p>กรอกหมายเลขสิ่งของ 13 หลัก</p>
-
-<input type="text" id="trackingNumber" class="input-box" placeholder="เช่น TAG123456789TH">
-
-<button class="btn-search" onclick="searchParcel()">ค้นหา</button>
-
-<div class="result-box" id="resultBox">
-  <h3>ผลการค้นหา</h3>
-  <p id="resultText"></p>
-</div>
-
+    <input id="track" placeholder="เช่น TAG123456789TH">
+    <button onclick="search()">ค้นหา</button>
+  </div>
 </div>
 
 <script>
-function searchParcel() {
-
-  var number = document.getElementById("trackingNumber").value.trim();
-  var resultBox = document.getElementById("resultBox");
-  var resultText = document.getElementById("resultText");
-
-  if(number === ""){
-    alert("กรุณากรอกเลขพัสดุ");
-    return;
-  }
-
-  resultBox.style.display = "block";
-  resultText.innerHTML = "กำลังค้นหาเลขพัสดุ: " + number;
-
+function search(){
+let code=document.getElementById("track").value;
+window.location.href=code;
 }
 </script>
 
