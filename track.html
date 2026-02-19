@@ -1,82 +1,94 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ตรวจสอบพัสดุ</title>
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  text-align: center;
-  padding-top: 100px;
+body{
+  margin:0;
+  padding:0;
+  background:#ffffff;
+  font-family:Arial;
 }
 
-.search-box {
-  background: #fff;
-  padding: 30px;
-  width: 300px;
-  margin: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+/* ภาพพื้นหลัง */
+.bg{
+  width:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
 }
 
-input {
-  width: 90%;
-  padding: 10px;
-  margin-top: 10px;
-  font-size: 16px;
+/* พื้นที่ค้นหา */
+.search-area{
+  position:relative;
+  z-index:2;
+  margin-top:320px;
+  padding-left:20px;
 }
 
-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background: green;
-  color: white;
-  border: none;
-  cursor: pointer;
+/* ช่องค้นหา */
+.search-box{
+  width:85%;
+  height:90px;
+  background:#ffffff;
+  border:2px solid rgba(0,0,0,0.3);
+  border-radius:40px;
+  outline:none;
+  font-size:22px;
+  padding-left:25px;
 }
 
-#result {
-  margin-top: 20px;
-  font-size: 18px;
-  color: red;
+/* ปุ่มค้นหา */
+.search-btn{
+  position:absolute;
+  left:30px;
+  top:110px;
+  width:140px;
+  height:55px;
+  background:red;
+  color:#ffffff;
+  border:none;
+  border-radius:15px;
+  font-size:20px;
+}
+
+/* ข้อความแจ้งเตือน */
+.error{
+  position:absolute;
+  top:180px;
+  left:30px;
+  color:red;
+  font-size:18px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="search-box">
-  <h2>ตรวจสอบเลขพัสดุ</h2>
+<img src="img/Gg.png" class="bg">
 
-  <input type="text" id="trackInput" placeholder="กรอกเลขพัสดุ">
+<div class="search-area">
 
-  <br>
+<input type="text" id="trackInput" class="search-box">
 
-  <button onclick="checkTrack()">ค้นหา</button>
+<button class="search-btn" onclick="checkTrack()">ค้นหา</button>
 
-  <div id="result"></div>
+<div id="errorMsg" class="error"></div>
+
 </div>
 
 <script>
-function checkTrack() {
+function checkTrack(){
+  var input = document.getElementById("trackInput").value;
 
-  let input = document.getElementById("trackInput").value.trim();
-  let correct = "OB754419535TH";
-
-  if(input === correct){
-    document.getElementById("result").style.color = "green";
-    document.getElementById("result").innerHTML = "พบข้อมูลพัสดุของคุณแล้ว";
+  if(input === "OB754419535TH"){
+    window.location.href = "OB754419535TH/index.html";
+  }else{
+    document.getElementById("errorMsg").innerHTML = "ไม่พบข้อมูล";
   }
-  else{
-    document.getElementById("result").style.color = "red";
-    document.getElementById("result").innerHTML = "ไม่พบข้อมูล";
-  }
-
 }
 </script>
 
