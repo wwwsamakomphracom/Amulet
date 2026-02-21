@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  padding:0;
+  background:#fff;
+  font-family:Arial;
+}
+
+.bg{
+  width:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
+}
+
+.box{
+  position:absolute;
+  top:58%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:2;
+  text-align:center;
+}
+
+input{
+  width:260px;
+  height:45px;
+  font-size:18px;
+  padding-left:10px;
+}
+
+button{
+  width:120px;
+  height:45px;
+  font-size:18px;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<img src="img/kerry-bg.png" class="bg">
+
+<div class="box">
+<input type="text" id="track" placeholder="กรอกเลขพัสดุ Kerry">
+<br>
+<button onclick="check()">ตรวจสอบ</button>
+</div>
+
+<script>
+function check(){
+
+var x = document.getElementById("track").value;
+
+if(x=="KRY754419535TH"){
+alert("พัสดุกำลังจัดส่ง");
+}
+else{
+alert("ไม่พบข้อมูล");
+}
+
+}
+</script>
+
+</body>
+</html>
