@@ -4,24 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Kerry Tracking</title>
+
 <style>
 body{
   margin:0;
   padding:0;
+  font-family:Arial;
+  background:#fff;
 }
 
+/* ภาพพื้นหลังจากห้องกลาง */
 .bg{
   width:100%;
   position:absolute;
   top:0;
   left:0;
+  z-index:1;
+}
+
+/* ช่องค้นหา */
+.search-box{
+  position:absolute;
+  top:42%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:2;
+  width:70%;
+}
+
+.search-box input{
+  width:100%;
+  padding:12px;
+  font-size:18px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+.btn{
+  position:absolute;
+  top:52%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:2;
+  width:70%;
+}
+
+.btn button{
+  width:100%;
+  padding:12px;
+  font-size:18px;
+  background:#ff6a00;
+  color:#fff;
+  border:none;
+  border-radius:5px;
 }
 </style>
 </head>
 
 <body>
 
-<img src="kerry-bg.png" class="bg">
+<img src="../img/bg.png" class="bg">
+
+<div class="search-box">
+<input type="text" id="track" placeholder="กรอกหมายเลขพัสดุ">
+</div>
+
+<div class="btn">
+<button onclick="checkTrack()">ตรวจสอบพัสดุ</button>
+</div>
+
+<script>
+function checkTrack(){
+var t=document.getElementById("track").value;
+
+if(t=="TAG945728551"){
+window.location.href="../TAG945728551";
+}else{
+alert("ไม่พบข้อมูล");
+}
+}
+</script>
 
 </body>
 </html>
