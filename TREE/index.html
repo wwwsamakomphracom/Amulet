@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TREE Tracking</title>
+
+<style>
+body{
+margin:0;
+padding:0;
+font-family:Arial;
+}
+
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+object-fit:cover;
+z-index:-1;
+}
+
+.searchBox{
+position:absolute;
+top:65%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+input{
+padding:12px;
+width:250px;
+font-size:16px;
+border-radius:5px;
+border:none;
+}
+
+button{
+padding:12px 20px;
+font-size:16px;
+background:red;
+color:white;
+border:none;
+border-radius:5px;
+margin-left:5px;
+}
+</style>
+</head>
+
+<body>
+
+<img src="bg.png" class="bg">
+
+<div class="searchBox">
+<input type="text" id="track" placeholder="กรอกหมายเลขพัสดุ">
+<button onclick="go()">ค้นหา</button>
+</div>
+
+<script>
+function go(){
+
+var x = document.getElementById("track").value;
+
+if(x == "TREE203396216"){
+window.location.href="https://google.com";
+}else{
+alert("ไม่พบข้อมูล");
+}
+
+}
+</script>
+
+</body>
+</html>
