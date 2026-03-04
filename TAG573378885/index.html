@@ -1,1 +1,15 @@
+<script>
+function searchTracking() {
+  var input = document.getElementById("trackingInput").value.trim();
 
+  var trackingData = {
+    "TAG573378885": "TAG573378885/"   // 👈 ลิงก์ไปโฟลเดอร์นี้
+  };
+
+  if (trackingData[input]) {
+    window.location.href = trackingData[input];
+  } else {
+    alert("ไม่พบข้อมูล");
+  }
+}
+</script>
