@@ -1,15 +1,50 @@
-<script>
-function searchTracking() {
-  var input = document.getElementById("trackingInput").value.trim();
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ผลการตรวจสอบ TAG573378885</title>
 
-  var trackingData = {
-    "TAG573378885": "TAG573378885/"   // 👈 ลิงก์ไปโฟลเดอร์นี้
-  };
-
-  if (trackingData[input]) {
-    window.location.href = trackingData[input];
-  } else {
-    alert("ไม่พบข้อมูล");
-  }
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f5f5f5;
+  text-align:center;
 }
-</script>
+
+.container{
+  padding:40px 20px;
+}
+
+img{
+  max-width:300px;
+  width:100%;
+  margin-top:20px;
+  border-radius:10px;
+}
+
+.code{
+  font-size:20px;
+  font-weight:bold;
+  margin-top:20px;
+}
+
+.status{
+  color:green;
+  font-size:18px;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>ระบบรับประกันพระแท้</h2>
+
+<div class="code">รหัสสินค้า: TAG573378885</div>
+
+<div class="status">✅ ผ่านการตรวจสอบ ของแท้ 100%</div>
+
+<!-- ใส่ชื่อไฟล์รูปของคุณตรง src
