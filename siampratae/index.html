@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>สยามพระแท้</title>
 
 <style>
 
 body{
-margin:0;
 font-family:Arial;
-background:#f3f3f3;
+margin:0;
+background:#f5f5f5;
 }
 
 nav{
@@ -22,7 +21,7 @@ text-align:center;
 
 nav a{
 color:white;
-margin:15px;
+margin:20px;
 text-decoration:none;
 font-size:18px;
 font-weight:bold;
@@ -43,16 +42,14 @@ text-align:center;
 .card{
 background:white;
 padding:30px;
-border-radius:10px;
 max-width:500px;
 margin:auto;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
+border-radius:10px;
 }
 
 input{
 padding:10px;
 width:250px;
-font-size:16px;
 }
 
 button{
@@ -60,31 +57,10 @@ padding:10px 20px;
 background:#8b0000;
 color:white;
 border:none;
-font-size:16px;
 cursor:pointer;
 }
 
 </style>
-
-<script>
-
-function searchCert(){
-
-var code=document.getElementById("cert").value
-
-if(code=="SP12345678"){
-window.location="cert/SP12345678.html"
-}
-
-else{
-
-alert("ไม่พบข้อมูลบัตร")
-
-}
-
-}
-
-</script>
 
 </head>
 
@@ -101,7 +77,7 @@ alert("ไม่พบข้อมูลบัตร")
 <header>
 
 <h1>สยามพระแท้</h1>
-<h3>สถาบันรับรองพระแท้</h3>
+<p>สถาบันรับรองพระแท้</p>
 
 </header>
 
@@ -111,11 +87,11 @@ alert("ไม่พบข้อมูลบัตร")
 
 <h2>ค้นหาบัตรรับรอง</h2>
 
-<input id="cert" placeholder="กรอกเลขบัตร เช่น SP12345678">
+<input placeholder="กรอกเลขบัตร เช่น SP12345678">
 
 <br><br>
 
-<button onclick="searchCert()">ค้นหา</button>
+<button>ค้นหา</button>
 
 </div>
 
@@ -130,8 +106,6 @@ alert("ไม่พบข้อมูลบัตร")
 <p>LINE : @siampratae</p>
 
 <p>โทร : 02-123-4567</p>
-
-<p>เว็บไซต์ : verify.amulettags.online</p>
 
 </div>
 
