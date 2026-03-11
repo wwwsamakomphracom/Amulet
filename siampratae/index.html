@@ -10,10 +10,9 @@
 
 body{
 margin:0;
-font-family:tahoma;
 }
 
-/* ภาพพื้นหลัง */
+/* รูปพื้นหลัง */
 
 .container{
 position:relative;
@@ -26,84 +25,57 @@ width:100%;
 display:block;
 }
 
-/* ปุ่มใส */
+/* ปุ่มโฮมตรงเลข 1 */
 
-.btn{
+.homebtn{
 position:absolute;
-display:block;
+top:120px;
+left:45%;
+width:80px;
+height:60px;
+cursor:pointer;
 }
 
-/* ตำแหน่งปุ่ม (ปรับได้ทีหลัง) */
+/* เมนู */
 
-.home{
-top:160px;
-left:35%;
-width:30%;
-height:40px;
-}
-
-.searchmenu{
-top:210px;
-left:35%;
-width:30%;
-height:40px;
-}
-
-.issue{
-top:260px;
-left:35%;
-width:30%;
-height:40px;
-}
-
-.contact{
-top:310px;
-left:35%;
-width:30%;
-height:40px;
-}
-
-/* ช่องค้นหา */
-
-.searchbox{
+.menu{
+display:none;
 position:absolute;
-bottom:120px;
-left:10%;
-width:80%;
-}
-
-.searchbox input{
-width:100%;
-padding:18px;
-font-size:22px;
+top:190px;
+left:35%;
+width:30%;
+background:white;
 border-radius:10px;
-border:2px solid #ccc;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+text-align:center;
 }
 
-.searchbox button{
-margin-top:10px;
-padding:14px 40px;
-font-size:20px;
-background:#a40000;
-color:white;
-border:none;
-border-radius:8px;
+.menu a{
+display:block;
+padding:15px;
+font-size:18px;
+text-decoration:none;
+color:black;
+border-bottom:1px solid #ddd;
+}
+
+.menu a:hover{
+background:#f0f0f0;
 }
 
 </style>
 
 <script>
 
-function searchCard(){
+function toggleMenu(){
 
-var id=document.getElementById("card").value;
+var menu=document.getElementById("menu");
 
-if(id==""){
-alert("กรุณากรอกเลขบัตร");
-return;
+if(menu.style.display==="block"){
+menu.style.display="none";
+}else{
+menu.style.display="block";
 }
-
-window.location.href="result.html?id="+id;
 
 }
 
@@ -117,21 +89,21 @@ window.location.href="result.html?id="+id;
 
 <img src="home.png">
 
-<a class="btn home" href="index.html"></a>
+<!-- ปุ่มโฮม -->
 
-<a class="btn searchmenu" href="#search"></a>
+<div class="homebtn" onclick="toggleMenu()"></div>
 
-<a class="btn issue" href="#"></a>
+<!-- เมนู -->
 
-<a class="btn contact" href="#"></a>
+<div class="menu" id="menu">
 
-<div class="searchbox" id="search">
+<a href="#">หน้าหลัก</a>
 
-<input type="text" id="card" placeholder="กรอกเลข เช่น SPT1234567">
+<a href="#">ค้นหาใบรับรอง</a>
 
-<br>
+<a href="#">ออกบัตรรับรอง</a>
 
-<button onclick="searchCard()">ค้นหา</button>
+<a href="#">ติดต่อเรา</a>
 
 </div>
 
