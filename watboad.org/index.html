@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
 
 <meta charset="UTF-8">
@@ -17,27 +18,29 @@ background:#f5f5f5;
 
 /* เมนู */
 
-.top-menu{
+.menu{
 display:flex;
-justify-content:space-between;
+justify-content:space-around;
 align-items:center;
-background:linear-gradient(180deg,#2e8b57,#1f6b43);
-padding:12px 8px;
+background:linear-gradient(180deg,#2e8b57,#1c5f3d);
+padding:15px;
+position:sticky;
+top:0;
+z-index:999;
 }
 
-.top-menu a{
+.menu a{
 color:white;
 text-decoration:none;
-font-size:13px;
 font-weight:bold;
-white-space:nowrap;
+font-size:14px;
 }
 
 /* โลโก้ */
 
 .logo{
 text-align:center;
-padding:15px;
+padding:20px;
 background:white;
 }
 
@@ -47,46 +50,102 @@ width:120px;
 
 /* ชื่อวัด */
 
-.temple-name{
+.name{
 text-align:center;
-font-size:26px;
+font-size:30px;
 font-weight:bold;
 }
 
-.temple-eng{
+.eng{
 text-align:center;
-color:gray;
+color:#777;
 margin-bottom:20px;
 }
 
-/* รูปวัด */
+/* สไลด์ */
 
-.hero img{
+.slider{
+width:100%;
+overflow:hidden;
+}
+
+.slider img{
 width:100%;
 }
 
 /* ข้อความ */
 
-.hero-text{
+.text{
 text-align:center;
 font-size:22px;
 font-weight:bold;
-margin:20px;
+padding:25px;
 }
 
 /* วิดีโอ */
 
-.video-box{
+.video{
 text-align:center;
-margin:20px;
+padding:20px;
 }
 
-.video-box iframe{
-width:100%;
-max-width:500px;
-height:280px;
-border:none;
+.video video{
+width:95%;
 border-radius:10px;
+}
+
+/* แกลเลอรี่ */
+
+.gallery{
+padding:20px;
+}
+
+.gallery h2{
+text-align:center;
+}
+
+.gallery img{
+width:100%;
+margin-bottom:15px;
+border-radius:10px;
+}
+
+/* ปุ่มทำบุญ */
+
+.donate{
+text-align:center;
+padding:30px;
+background:white;
+}
+
+.donate button{
+background:#2e8b57;
+color:white;
+border:none;
+padding:15px 25px;
+font-size:18px;
+border-radius:10px;
+}
+
+/* ติดต่อ */
+
+.contact{
+background:#1c5f3d;
+color:white;
+padding:30px;
+text-align:center;
+}
+
+/* ปุ่มไลน์ */
+
+.line-button{
+position:fixed;
+bottom:20px;
+right:20px;
+}
+
+.line-button img{
+width:60px;
 }
 
 </style>
@@ -97,52 +156,123 @@ border-radius:10px;
 
 <!-- เมนู -->
 
-<nav class="top-menu">
+<div class="menu">
+
 <a href="#">หน้าแรก</a>
 <a href="#">ประวัติวัด</a>
 <a href="#">กิจกรรม</a>
 <a href="#">ทำบุญ</a>
 <a href="#">ติดต่อ</a>
-</nav>
+
+</div>
 
 <!-- โลโก้ -->
 
 <div class="logo">
-<img src="logo.png">
+
+<img src="img/logo.png">
+
 </div>
 
-<div class="temple-name">
+<div class="name">
 วัดโบสถ์อินทรสารเพชร
 </div>
 
-<div class="temple-eng">
+<div class="eng">
 Wat Boad Indharasanphet
 </div>
 
-<!-- รูปวัด -->
+<!-- สไลด์ -->
 
-<div class="hero">
-<img src="temple.jpg">
+<div class="slider">
+
+<img src="img/temple.png">
+
 </div>
 
-<div class="hero-text">
+<div class="text">
+
 ร่วมทำบุญออนไลน์<br>
 เพื่อทำนุบำรุงพระพุทธศาสนา
+
 </div>
 
 <!-- วิดีโอ -->
 
-<div class="video-box">
+<div class="video">
 
 <h2>ชมวิดีโอประวัติวัด</h2>
 
-<iframe
-src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/share/v/1DqtRWAHsC/&autoplay=1&mute=1"
-allow="autoplay"
-allowfullscreen>
-</iframe>
+<video autoplay muted loop controls>
+
+<source src="video.mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+<!-- แกลเลอรี่ -->
+
+<div class="gallery">
+
+<h2>ภาพภายในวัด</h2>
+
+<img src="img/buddha.png">
+
+<img src="img/abbot.png">
+
+</div>
+
+<!-- ทำบุญ -->
+
+<div class="donate">
+
+<h2>ร่วมทำบุญกับทางวัด</h2>
+
+<button>ร่วมทำบุญ</button>
+
+</div>
+
+<!-- ติดต่อ -->
+
+<div class="contact">
+
+<h2>ติดต่อวัด</h2>
+
+<p>
+
+วัดโบสถ์อินทรสารเพชร<br>
+จังหวัด...<br>
+โทร : 08x-xxx-xxxx
+
+</p>
+
+<p>
+
+LINE : @yourline
+
+</p>
+
+<p>
+
+Facebook : Wat Boad Indharasanphet
+
+</p>
+
+</div>
+
+<!-- ปุ่มไลน์ -->
+
+<div class="line-button">
+
+<a href="https://line.me">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg">
+
+</a>
 
 </div>
 
 </body>
+
 </html>
