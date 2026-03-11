@@ -21,19 +21,16 @@ background:#f5f5f5;
 .menu{
 display:flex;
 justify-content:space-around;
-align-items:center;
 background:linear-gradient(180deg,#2e8b57,#1c5f3d);
 padding:15px;
 position:sticky;
 top:0;
-z-index:999;
 }
 
 .menu a{
 color:white;
 text-decoration:none;
 font-weight:bold;
-font-size:14px;
 }
 
 /* โลโก้ */
@@ -62,14 +59,9 @@ color:#777;
 margin-bottom:20px;
 }
 
-/* สไลด์ */
+/* รูปวัด */
 
-.slider{
-width:100%;
-overflow:hidden;
-}
-
-.slider img{
+.temple img{
 width:100%;
 }
 
@@ -94,14 +86,18 @@ width:95%;
 border-radius:10px;
 }
 
+/* กิจกรรม */
+
+.activity{
+padding:20px;
+text-align:center;
+background:white;
+}
+
 /* แกลเลอรี่ */
 
 .gallery{
 padding:20px;
-}
-
-.gallery h2{
-text-align:center;
 }
 
 .gallery img{
@@ -110,20 +106,18 @@ margin-bottom:15px;
 border-radius:10px;
 }
 
-/* ปุ่มทำบุญ */
+/* ทำบุญ */
 
 .donate{
 text-align:center;
 padding:30px;
-background:white;
+background:#ffffff;
 }
 
-.donate button{
-background:#2e8b57;
-color:white;
-border:none;
-padding:15px 25px;
-font-size:18px;
+.bank{
+background:#f0f0f0;
+padding:15px;
+margin:10px;
 border-radius:10px;
 }
 
@@ -136,15 +130,15 @@ padding:30px;
 text-align:center;
 }
 
-/* ปุ่มไลน์ */
+/* ปุ่ม Facebook ลอย */
 
-.line-button{
+.fb-button{
 position:fixed;
 bottom:20px;
 right:20px;
 }
 
-.line-button img{
+.fb-button img{
 width:60px;
 }
 
@@ -182,9 +176,9 @@ width:60px;
 Wat Boad Indharasanphet
 </div>
 
-<!-- สไลด์ -->
+<!-- รูปวัด -->
 
-<div class="slider">
+<div class="temple">
 
 <img src="img/temple.png">
 
@@ -211,6 +205,22 @@ Wat Boad Indharasanphet
 
 </div>
 
+<!-- กิจกรรมวัด -->
+
+<div class="activity">
+
+<h2>กิจกรรมของวัด</h2>
+
+<p>ติดตามกิจกรรมล่าสุดของวัดได้ทาง Facebook</p>
+
+<a href="https://facebook.com" target="_blank">
+
+ดูข่าวกิจกรรมวัด
+
+</a>
+
+</div>
+
 <!-- แกลเลอรี่ -->
 
 <div class="gallery">
@@ -229,7 +239,21 @@ Wat Boad Indharasanphet
 
 <h2>ร่วมทำบุญกับทางวัด</h2>
 
-<button>ร่วมทำบุญ</button>
+<div class="bank">
+
+ธนาคารที่ 1<br>
+ชื่อบัญชี : วัดโบสถ์อินทรสารเพชร<br>
+เลขบัญชี : XXXXXXXX
+
+</div>
+
+<div class="bank">
+
+ธนาคารที่ 2<br>
+ชื่อบัญชี : วัดโบสถ์อินทรสารเพชร<br>
+เลขบัญชี : XXXXXXXX
+
+</div>
 
 </div>
 
@@ -242,32 +266,19 @@ Wat Boad Indharasanphet
 <p>
 
 วัดโบสถ์อินทรสารเพชร<br>
-จังหวัด...<br>
-โทร : 08x-xxx-xxxx
-
-</p>
-
-<p>
-
-LINE : @yourline
-
-</p>
-
-<p>
-
-Facebook : Wat Boad Indharasanphet
+โทร : 089-744-5457
 
 </p>
 
 </div>
 
-<!-- ปุ่มไลน์ -->
+<!-- ปุ่ม Facebook ลอย -->
 
-<div class="line-button">
+<div class="fb-button">
 
-<a href="https://line.me">
+<a href="https://facebook.com" target="_blank">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
 
 </a>
 
