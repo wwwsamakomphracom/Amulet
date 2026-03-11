@@ -1,53 +1,79 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Watboad Temple</title>
+<title>วัดโบสถ์อินทรสารเพชร</title>
 
 <style>
 
 body{
+font-family:Tahoma;
 margin:0;
-font-family:Arial;
+background:#f5f5f5;
 text-align:center;
-background:url('img/temple.jpg');
-background-size:cover;
-background-position:center;
 }
 
-.overlay{
-background:rgba(0,0,0,0.6);
-min-height:100vh;
-padding-top:40px;
+header{
+background:#a67c00;
 color:white;
+padding:25px;
+}
+
+header img{
+width:120px;
 }
 
 h1{
-font-size:32px;
+margin:10px 0;
+font-size:28px;
+}
+
+p{
+font-size:16px;
 }
 
 .menu{
-margin-top:40px;
+margin:30px;
 }
 
 .menu a{
-
 display:block;
-width:250px;
+background:white;
 margin:15px auto;
 padding:15px;
-
-background:white;
-color:black;
-
-border-radius:10px;
-
+width:270px;
 text-decoration:none;
 font-size:18px;
+color:#333;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
 
+.menu a:hover{
+background:#ffe27a;
+}
+
+.contact{
+margin-top:40px;
+}
+
+.contact a{
+display:inline-block;
+margin:10px;
+padding:12px 20px;
+background:#a67c00;
+color:white;
+text-decoration:none;
+border-radius:8px;
+}
+
+footer{
+margin-top:40px;
+padding:15px;
+background:#222;
+color:white;
 }
 
 </style>
@@ -56,9 +82,16 @@ font-size:18px;
 
 <body>
 
-<div class="overlay">
+<header>
 
-<h1>วัดบัว (Watboad Temple)</h1>
+<img src="img/temple.png">
+
+<h1>วัดโบสถ์อินทรสารเพชร</h1>
+
+<p>ระบบวัดออนไลน์ | ทำบุญออนไลน์ | ตรวจสอบอนุโมทนาบัตร</p>
+
+</header>
+
 
 <div class="menu">
 
@@ -66,13 +99,31 @@ font-size:18px;
 
 <a href="donation-list.html">รายชื่อผู้ร่วมทำบุญ</a>
 
-<a href="certificate-search.html">ค้นหาใบอนุโมทนาบัตร</a>
+<a href="certificate-search.html">ค้นหาอนุโมทนาบัตร</a>
 
 <a href="contact.html">ติดต่อวัด</a>
 
 </div>
 
+
+<div class="contact">
+
+<h3>ช่องทางติดต่อวัด</h3>
+
+<a href="https://line.me/">LINE</a>
+
+<a href="https://facebook.com/">Facebook</a>
+
+<a href="tel:0812345678">โทรศัพท์</a>
+
 </div>
+
+
+<footer>
+
+<p>© 2026 วัดโบสถ์อินทรสารเพชร</p>
+
+</footer>
 
 </body>
 </html>
