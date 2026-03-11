@@ -4,40 +4,63 @@
 <meta charset="UTF-8">
 <title>วัดโบสถ์อินทรสารเพชร</title>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 <style>
 
 body{
-margin:0;
 font-family:sans-serif;
+margin:0;
 background:#f5f5f5;
-text-align:center;
 }
 
-header{
-background:#ffffff;
-padding:20px;
+/* เมนู */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:white;
 box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
 .logo{
-width:120px;
+width:60px;
 }
+
+.menu{
+display:flex;
+gap:20px;
+}
+
+.menu a{
+text-decoration:none;
+font-weight:bold;
+color:#333;
+}
+
+/* hero */
 
 .hero{
 background:url('img/temple.png');
 background-size:cover;
 background-position:center;
 color:white;
+text-align:center;
 padding:150px 20px;
 font-size:40px;
 font-weight:bold;
 }
 
+/* section */
+
 .section{
-padding:60px 20px;
 background:white;
-margin:20px;
+margin:30px;
+padding:40px;
 border-radius:10px;
+text-align:center;
 }
 
 .section img{
@@ -45,46 +68,74 @@ width:300px;
 border-radius:10px;
 }
 
-.donate-btn{
-background:#f57c00;
-color:white;
-padding:15px 30px;
-font-size:20px;
+button{
+padding:12px 25px;
+font-size:18px;
+background:#ff9800;
 border:none;
-border-radius:10px;
+color:white;
+border-radius:8px;
 cursor:pointer;
 }
 
-footer{
-background:#222;
-color:white;
-padding:20px;
-margin-top:40px;
+/* donor list */
+
+.donor{
+padding:10px;
+border-bottom:1px solid #ddd;
+}
+
+.total{
+font-size:22px;
+font-weight:bold;
+margin-top:20px;
+color:green;
+}
+
+input{
+padding:10px;
+margin:5px;
+width:200px;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<header>
+<!-- เมนู -->
 
+<div class="navbar">
+
+<div>
 <img src="img/logo.png" class="logo">
+</div>
 
-<h1>วัดโบสถ์อินทรสารเพชร</h1>
-<p>Wat Boad Indharasarnphet</p>
+<div class="menu">
 
-</header>
+<a href="#home">หน้าแรก</a>
+<a href="#buddha">พระประธาน</a>
+<a href="#abbot">เจ้าอาวาส</a>
+<a href="#donate">ร่วมทำบุญ</a>
+<a href="#donors">ผู้ร่วมบุญ</a>
+<a href="#events">กิจกรรมวัด</a>
 
-<div class="hero">
+</div>
+
+</div>
+
+<!-- hero -->
+
+<div class="hero" id="home">
 
 ร่วมทำบุญออนไลน์<br>
 เพื่อทำนุบำรุงพระพุทธศาสนา
 
 </div>
 
-<div class="section">
+<!-- พระประธาน -->
+
+<div class="section" id="buddha">
 
 <h2>พระประธานประจำวัด</h2>
 
@@ -96,35 +147,148 @@ margin-top:40px;
 
 </div>
 
-<div class="section">
+<!-- เจ้าอาวาส -->
+
+<div class="section" id="abbot">
 
 <h2>เจ้าอาวาส</h2>
 
 <img src="img/abbot.png">
 
 <p>
-พระครูเจ้าอาวาสวัดโบสถ์อินทรสารเพชร
+เจ้าอาวาสวัดโบสถ์อินทรสารเพชร
 </p>
 
 </div>
 
-<div class="section">
+<!-- ระบบทำบุญ -->
+
+<div class="section" id="donate">
 
 <h2>ร่วมทำบุญ</h2>
 
-<p>ร่วมทำบุญสร้างบุญกับทางวัด</p>
+<input id="name" placeholder="ชื่อผู้ทำบุญ">
 
-<button class="donate-btn">
-ร่วมทำบุญ
-</button>
+<input id="amount" placeholder="จำนวนเงิน">
+
+<br><br>
+
+<button onclick="donate()">ทำบุญ</button>
+
+<div id="qrcode" style="margin-top:20px"></div>
 
 </div>
 
-<footer>
+<!-- รายชื่อผู้ร่วมบุญ -->
 
-© วัดโบสถ์อินทรสารเพชร กรุงเทพมหานคร
+<div class="section" id="donors">
 
-</footer>
+<h2>รายชื่อผู้ร่วมบุญ</h2>
+
+<div id="donorList"></div>
+
+<div class="total" id="total"></div>
+
+</div>
+
+<!-- กิจกรรมวัด -->
+
+<div class="section" id="events">
+
+<h2>กิจกรรมวัด</h2>
+
+<p>ทำบุญวันพระทุกวันพระ</p>
+
+<p>ทอดกฐินสามัคคีประจำปี</p>
+
+<p>สวดมนต์ข้ามปี</p>
+
+</div>
+
+<script>
+
+/* เก็บข้อมูลผู้ทำบุญ */
+
+let donors = []
+
+function donate(){
+
+let name=document.getElementById("name").value
+let amount=parseFloat(document.getElementById("amount").value)
+
+if(!name || !amount){
+
+alert("กรุณากรอกข้อมูล")
+
+return
+
+}
+
+let id="WB"+Math.floor(Math.random()*100000)
+
+let donor={
+
+name:name,
+amount:amount,
+id:id
+
+}
+
+donors.push(donor)
+
+updateDonors()
+
+generateQR(id)
+
+document.getElementById("name").value=""
+document.getElementById("amount").value=""
+
+}
+
+/* แสดงรายชื่อ */
+
+function updateDonors(){
+
+let list=document.getElementById("donorList")
+
+list.innerHTML=""
+
+let total=0
+
+donors.forEach(d=>{
+
+total+=d.amount
+
+list.innerHTML+=
+
+"<div class='donor'>"+d.name+" ทำบุญ "+d.amount+" บาท (เลขใบอนุโมทนา "+d.id+")</div>"
+
+})
+
+document.getElementById("total").innerHTML="ยอดรวม "+total+" บาท"
+
+}
+
+/* สร้าง QR */
+
+function generateQR(id){
+
+let qrDiv=document.getElementById("qrcode")
+
+qrDiv.innerHTML=""
+
+new QRCode(qrDiv,{
+
+text:location.href+"?verify="+id,
+
+width:150,
+height:150
+
+})
+
+}
+
+</script>
 
 </body>
 </html>
