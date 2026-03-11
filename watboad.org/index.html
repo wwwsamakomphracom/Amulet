@@ -2,39 +2,148 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>วัดโบสถ์อินทรสารเพชร</title>
-<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+body{
+font-family:sans-serif;
+margin:0;
+background:#f2f2f2;
+text-align:center;
+}
+
+/* โลโก้ */
+
+.logo{
+width:120px;
+height:120px;
+object-fit:contain;
+margin-top:10px;
+}
+
+/* ชื่อวัด */
+
+.title{
+font-size:28px;
+font-weight:bold;
+margin-top:5px;
+}
+
+.subtitle{
+color:gray;
+margin-bottom:20px;
+}
+
+/* ภาพวัดด้านบน */
+
+.hero{
+background-image:url("img/temple.png");
+background-size:cover;
+background-position:center;
+height:300px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:28px;
+font-weight:bold;
+text-shadow:0 2px 5px black;
+}
+
+/* กล่อง section */
+
+.section{
+background:white;
+margin:30px;
+padding:40px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* รูปพระประธาน */
+
+.buddha-img{
+width:500px;
+height:500px;
+object-fit:cover;
+border-radius:12px;
+}
+
+/* รูปเจ้าอาวาส */
+
+.abbot-img{
+width:450px;
+height:500px;
+object-fit:cover;
+border-radius:12px;
+}
+
+/* รองรับมือถือ */
+
+@media(max-width:600px){
+
+.buddha-img{
+width:90%;
+height:auto;
+}
+
+.abbot-img{
+width:90%;
+height:auto;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-<div class="navbar">
+<!-- โลโก้ -->
+
 <img src="img/logo.png" class="logo">
 
-<div class="menu">
-<a href="index.html">หน้าแรก</a>
-<a href="donate.html">ร่วมทำบุญ</a>
-<a href="donors.html">รายชื่อผู้ร่วมบุญ</a>
-<a href="verify.html">ตรวจสอบใบอนุโมทนา</a>
-<a href="admin.html">แอดมิน</a>
-</div>
-</div>
+<div class="title">วัดโบสถ์อินทรสารเพชร</div>
+
+<div class="subtitle">Wat Boad Indharasanphet</div>
+
+<!-- ภาพวัด -->
 
 <div class="hero">
 ร่วมทำบุญออนไลน์<br>
 เพื่อทำนุบำรุงพระพุทธศาสนา
 </div>
 
-<div class="section">
-<h2>พระประธานประจำวัด</h2>
-<img src="img/buddha.png">
-<p>พระพุทธรูปศักดิ์สิทธิ์ประจำวัดโบสถ์อินทรสารเพชร</p>
-</div>
+<!-- พระประธาน -->
 
 <div class="section">
+
+<h2>พระประธานประจำวัด</h2>
+
+<br>
+
+<img src="img/buddha.png" class="buddha-img">
+
+<p>พระพุทธรูปศักดิ์สิทธิ์ประจำวัดโบสถ์อินทรสารเพชร</p>
+
+</div>
+
+<!-- เจ้าอาวาส -->
+
+<div class="section">
+
 <h2>เจ้าอาวาส</h2>
-<img src="img/abbot.png">
+
+<br>
+
+<img src="img/abbot.png" class="abbot-img">
+
 <p>เจ้าอาวาสวัดโบสถ์อินทรสารเพชร</p>
+
 </div>
 
 </body>
