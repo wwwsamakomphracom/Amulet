@@ -8,104 +8,112 @@
 <style>
 
 body{
-font-family:Arial;
 margin:0;
+font-family:Tahoma;
+text-align:center;
 background:#f5f5f5;
 }
 
-nav{
-background:#8b0000;
-padding:15px;
-text-align:center;
+/* รูปหน้าเว็บ */
+.hero{
+background:url('home.jpg') no-repeat center;
+background-size:cover;
+height:900px;
+position:relative;
 }
 
-nav a{
-color:white;
-margin:20px;
+/* เมนู */
+.menu{
+position:absolute;
+top:180px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.menu a{
+display:block;
+font-size:28px;
+margin:10px;
 text-decoration:none;
-font-size:18px;
+color:black;
 font-weight:bold;
 }
 
-header{
-background:#b8860b;
-color:white;
-padding:40px;
-text-align:center;
+/* ช่องค้นหา */
+
+.search-box{
+position:absolute;
+bottom:150px;
+left:50%;
+transform:translateX(-50%);
+width:70%;
 }
 
-.section{
-padding:40px;
-text-align:center;
-}
-
-.card{
-background:white;
-padding:30px;
-max-width:500px;
-margin:auto;
+.search-box input{
+width:100%;
+padding:18px;
+font-size:22px;
 border-radius:10px;
+border:2px solid #999;
 }
 
-input{
-padding:10px;
-width:250px;
-}
-
-button{
-padding:10px 20px;
+.search-box button{
+margin-top:10px;
+padding:12px 30px;
+font-size:20px;
+border:none;
 background:#8b0000;
 color:white;
-border:none;
+border-radius:8px;
 cursor:pointer;
 }
 
 </style>
 
+<script>
+
+function searchCard(){
+
+var id=document.getElementById("card").value;
+
+if(id==""){
+alert("กรุณากรอกเลขบัตร");
+return;
+}
+
+/* ลิงค์หน้าผลลัพธ์ */
+
+window.location.href="result.html?id="+id;
+
+}
+
+</script>
+
 </head>
 
 <body>
 
-<nav>
+<div class="hero">
 
-<a href="#">หน้าหลัก</a>
-<a href="#search">ค้นหาบัตรรับรอง</a>
-<a href="#contact">ติดต่อเรา</a>
+<div class="menu">
 
-</nav>
+<a href="index.html">หน้าหลัก</a>
 
-<header>
+<a href="#search">ค้นหาใบรับรอง</a>
 
-<h1>สยามพระแท้</h1>
-<p>สถาบันรับรองพระแท้</p>
+<a href="issue.html">ออกใบรับรอง</a>
 
-</header>
-
-<div id="search" class="section">
-
-<div class="card">
-
-<h2>ค้นหาบัตรรับรอง</h2>
-
-<input placeholder="กรอกเลขบัตร เช่น SP12345678">
-
-<br><br>
-
-<button>ค้นหา</button>
+<a href="contact.html">ติดต่อเรา</a>
 
 </div>
 
-</div>
+<div class="search-box" id="search">
 
-<div id="contact" class="section">
+<input type="text" id="card" placeholder="กรอกเลขบัตรรับรอง">
 
-<div class="card">
+<br>
 
-<h2>ติดต่อเรา</h2>
-
-<p>LINE : @siampratae</p>
-
-<p>โทร : 02-123-4567</p>
+<button onclick="searchCard()">ค้นหา</button>
 
 </div>
 
