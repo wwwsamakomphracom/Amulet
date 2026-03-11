@@ -14,63 +14,53 @@ font-family:tahoma;
 text-align:center;
 }
 
-/* พื้นหลังเว็บ */
+/* พื้นหลัง */
 
-.hero{
+.bg{
 background-image:url("home.png");
 background-size:cover;
 background-position:center;
-background-repeat:no-repeat;
 height:100vh;
-position:relative;
 }
 
 /* เมนู */
 
 .menu{
-position:absolute;
-top:160px;
-left:50%;
-transform:translateX(-50%);
+padding-top:140px;
 }
 
 .menu a{
 display:block;
-font-size:30px;
+font-size:28px;
 margin:15px;
-text-decoration:none;
 color:black;
+text-decoration:none;
 font-weight:bold;
 }
 
 /* ช่องค้นหา */
 
-.search-box{
-position:absolute;
-bottom:120px;
-left:50%;
-transform:translateX(-50%);
+.search{
+margin-top:250px;
+}
+
+.search input{
 width:80%;
 max-width:500px;
-}
-
-.search-box input{
-width:100%;
-padding:18px;
-font-size:22px;
-border-radius:12px;
-border:2px solid #999;
-}
-
-.search-box button{
-margin-top:10px;
-padding:14px 40px;
+padding:15px;
 font-size:20px;
-border:none;
+border-radius:10px;
+border:1px solid #888;
+}
+
+.search button{
+margin-top:10px;
+padding:12px 40px;
+font-size:18px;
 background:#8b0000;
 color:white;
+border:none;
 border-radius:8px;
-cursor:pointer;
 }
 
 </style>
@@ -86,8 +76,6 @@ alert("กรุณากรอกเลขบัตร");
 return;
 }
 
-/* ไปหน้าผลลัพธ์ */
-
 window.location.href="result.html?id="+id;
 
 }
@@ -98,7 +86,7 @@ window.location.href="result.html?id="+id;
 
 <body>
 
-<div class="hero">
+<div class="bg">
 
 <div class="menu">
 
@@ -106,19 +94,20 @@ window.location.href="result.html?id="+id;
 
 <a href="#search">ค้นหาบัตร</a>
 
-<a href="issue.html">ออกบัตร</a>
+<a href="#">ออกบัตรรับรอง</a>
 
-<a href="contact.html">ติดต่อเรา</a>
+<a href="#">ติดต่อเรา</a>
 
 </div>
 
+<div class="search" id="search">
 
-<div class="search-box" id="search">
+<h2>ค้นหาเลขบัตร</h2>
 
 <input
 type="text"
 id="card"
-placeholder="กรอกเลขบัตร เช่น SPT1234567">
+placeholder="กรอกเลข เช่น SPT1234567">
 
 <br>
 
