@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
 
 <meta charset="UTF-8">
@@ -29,51 +30,39 @@ font-size:32px;
 background:none;
 border:none;
 cursor:pointer;
-z-index:10;
-}
-
-/* เมนู */
-.menu{
-display:none;
-position:absolute;
-top:60px;
-left:50%;
-transform:translateX(-50%);
-background:white;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.3);
-padding:10px;
-text-align:center;
-}
-
-.menu a{
-display:block;
-padding:10px;
-text-decoration:none;
-color:black;
-font-size:18px;
 }
 
 /* ช่องค้นหา */
 .search-box{
 position:absolute;
-bottom:40px;
+bottom:70px;
 left:10px;
 }
 
-/* input */
+/* ช่องกรอกเลข */
 .search-box input{
-width:220px;
-height:40px;
-font-size:18px;
+
+width:260px;
+height:50px;
+font-size:20px;
 padding-left:10px;
+border-radius:6px;
+border:1px solid #ccc;
+background:white;
+
 }
 
 /* ปุ่มค้นหา */
+
 .search-box button{
-height:42px;
-font-size:18px;
+
+height:52px;
+font-size:20px;
+margin-left:5px;
 cursor:pointer;
+color:red;
+font-weight:bold;
+
 }
 
 </style>
@@ -81,24 +70,15 @@ cursor:pointer;
 
 <body>
 
+
 <!-- ปุ่มเมนู -->
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<!-- เมนู -->
-<div class="menu" id="menu">
+<button class="menu-btn">☰</button>
 
-<a href="index.html">หน้าหลัก</a>
-
-<a href="search-certificate.html">ค้นหาใบรับรอง</a>
-
-<a href="issue-certificate.html">ออกใบรับรอง</a>
-
-<a href="contact.html">ติดต่อเรา</a>
-
-</div>
 
 
 <!-- ช่องค้นหา -->
+
 <div class="search-box">
 
 <input type="text" id="certNumber" placeholder="กรอกเลขใบรับรอง">
@@ -108,30 +88,16 @@ cursor:pointer;
 </div>
 
 
+
 <script>
 
-/* เปิดเมนู */
-function toggleMenu(){
-
-var menu=document.getElementById("menu");
-
-if(menu.style.display==="block"){
-menu.style.display="none";
-}else{
-menu.style.display="block";
-}
-
-}
-
-
-/* ค้นหา */
 function searchCert(){
 
 var number=document.getElementById("certNumber").value;
 
 if(number==="SPT0000001"){
 
-window.location.href="result.html";
+window.location.href="https://verify.amulettags.online/siampratae/certificate-SPT0000001.html";
 
 }else{
 
@@ -142,6 +108,7 @@ alert("ไม่พบข้อมูล");
 }
 
 </script>
+
 
 </body>
 </html>
