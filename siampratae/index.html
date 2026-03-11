@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>สยามพระแท้</title>
 
 <style>
@@ -12,7 +11,7 @@ body{
 margin:0;
 }
 
-/* รูปพื้นหลัง */
+/* ภาพพื้นหลัง */
 
 .container{
 position:relative;
@@ -29,10 +28,10 @@ display:block;
 
 .homebtn{
 position:absolute;
-top:120px;
+top:110px;
 left:45%;
-width:80px;
-height:60px;
+width:90px;
+height:70px;
 cursor:pointer;
 }
 
@@ -41,18 +40,18 @@ cursor:pointer;
 .menu{
 display:none;
 position:absolute;
-top:190px;
-left:35%;
-width:30%;
+top:180px;
+left:30%;
+width:40%;
 background:white;
 border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.3);
+box-shadow:0 0 10px rgba(0,0,0,0.4);
 text-align:center;
 }
 
 .menu a{
 display:block;
-padding:15px;
+padding:16px;
 font-size:18px;
 text-decoration:none;
 color:black;
@@ -89,20 +88,13 @@ menu.style.display="block";
 
 <img src="home.png">
 
-<!-- ปุ่มโฮม -->
-
 <div class="homebtn" onclick="toggleMenu()"></div>
-
-<!-- เมนู -->
 
 <div class="menu" id="menu">
 
 <a href="#">หน้าหลัก</a>
-
 <a href="#">ค้นหาใบรับรอง</a>
-
 <a href="#">ออกบัตรรับรอง</a>
-
 <a href="#">ติดต่อเรา</a>
 
 </div>
