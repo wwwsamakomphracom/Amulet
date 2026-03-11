@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,33 +10,44 @@
 <style>
 
 body{
-font-family: Arial;
 margin:0;
-background:#f2f2f2;
+font-family:Arial;
 text-align:center;
+background:url('img/temple.jpg');
+background-size:cover;
+background-position:center;
 }
 
-header{
-background:#8B0000;
+.overlay{
+background:rgba(0,0,0,0.6);
+min-height:100vh;
+padding-top:40px;
 color:white;
-padding:20px;
-font-size:24px;
+}
+
+h1{
+font-size:32px;
 }
 
 .menu{
-margin:30px;
+margin-top:40px;
 }
 
 .menu a{
+
 display:block;
-background:white;
-margin:15px;
+width:250px;
+margin:15px auto;
 padding:15px;
+
+background:white;
+color:black;
+
 border-radius:10px;
+
 text-decoration:none;
 font-size:18px;
-color:black;
-box-shadow:0 0 5px rgba(0,0,0,0.2);
+
 }
 
 </style>
@@ -44,19 +56,21 @@ box-shadow:0 0 5px rgba(0,0,0,0.2);
 
 <body>
 
-<header>
-วัดบัว | Watboad Temple
-</header>
+<div class="overlay">
+
+<h1>วัดบัว (Watboad Temple)</h1>
 
 <div class="menu">
 
-<a href="#">ร่วมทำบุญออนไลน์</a>
+<a href="donate.html">ร่วมทำบุญออนไลน์</a>
 
-<a href="#">รายชื่อผู้ร่วมทำบุญ</a>
+<a href="donation-list.html">รายชื่อผู้ร่วมทำบุญ</a>
 
-<a href="#">ค้นหาใบอนุโมทนา</a>
+<a href="certificate-search.html">ค้นหาใบอนุโมทนาบัตร</a>
 
-<a href="#">ติดต่อวัด</a>
+<a href="contact.html">ติดต่อวัด</a>
+
+</div>
 
 </div>
 
