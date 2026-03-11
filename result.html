@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ผลการค้นหา</title>
+</head>
 
+<body style="text-align:center;font-family:tahoma">
+
+<h2>ผลการค้นหาเลขบัตร</h2>
+
+<div id="result"></div>
+
+<script>
+
+const params=new URLSearchParams(window.location.search);
+const id=params.get("id");
+
+if(id=="TAG573378885"){
+document.getElementById("result").innerHTML=
+"<h3>พบข้อมูลใบรับรอง</h3><img src='card.jpg' width='350'>";
+}
+else{
+document.getElementById("result").innerHTML="ไม่พบข้อมูล";
+}
+
+</script>
+
+</body>
+</html>
