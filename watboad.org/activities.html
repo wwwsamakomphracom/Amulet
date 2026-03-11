@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>กิจกรรมวัด</title>
 
 <style>
@@ -10,7 +11,7 @@
 body{
 margin:0;
 font-family:tahoma;
-background:#f4f4f4;
+background:#f2f2f2;
 }
 
 .header{
@@ -19,7 +20,6 @@ color:white;
 text-align:center;
 padding:20px;
 font-size:26px;
-font-weight:bold;
 }
 
 .container{
@@ -32,13 +32,12 @@ padding:20px;
 background:white;
 border-radius:12px;
 overflow:hidden;
-margin-bottom:30px;
+margin-bottom:25px;
 box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
 
 .post img{
 width:100%;
-cursor:pointer;
 }
 
 .post-content{
@@ -48,35 +47,12 @@ padding:20px;
 .post-title{
 font-size:22px;
 font-weight:bold;
-margin-bottom:5px;
 }
 
 .post-date{
 color:gray;
 font-size:14px;
-margin-bottom:10px;
-}
-
-.post-text{
-font-size:16px;
-line-height:1.6;
-}
-
-.lightbox{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
-}
-
-.lightbox img{
-max-width:90%;
-max-height:90%;
+margin-top:5px;
 }
 
 </style>
@@ -90,64 +66,27 @@ max-height:90%;
 
 <div class="container">
 
-<!-- กิจกรรมที่ 1 -->
+<a href="activity1.html" style="text-decoration:none;color:black;">
 <div class="post">
-<img src="images/activity1.jpg" onclick="openImage(this.src)">
+
+<img src="images/activity1.png">
 
 <div class="post-content">
+
 <div class="post-title">
 พิธีทำบุญใหญ่ประจำปี
 </div>
 
 <div class="post-date">
-วันที่ 10 มีนาคม 2569
-</div>
-
-<div class="post-text">
-ทางวัดได้จัดพิธีทำบุญใหญ่ประจำปี มีพุทธศาสนิกชนเข้าร่วมจำนวนมาก
-ร่วมถวายภัตตาหารแด่พระสงฆ์และรับพรเพื่อความเป็นสิริมงคล
-</div>
-</div>
-</div>
-
-<!-- กิจกรรมที่ 2 -->
-<div class="post">
-<img src="images/activity1.png" onclick="openImage(this.src)">" onclick="openImage(this.src)">
-
-<div class="post-content">
-<div class="post-title">
-ทอดกฐินสามัคคี
-</div>
-
-<div class="post-date">
-วันที่ 5 พฤศจิกายน 2568
-</div>
-
-<div class="post-text">
-พุทธศาสนิกชนร่วมกันจัดงานทอดกฐินสามัคคีเพื่อสมทบทุนบูรณะวัด
-บรรยากาศเต็มไปด้วยความศรัทธา
-</div>
-</div>
+10 มีนาคม 2569
 </div>
 
 </div>
 
-<div class="lightbox" id="lightbox" onclick="closeImage()">
-<img id="lightbox-img">
 </div>
+</a>
 
-<script>
-
-function openImage(src){
-document.getElementById("lightbox").style.display="flex"
-document.getElementById("lightbox-img").src=src
-}
-
-function closeImage(){
-document.getElementById("lightbox").style.display="none"
-}
-
-</script>
+</div>
 
 </body>
 </html>
