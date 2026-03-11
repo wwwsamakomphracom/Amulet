@@ -4,29 +4,70 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ค้นหาใบรับรอง - สยามพระแท้</title>
+<title>ค้นหาใบรับรอง</title>
 
 <style>
 
 body{
 margin:0;
 padding:0;
-height:100vh;
-
-/* รูปพื้นหลังต้องเป็น PNG เท่านั้น */
-
-background-image:url("img/search-bg.png");
+background-image:url("search-bg.png");
 background-size:cover;
 background-position:center;
+height:100vh;
+font-family:sans-serif;
+}
+
+/* ปุ่มโฮม */
+
+.home-button{
+position:absolute;
+top:20px;
+left:20px;
+font-size:28px;
+text-decoration:none;
+color:black;
+}
+
+/* กล่องค้นหา */
+
+.search-box{
+position:absolute;
+top:55%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+/* ช่องใส่เลข */
+
+.search-box input{
+padding:10px;
+font-size:18px;
+width:200px;
+}
+
+/* ปุ่มค้นหา */
+
+.search-box button{
+padding:10px 15px;
+font-size:18px;
+cursor:pointer;
 }
 
 </style>
-
 </head>
 
 <body>
 
+<a class="home-button" href="index.html">🏠</a>
 
+<div class="search-box">
+
+<input type="text" placeholder="กรอกเลขใบรับรอง">
+
+<button>ค้นหา</button>
+
+</div>
 
 </body>
 </html>
