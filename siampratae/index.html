@@ -11,53 +11,80 @@
 body{
 margin:0;
 font-family:tahoma;
-text-align:center;
 }
 
-/* พื้นหลัง */
+/* ภาพพื้นหลัง */
 
-.bg{
-background-image:url("home.png");
-background-size:cover;
-background-position:center;
-height:100vh;
+.container{
+position:relative;
+max-width:900px;
+margin:auto;
 }
 
-/* เมนู */
-
-.menu{
-padding-top:140px;
-}
-
-.menu a{
+.container img{
+width:100%;
 display:block;
-font-size:28px;
-margin:15px;
-color:black;
-text-decoration:none;
-font-weight:bold;
+}
+
+/* ปุ่มใส */
+
+.btn{
+position:absolute;
+display:block;
+}
+
+/* ตำแหน่งปุ่ม (ปรับได้ทีหลัง) */
+
+.home{
+top:160px;
+left:35%;
+width:30%;
+height:40px;
+}
+
+.searchmenu{
+top:210px;
+left:35%;
+width:30%;
+height:40px;
+}
+
+.issue{
+top:260px;
+left:35%;
+width:30%;
+height:40px;
+}
+
+.contact{
+top:310px;
+left:35%;
+width:30%;
+height:40px;
 }
 
 /* ช่องค้นหา */
 
-.search{
-margin-top:250px;
-}
-
-.search input{
+.searchbox{
+position:absolute;
+bottom:120px;
+left:10%;
 width:80%;
-max-width:500px;
-padding:15px;
-font-size:20px;
-border-radius:10px;
-border:1px solid #888;
 }
 
-.search button{
+.searchbox input{
+width:100%;
+padding:18px;
+font-size:22px;
+border-radius:10px;
+border:2px solid #ccc;
+}
+
+.searchbox button{
 margin-top:10px;
-padding:12px 40px;
-font-size:18px;
-background:#8b0000;
+padding:14px 40px;
+font-size:20px;
+background:#a40000;
 color:white;
 border:none;
 border-radius:8px;
@@ -86,28 +113,21 @@ window.location.href="result.html?id="+id;
 
 <body>
 
-<div class="bg">
+<div class="container">
 
-<div class="menu">
+<img src="home.png">
 
-<a href="index.html">หน้าหลัก</a>
+<a class="btn home" href="index.html"></a>
 
-<a href="#search">ค้นหาบัตร</a>
+<a class="btn searchmenu" href="#search"></a>
 
-<a href="#">ออกบัตรรับรอง</a>
+<a class="btn issue" href="#"></a>
 
-<a href="#">ติดต่อเรา</a>
+<a class="btn contact" href="#"></a>
 
-</div>
+<div class="searchbox" id="search">
 
-<div class="search" id="search">
-
-<h2>ค้นหาเลขบัตร</h2>
-
-<input
-type="text"
-id="card"
-placeholder="กรอกเลข เช่น SPT1234567">
+<input type="text" id="card" placeholder="กรอกเลข เช่น SPT1234567">
 
 <br>
 
