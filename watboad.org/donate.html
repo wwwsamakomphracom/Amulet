@@ -2,60 +2,62 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ร่วมทำบุญ</title>
+<link rel="stylesheet" href="css/style.css">
 
-<title>ร่วมทำบุญออนไลน์</title>
-
-<style>
-
-body{
-font-family:tahoma;
-text-align:center;
-background:#f4f4f4;
-}
-
-.box{
-margin-top:50px;
-background:white;
-padding:30px;
-width:320px;
-margin:auto;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.2);
-}
-
-img{
-width:220px;
-}
-
-a{
-display:inline-block;
-margin-top:20px;
-text-decoration:none;
-background:#a67c00;
-color:white;
-padding:10px 20px;
-border-radius:6px;
-}
-
-</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
 
-<div class="box">
+<div class="section">
 
-<h2>ร่วมทำบุญออนไลน์</h2>
+<h2>ร่วมทำบุญ</h2>
 
-<p>สแกน QR เพื่อทำบุญ</p>
+<input id="name" placeholder="ชื่อผู้ทำบุญ"><br><br>
+<input id="amount" placeholder="จำนวนเงิน"><br><br>
 
-<img src="https://promptpay.io/0812345678.png">
+<button onclick="donate()">สร้างใบอนุโมทนา</button>
 
-<p>PromptPay : 0812345678</p>
-
-<a href="index.html">กลับหน้าแรก</a>
+<div id="qrcode"></div>
 
 </div>
+
+<script>
+
+function donate(){
+
+let name=document.getElementById("name").value
+let amount=document.getElementById("amount").value
+
+let id="WB"+Math.floor(Math.random()*100000)
+
+let verifyURL=location.origin+"/verify.html?id="+id
+
+let qr=document.getElementById("qrcode")
+qr.innerHTML=""
+
+new QRCode(qr,{
+text:verifyURL,
+width:150,
+height:150
+})
+
+const { jsPDF } = window.jspdf
+let pdf=new jsPDF()
+
+pdf.text("ใบอนุโมทนาบัตร",80,20)
+pdf.text("วัดโบสถ์อินทรสารเพชร",60,40)
+pdf.text("ผู้ทำบุญ: "+name,20,70)
+pdf.text("จำนวนเงิน: "+amount+" บาท",20,90)
+pdf.text("เลขที่: "+id,20,110)
+
+pdf.save("receipt.pdf")
+
+}
+
+</script>
 
 </body>
 </html>
