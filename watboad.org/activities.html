@@ -3,55 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>กิจกรรมของวัด</title>
+<title>กิจกรรมวัด</title>
 
 <style>
 
 body{
-    margin:0;
-    font-family:Tahoma;
-    background:#f2f2f2;
+margin:0;
+font-family:tahoma;
+background:#f4f4f4;
 }
 
 .header{
-    background:#8B0000;
-    color:white;
-    text-align:center;
-    padding:20px;
-    font-size:24px;
+background:#8B0000;
+color:white;
+text-align:center;
+padding:20px;
+font-size:26px;
+font-weight:bold;
 }
 
 .container{
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
+max-width:1000px;
+margin:auto;
+padding:20px;
 }
 
 .post{
-    background:white;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.15);
-    margin-bottom:30px;
-    overflow:hidden;
+background:white;
+border-radius:12px;
+overflow:hidden;
+margin-bottom:30px;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
 
 .post img{
-    width:100%;
+width:100%;
+cursor:pointer;
 }
 
 .post-content{
-    padding:20px;
+padding:20px;
 }
 
 .post-title{
-    font-size:22px;
-    font-weight:bold;
-    margin-bottom:10px;
+font-size:22px;
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.post-date{
+color:gray;
+font-size:14px;
+margin-bottom:10px;
 }
 
 .post-text{
-    font-size:16px;
-    color:#333;
+font-size:16px;
+line-height:1.6;
+}
+
+.lightbox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
 }
 
 </style>
@@ -67,15 +92,19 @@ body{
 
 <!-- กิจกรรมที่ 1 -->
 <div class="post">
-<img src="images/activity1.jpg">
+<img src="images/activity1.jpg" onclick="openImage(this.src)">
 
 <div class="post-content">
 <div class="post-title">
-พิธีทำบุญประจำปี
+พิธีทำบุญใหญ่ประจำปี
+</div>
+
+<div class="post-date">
+วันที่ 10 มีนาคม 2569
 </div>
 
 <div class="post-text">
-ทางวัดได้จัดพิธีทำบุญประจำปี มีพุทธศาสนิกชนเข้าร่วมจำนวนมาก
+ทางวัดได้จัดพิธีทำบุญใหญ่ประจำปี มีพุทธศาสนิกชนเข้าร่วมจำนวนมาก
 ร่วมถวายภัตตาหารแด่พระสงฆ์และรับพรเพื่อความเป็นสิริมงคล
 </div>
 </div>
@@ -83,21 +112,42 @@ body{
 
 <!-- กิจกรรมที่ 2 -->
 <div class="post">
-<img src="images/activity2.jpg">
+<img src="images/activity2.jpg" onclick="openImage(this.src)">
 
 <div class="post-content">
 <div class="post-title">
 ทอดกฐินสามัคคี
 </div>
 
+<div class="post-date">
+วันที่ 5 พฤศจิกายน 2568
+</div>
+
 <div class="post-text">
-ญาติโยมร่วมกันจัดงานทอดกฐินสามัคคีเพื่อสมทบทุนบูรณะเสนาสนะของวัด
+พุทธศาสนิกชนร่วมกันจัดงานทอดกฐินสามัคคีเพื่อสมทบทุนบูรณะวัด
 บรรยากาศเต็มไปด้วยความศรัทธา
 </div>
 </div>
 </div>
 
 </div>
+
+<div class="lightbox" id="lightbox" onclick="closeImage()">
+<img id="lightbox-img">
+</div>
+
+<script>
+
+function openImage(src){
+document.getElementById("lightbox").style.display="flex"
+document.getElementById("lightbox-img").src=src
+}
+
+function closeImage(){
+document.getElementById("lightbox").style.display="none"
+}
+
+</script>
 
 </body>
 </html>
