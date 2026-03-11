@@ -1,20 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-<title>ค้นหาใบอนุโมทนา</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ค้นหาอนุโมทนาบัตร</title>
+
+<style>
+
+body{
+font-family:tahoma;
+text-align:center;
+background:#f4f4f4;
+}
+
+.box{
+background:white;
+padding:30px;
+margin-top:60px;
+width:300px;
+margin:auto;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+input{
+padding:10px;
+width:80%;
+margin-bottom:10px;
+}
+
+button{
+padding:10px 20px;
+background:#a67c00;
+color:white;
+border:none;
+border-radius:6px;
+}
+
+</style>
+
+<script>
+
+function searchCert(){
+
+var code=document.getElementById("code").value;
+
+if(code=="WTB0001"){
+alert("พบข้อมูลอนุโมทนาบัตร");
+}else{
+alert("ไม่พบข้อมูล");
+}
+
+}
+
+</script>
+
 </head>
 
-<body style="text-align:center;font-family:Arial">
+<body>
 
-<h2>ค้นหาใบอนุโมทนาบัตร</h2>
+<div class="box">
 
-<input type="text" placeholder="กรอกเลขใบอนุโมทนา">
+<h2>ค้นหาอนุโมทนาบัตร</h2>
 
-<button>ค้นหา</button>
+<input type="text" id="code" placeholder="กรอกเลขอนุโมทนาบัตร">
 
-<br><br>
+<br>
 
-<a href="index.html">กลับหน้าหลัก</a>
+<button onclick="searchCert()">ค้นหา</button>
+
+</div>
 
 </body>
 </html>
