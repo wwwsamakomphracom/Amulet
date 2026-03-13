@@ -64,8 +64,6 @@ text-decoration:none;
 /* กิจกรรม */
 .activity{padding:20px;text-align:center;background:white;}
   
-<div class="text">
-ร่วมทำบุญออนไลน์
 /* อัลบั้มเจ้าอาวาส */
 .abbot{padding:20px;text-align:center;background:#fff;}
 .album{
@@ -95,22 +93,21 @@ font-size:18px;
 /* ปุ่ม Facebook ลอย */
 .fb-button{position:fixed;bottom:20px;right:20px;}
 .fb-button img{width:60px;}
-html {
-  scroll-behavior: smooth;
-}
+
+html { scroll-behavior: smooth; }
 </style>
   
 </head>
 
-<body>
+<body id="top">
 
 <!-- เมนู -->
 <div class="menu">
-<a href="#">หน้าแรก</a>
-<a href="#">ประวัติวัด</a>
-<a href="#">กิจกรรม</a>
+<a href="#top">หน้าแรก</a>
+<a href="#history">ประวัติวัด</a>
+<a href="#activity">กิจกรรม</a>
 <a href="donate.html">ทำบุญ</a>
-<a href="#">ติดต่อ</a>
+<a href="#contact">ติดต่อ</a>
 </div>
 
 <!-- โลโก้ -->
@@ -132,7 +129,7 @@ html {
 </div>
 
 <!-- วิดีโอ -->
-<div class="video">
+<div class="video" id="history">
 <h2>ชมวิดีโอประวัติวัด</h2>
 <video autoplay muted loop controls>
 <source src="video.mp4" type="video/mp4">
@@ -140,36 +137,32 @@ html {
 </div>
 
 <!-- ⭐ กิจกรรมวัด -->
-<div class="activity">
+<div class="activity" id="activity">
 
 <h2>กิจกรรมของวัด</h2>
 
-<!-- 🔴 ปุ่มไปหน้า donate -->
 <a href="donate.html" class="menu-btn">
 ร่วมทำบุญกับทางวัด
 </a>
 
-<!-- งานบวช -->
 <a href="#" class="menu-btn">
 งานบวช
 </a>
 
-<!-- บุญประจำปี -->
 <a href="#" class="menu-btn">
 บุญประจำปี
 </a>
 
-<!-- งานทอดกฐิน -->
 <a href="#" class="menu-btn">
 งานทอดกฐิน
 </a>
 
-<!-- กิจกรรมล่าสุด -->
-<a href="https://www.facebook.com/share/p/1DWbUFMH5T/" 1C1GAYaK9v="menu-btn" target="_blank">
+<a href="https://www.facebook.com/share/p/1DWbUFMH5T/" class="menu-btn" target="_blank">
 กิจกรรมล่าสุด
 </a>
 
 </div>
+
 <!-- 🪷 รูปพระประธาน -->
 <div style="text-align:center; background:white;">
   <img src="img/buddha.png"
@@ -178,6 +171,7 @@ html {
   border-radius:14px;
   box-shadow:0 6px 18px rgba(0,0,0,0.3);">
 </div>
+
 <!-- ⭐ อัลบั้มเจ้าอาวาส -->
 <div class="abbot">
 <h2>หลวงพ่อเจ้าอาวาส</h2>
@@ -189,7 +183,7 @@ html {
 </div>
 </div>
 
-<!-- ⭐ ทำบุญ (เลขบัญชีจริง) -->
+<!-- ⭐ ทำบุญ -->
 <div class="donate">
 <h2>ร่วมทำบุญกับทางวัด</h2>
 
@@ -206,6 +200,8 @@ html {
 </div>
 
 </div>
+
+<!-- แผนที่ -->
 <div style="text-align:center; margin-top:40px; padding:20px; background:#f5f5f5; border-radius:12px;">
 
 <h2 style="color:#8B0000;">แผนที่การเดินทางมาวัด</h2>
@@ -223,8 +219,9 @@ box-shadow:0 6px 16px rgba(0,0,0,0.25);">
 </p>
 
 </div>
+
 <!-- ติดต่อ -->
-<div class="contact">
+<div class="contact" id="contact">
 <h2>ติดต่อวัด</h2>
 <p>
 วัดโบสถ์อินทรสารเพชร<br>
