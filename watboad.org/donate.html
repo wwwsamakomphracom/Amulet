@@ -3,84 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <title>ร่วมทำบุญ</title>
-<link rel="stylesheet" href="css/style.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+body{font-family:tahoma;background:#f7f7f7;margin:0;text-align:center;}
+.section{padding:25px;}
+input,textarea{
+padding:12px;
+width:90%;
+max-width:420px;
+margin:6px;
+font-size:16px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+button{
+background:#8B0000;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:10px;
+font-size:16px;
+margin-top:10px;
+}
+.video{margin-top:40px;}
+.contact{margin-top:40px;padding:20px;background:#f5f5f5;border-radius:10px;}
+.list{margin-top:30px;background:white;padding:15px;border-radius:10px;}
+</style>
 </head>
 
 <body>
 
 <div class="section">
 
-<h2>ร่วมทำบุญ</h2>
-<div style="margin-bottom:25px;">
+<h2>ขอใบอนุโมทนาบัตร</h2>
 
-<a href="#" target="_blank"
-style="display:block;background:#8B0000;color:white;
-padding:15px;margin:12px auto;width:92%;
-max-width:460px;border-radius:14px;
-text-decoration:none;font-size:19px;font-weight:bold;">
-ทำบุญโลงศพ
-</a>
+<input id="name" placeholder="ชื่อ-นามสกุล"><br>
+<textarea id="address" placeholder="ที่อยู่สำหรับจัดส่ง"></textarea><br>
+<input id="phone" placeholder="เบอร์โทร"><br>
+<input id="amount" placeholder="จำนวนเงิน (บาท)"><br>
 
-<a href="#" target="_blank"
-style="display:block;background:#8B0000;color:white;
-padding:15px;margin:12px auto;width:92%;
-max-width:460px;border-radius:14px;
-text-decoration:none;font-size:19px;font-weight:bold;">
-ทำบุญสร้างอาคารปฏิบัติธรรม
-</a>
-
-<a href="#" target="_blank"
-style="display:block;background:#8B0000;color:white;
-padding:15px;margin:12px auto;width:92%;
-max-width:460px;border-radius:14px;
-text-decoration:none;font-size:19px;font-weight:bold;">
-ทำบุญทอดกฐิน
-</a>
-
-<a href="#" target="_blank"
-style="display:block;background:#8B0000;color:white;
-padding:15px;margin:12px auto;width:92%;
-max-width:460px;border-radius:14px;
-text-decoration:none;font-size:19px;font-weight:bold;">
-ทำบุญทอดผ้าป่า
-</a>
-
-<a href="#" target="_blank"
-style="display:block;background:#8B0000;color:white;
-padding:15px;margin:12px auto;width:92%;
-max-width:460px;border-radius:14px;
-text-decoration:none;font-size:19px;font-weight:bold;">
-ทำบุญค่าน้ำค่าไฟวัด
-</a>
-
-<a href="#" target="_blank"
-style="display:block;background:#8B0000;color:white;
-padding:15px;margin:12px auto;width:92%;
-max-width:460px;border-radius:14px;
-text-decoration:none;font-size:19px;font-weight:bold;">
-ทำบุญชำระหนี้สงฆ์
-</a>
-
-<a href="#" target="_blank"
-style="display:block;background:#8B0000;color:white;
-padding:15px;margin:12px auto;width:92%;
-max-width:460px;border-radius:14px;
-text-decoration:none;font-size:19px;font-weight:bold;">
-จอง ทำบุญถวายสังฆทาน
-</a>
-
-  </div>
-
-<input id="name" placeholder="ชื่อผู้ทำบุญ"><br><br>
-<input id="amount" placeholder="จำนวนเงิน"><br><br>
-
-<button onclick="donate()">สร้างใบอนุโมทนา</button>
+<button onclick="donate()">บันทึกข้อมูล + สร้างใบอนุโมทนา</button>
 
 <div id="qrcode"></div>
 
+</div>
+
+<!-- แสดงรายชื่อผู้ทำบุญ -->
+<div class="list">
+<h3>รายชื่อผู้ร่วมทำบุญ</h3>
+<div id="donorList"></div>
+</div>
+
+<!-- วิดีโอ -->
+<div class="video">
+<h2 style="color:#8B0000;">วิดีโอประวัติวัด</h2>
+<video controls width="90%" style="max-width:500px;border-radius:12px;">
+<source src="video.mp4" type="video/mp4">
+</video>
+</div>
+
+<!-- ติดต่อ -->
+<div class="contact">
+<h2 style="color:#8B0000;">ติดต่อวัด</h2>
+<p>📞 <a href="tel:0897445457">089-744-5457</a></p>
 </div>
 
 <script>
@@ -88,21 +76,36 @@ text-decoration:none;font-size:19px;font-weight:bold;">
 function donate(){
 
 let name=document.getElementById("name").value
+let address=document.getElementById("address").value
+let phone=document.getElementById("phone").value
 let amount=document.getElementById("amount").value
+
+if(!name || !address || !phone || !amount){
+alert("กรอกข้อมูลให้ครบ")
+return
+}
 
 let id="WB"+Math.floor(Math.random()*100000)
 
-let verifyURL=location.origin+"/verify.html?id="+id
+// ⭐ บันทึกลง LocalStorage
+let donors=JSON.parse(localStorage.getItem("donors")||"[]")
 
-let qr=document.getElementById("qrcode")
-qr.innerHTML=""
-
-new QRCode(qr,{
-text:verifyURL,
-width:150,
-height:150
+donors.push({
+id,name,address,phone,amount,
+date:new Date().toLocaleString()
 })
 
+localStorage.setItem("donors",JSON.stringify(donors))
+
+showDonors()
+
+// ⭐ QR
+let verifyURL=location.origin+"/verify.html?id="+id
+let qr=document.getElementById("qrcode")
+qr.innerHTML=""
+new QRCode(qr,{text:verifyURL,width:150,height:150})
+
+// ⭐ PDF
 const { jsPDF } = window.jspdf
 let pdf=new jsPDF()
 
@@ -114,42 +117,23 @@ pdf.text("เลขที่: "+id,20,110)
 
 pdf.save("receipt.pdf")
 
+alert("บันทึกข้อมูลเรียบร้อย")
 }
+
+function showDonors(){
+let donors=JSON.parse(localStorage.getItem("donors")||"[]")
+let html=""
+
+donors.forEach(d=>{
+html+=`<p>⭐ ${d.name} — ${d.amount} บาท (${d.date})</p>`
+})
+
+document.getElementById("donorList").innerHTML=html
+}
+
+showDonors()
 
 </script>
 
 </body>
 </html>
-<div style="text-align:center; margin-top:20px;">
-  <h2 style="color:#8B0000;">วิดีโอประวัติวัดโบสถ์ ท่าสรรเพชร</h2>
-
-  <iframe 
-    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/share/v/1DqtRWAHsC/&autoplay=1&mute=1"
-    width="360"
-    height="520"
-    style="border:none;overflow:hidden"
-    scrolling="no"
-    frameborder="0"
-    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
-<div style="text-align:center; margin-top:40px; padding:20px; background:#f5f5f5; border-radius:10px;">
-  
-  <h2 style="color:#8B0000;">ติดต่อวัดโบสถ์ ท่าสรรเพชร</h2>
-
-  <p style="font-size:18px;">
-    📞 โทรติดต่อวัด : 
-    <a href="tel:0897445457" style="color:#c40000; text-decoration:none;">
-      089-744-5457
-    </a>
-  </p>
-
-  <p style="font-size:18px;">
-    📘 Facebook วัด :
-    <a href="https://www.facebook.com/share/1E3TceZzXo/" target="_blank" style="color:#1877F2;">
-      เข้าชม Facebook วัด
-    </a>
-  </p>
-
-</div>
