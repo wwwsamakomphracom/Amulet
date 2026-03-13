@@ -2,15 +2,28 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>ร่วมทำบุญ</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<title>ร่วมทำบุญกับทางวัด</title>
 
 <style>
 body{font-family:tahoma;background:#f7f7f7;margin:0;text-align:center;}
+
 .section{padding:25px;}
-input,textarea{
+
+.menu-btn{
+display:block;
+background:#8B0000;
+color:white;
+padding:16px;
+margin:12px auto;
+width:92%;
+max-width:460px;
+border-radius:14px;
+text-decoration:none;
+font-size:19px;
+font-weight:bold;
+}
+
+input,textarea,select{
 padding:12px;
 width:90%;
 max-width:420px;
@@ -19,6 +32,7 @@ font-size:16px;
 border-radius:8px;
 border:1px solid #ccc;
 }
+
 button{
 background:#8B0000;
 color:white;
@@ -28,13 +42,40 @@ border-radius:10px;
 font-size:16px;
 margin-top:10px;
 }
-.video{margin-top:40px;}
-.contact{margin-top:40px;padding:20px;background:#f5f5f5;border-radius:10px;}
-.list{margin-top:30px;background:white;padding:15px;border-radius:10px;}
+
+.list{
+margin:30px auto;
+max-width:520px;
+background:white;
+padding:15px;
+border-radius:10px;
+text-align:left;
+}
+
 </style>
 </head>
 
 <body>
+
+<div class="section">
+
+<h2>ร่วมทำบุญกับทางวัด</h2>
+
+<!-- 🪷 รายการทำบุญ -->
+
+<a href="#" class="menu-btn">1️⃣ ทำบุญค่าน้ำค่าไฟ</a>
+<a href="#" class="menu-btn">2️⃣ ทำบุญโลงศพ</a>
+<a href="#" class="menu-btn">3️⃣ ทำบุญสร้างอาคารปฏิบัติธรรม</a>
+<a href="#" class="menu-btn">4️⃣ ทำบุญทอดกฐิน</a>
+<a href="#" class="menu-btn">5️⃣ ทำบุญทอดผ้าป่า</a>
+<a href="#" class="menu-btn">6️⃣ ทำบุญถวายสังฆทาน (จองล่วงหน้า)</a>
+<a href="#" class="menu-btn">7️⃣ ทำบุญชำระหนี้สงฆ์</a>
+<a href="#" class="menu-btn">8️⃣ ทำบุญแก่พระอาพาธ</a>
+
+</div>
+
+
+<!-- 🧾 ขอใบอนุโมทนาบัตร -->
 
 <div class="section">
 
@@ -43,41 +84,42 @@ margin-top:10px;
 <input id="name" placeholder="ชื่อ-นามสกุล"><br>
 <textarea id="address" placeholder="ที่อยู่สำหรับจัดส่ง"></textarea><br>
 <input id="phone" placeholder="เบอร์โทร"><br>
+
+<select id="type">
+<option>เลือกประเภทการทำบุญ</option>
+<option>ค่าน้ำค่าไฟ</option>
+<option>โลงศพ</option>
+<option>สร้างอาคารปฏิบัติธรรม</option>
+<option>ทอดกฐิน</option>
+<option>ทอดผ้าป่า</option>
+<option>ถวายสังฆทาน</option>
+<option>ชำระหนี้สงฆ์</option>
+<option>พระอาพาธ</option>
+</select><br>
+
 <input id="amount" placeholder="จำนวนเงิน (บาท)"><br>
 
-<button onclick="donate()">บันทึกข้อมูล + สร้างใบอนุโมทนา</button>
-
-<div id="qrcode"></div>
+<button onclick="saveDonor()">บันทึกข้อมูล</button>
 
 </div>
 
-<!-- แสดงรายชื่อผู้ทำบุญ -->
+
+<!-- ⭐ รายชื่อผู้ทำบุญ -->
+
 <div class="list">
 <h3>รายชื่อผู้ร่วมทำบุญ</h3>
 <div id="donorList"></div>
 </div>
 
-<!-- วิดีโอ -->
-<div class="video">
-<h2 style="color:#8B0000;">วิดีโอประวัติวัด</h2>
-<video controls width="90%" style="max-width:500px;border-radius:12px;">
-<source src="video.mp4" type="video/mp4">
-</video>
-</div>
-
-<!-- ติดต่อ -->
-<div class="contact">
-<h2 style="color:#8B0000;">ติดต่อวัด</h2>
-<p>📞 <a href="tel:0897445457">089-744-5457</a></p>
-</div>
 
 <script>
 
-function donate(){
+function saveDonor(){
 
 let name=document.getElementById("name").value
 let address=document.getElementById("address").value
 let phone=document.getElementById("phone").value
+let type=document.getElementById("type").value
 let amount=document.getElementById("amount").value
 
 if(!name || !address || !phone || !amount){
@@ -85,37 +127,16 @@ alert("กรอกข้อมูลให้ครบ")
 return
 }
 
-let id="WB"+Math.floor(Math.random()*100000)
-
-// ⭐ บันทึกลง LocalStorage
 let donors=JSON.parse(localStorage.getItem("donors")||"[]")
 
 donors.push({
-id,name,address,phone,amount,
+name,address,phone,type,amount,
 date:new Date().toLocaleString()
 })
 
 localStorage.setItem("donors",JSON.stringify(donors))
 
 showDonors()
-
-// ⭐ QR
-let verifyURL=location.origin+"/verify.html?id="+id
-let qr=document.getElementById("qrcode")
-qr.innerHTML=""
-new QRCode(qr,{text:verifyURL,width:150,height:150})
-
-// ⭐ PDF
-const { jsPDF } = window.jspdf
-let pdf=new jsPDF()
-
-pdf.text("ใบอนุโมทนาบัตร",80,20)
-pdf.text("วัดโบสถ์อินทรสารเพชร",60,40)
-pdf.text("ผู้ทำบุญ: "+name,20,70)
-pdf.text("จำนวนเงิน: "+amount+" บาท",20,90)
-pdf.text("เลขที่: "+id,20,110)
-
-pdf.save("receipt.pdf")
 
 alert("บันทึกข้อมูลเรียบร้อย")
 }
@@ -125,7 +146,13 @@ let donors=JSON.parse(localStorage.getItem("donors")||"[]")
 let html=""
 
 donors.forEach(d=>{
-html+=`<p>⭐ ${d.name} — ${d.amount} บาท (${d.date})</p>`
+html+=`
+<p>
+⭐ <b>${d.name}</b><br>
+📌 ${d.type} — ${d.amount} บาท<br>
+🕒 ${d.date}
+</p>
+<hr>`
 })
 
 document.getElementById("donorList").innerHTML=html
