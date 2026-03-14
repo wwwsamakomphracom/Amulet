@@ -140,20 +140,6 @@ body{
   font-size:18px;
 }
 
-/* ⭐ วิดีโอเยี่ยมชม */
-.video-box{
-  width:100%;
-  height:380px;
-  overflow:hidden;
-  background:#000;
-}
-
-.video-box video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
 /* ⭐ แผนที่ */
 .map{
   text-align:center;
@@ -195,6 +181,7 @@ html { scroll-behavior: smooth; }
 <div class="menu">
 <a href="#top">หน้าแรก</a>
 <a href="#history">ประวัติวัด</a>
+<a href="#visit">เยี่ยมชมวัด</a>
 <a href="#activity">กิจกรรม</a>
 <a href="#donate">ทำบุญ</a>
 <a href="#contact">ติดต่อ</a>
@@ -217,12 +204,22 @@ html { scroll-behavior: smooth; }
 ร่วมทำบุญออนไลน์ เพื่อทำนุบำรุงพระพุทธศาสนา
 </div>
 
-<!-- วิดีโอ -->
+<!-- 🎬 วิดีโอประวัติวัด -->
 <div class="video" id="history">
 <h2>ชมวิดีโอประวัติวัด</h2>
 <video autoplay muted loop controls>
 <source src="video.mp4" type="video/mp4">
 </video>
+</div>
+
+<!-- 🎬 วิดีโอเยี่ยมชมวัด (3 คลิปต่อกัน) -->
+<div class="video" id="visit">
+<h2>ชมวิดีโอเยี่ยมชมวัด</h2>
+
+<video id="templeVideo" autoplay muted controls>
+  <source src="temple_1.mp4" type="video/mp4">
+</video>
+
 </div>
 
 <!-- กิจกรรม -->
@@ -299,6 +296,26 @@ class="menu-btn" target="_blank">
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
 </a>
 </div>
+
+<!-- ⭐ Script เล่น 3 คลิปต่อกัน -->
+<script>
+const videos = [
+  "temple_1.mp4",
+  "temple_2.mp4",
+  "temple_3.mp4"
+];
+
+let current = 0;
+const player = document.getElementById("templeVideo");
+
+player.onended = function () {
+  current++;
+  if (current < videos.length) {
+    player.src = videos[current];
+    player.play();
+  }
+};
+</script>
 
 </body>
 </html>
