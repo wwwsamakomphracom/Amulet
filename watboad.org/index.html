@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>วัดโบสถ์อินทรสารเพชร</title>
 
 <style>
@@ -29,10 +27,10 @@ background-attachment:fixed;
 display:flex;
 gap:14px;
 padding:14px;
-background:rgba(0,0,0,0.75);
+background:rgba(0,0,0,0.85);
 position:sticky;
 top:0;
-z-index:999;
+z-index:9999;
 overflow-x:auto;
 white-space:nowrap;
 }
@@ -44,7 +42,6 @@ font-weight:bold;
 font-size:18px;
 text-decoration:none;
 color:#5a3a00;
-
 background:linear-gradient(145deg,#fff4b0,#ffd700,#d4af37);
 border-radius:14px;
 border:2px solid #b8962e;
@@ -52,12 +49,7 @@ box-shadow:0 6px 14px rgba(0,0,0,0.6);
 }
 
 /* ⭐ ปุ่มภาษา */
-.lang{
-margin-left:auto;
-display:flex;
-gap:6px;
-}
-
+.lang{margin-left:auto;display:flex;gap:6px;}
 .lang button{
 padding:8px 14px;
 border:none;
@@ -80,11 +72,7 @@ font-weight:bold;
 text-shadow:0 0 12px rgba(0,0,0,0.8);
 }
 
-.eng{
-text-align:center;
-margin-bottom:20px;
-opacity:0.9;
-}
+.eng{text-align:center;margin-bottom:20px;opacity:0.9;}
 
 /* ⭐ รูปวัด */
 .temple img{
@@ -106,27 +94,38 @@ text-shadow:0 0 10px rgba(0,0,0,0.9);
 .video{text-align:center;padding:20px;}
 .video video{width:95%;border-radius:12px;}
 
-/* ⭐ ปุ่มแดง */
+/* ⭐ ปุ่มแดง (เด่นขึ้น) */
 .menu-btn{
 display:inline-block;
-padding:16px 26px;
-margin:12px;
-font-size:20px;
+padding:18px 30px;
+margin:14px;
+font-size:22px;
 font-weight:bold;
 color:white;
-background:linear-gradient(145deg,#b30000,#8B0000);
-border-radius:14px;
+background:linear-gradient(145deg,#ff0000,#8B0000);
+border-radius:16px;
 text-decoration:none;
+box-shadow:0 8px 22px rgba(0,0,0,0.7);
 }
 
 /* ⭐ ส่วนต่าง ๆ */
 .activity,.abbot,.donate,.map,.contact{
-padding:40px;
+padding:60px 20px;
 text-align:center;
+scroll-margin-top:90px; /* ⭐ กันเมนูบัง */
 }
 
+/* ⭐ กล่องกิจกรรม */
+.activity{
+background:rgba(0,0,0,0.65);
+border-radius:18px;
+max-width:900px;
+margin:auto;
+}
+
+/* ⭐ ธนาคาร */
 .bank{
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.7);
 padding:18px;
 margin:14px auto;
 border-radius:14px;
@@ -134,17 +133,15 @@ max-width:420px;
 font-size:18px;
 }
 
-.album{
-display:flex;
-overflow-x:auto;
-gap:16px;
-}
-
+.album{display:flex;overflow-x:auto;gap:16px;}
 .album img{height:260px;border-radius:12px;}
 
 .map img{width:95%;max-width:520px;border-radius:14px;}
 
-.contact{background:rgba(0,0,0,0.75);}
+.contact{
+background:rgba(0,0,0,0.85);
+font-size:22px;
+}
 
 /* ⭐ Facebook ลอย */
 .fb-button{
@@ -152,7 +149,6 @@ position:fixed;
 bottom:20px;
 right:20px;
 }
-
 .fb-button img{width:60px;}
 
 html{scroll-behavior:smooth;}
@@ -164,20 +160,18 @@ html{scroll-behavior:smooth;}
 
 <!-- ⭐ เมนู -->
 <div class="menu">
-
-<a href="#top" id="m_home">หน้าแรก</a>
-<a href="#history" id="m_history">ประวัติวัด</a>
-<a href="#visit" id="m_visit">เยี่ยมชมวัด</a>
-<a href="#activity" id="m_activity">กิจกรรม</a>
-<a href="#donate" id="m_donate">ทำบุญ</a>
-<a href="#contact" id="m_contact">ติดต่อ</a>
+<a href="#top">หน้าแรก</a>
+<a href="#history">ประวัติวัด</a>
+<a href="#visit">เยี่ยมชมวัด</a>
+<a href="#activity">กิจกรรม</a>
+<a href="#donate">ทำบุญ</a>
+<a href="#contact">ติดต่อ</a>
 
 <div class="lang">
 <button onclick="setLang('th')">ไทย</button>
 <button onclick="setLang('en')">EN</button>
 <button onclick="setLang('zh')">中文</button>
 </div>
-
 </div>
 
 <!-- โลโก้ -->
@@ -185,20 +179,20 @@ html{scroll-behavior:smooth;}
 <img src="img/logo.png">
 </div>
 
-<div class="name" id="t_name">วัดโบสถ์อินทรสารเพชร</div>
-<div class="eng" id="t_eng">Wat Boad Indharasanphet</div>
+<div class="name">วัดโบสถ์อินทรสารเพชร</div>
+<div class="eng">Wat Boad Indharasanphet</div>
 
 <div class="temple">
 <img src="img/temple.png">
 </div>
 
-<div class="text" id="t_text">
+<div class="text">
 ร่วมทำบุญออนไลน์ เพื่อทำนุบำรุงพระพุทธศาสนา
 </div>
 
-<!-- วิดีโอประวัติ -->
+<!-- ประวัติ -->
 <div class="video" id="history">
-<h2 id="t_history">ชมวิดีโอประวัติวัด</h2>
+<h2>ชมวิดีโอประวัติวัด</h2>
 <video autoplay muted loop controls>
 <source src="video.mp4" type="video/mp4">
 </video>
@@ -206,175 +200,50 @@ html{scroll-behavior:smooth;}
 
 <!-- เยี่ยมชม -->
 <div class="video" id="visit">
-<h2 id="t_visit">ชมวิดีโอเยี่ยมชมวัด</h2>
-<video id="templeVideo" autoplay muted controls>
+<h2>ชมวิดีโอเยี่ยมชมวัด</h2>
+<video autoplay muted controls>
 <source src="temple_1.mp4" type="video/mp4">
 </video>
 </div>
 
-<!-- กิจกรรม -->
+<!-- ⭐ กิจกรรม (ปุ่มที่หายอยู่ตรงนี้) -->
 <div class="activity" id="activity">
-<h2 id="t_activity">กิจกรรมของวัด</h2>
+<h2>กิจกรรมของวัด</h2>
 
-<a href="donate.html" class="menu-btn" id="btn_donate">
-ร่วมทำบุญกับทางวัด
+<a href="donate.html" class="menu-btn">
+🙏 ร่วมทำบุญกับทางวัด
 </a>
 
 <a href="https://www.facebook.com/" target="_blank"
-class="menu-btn" id="btn_news">
-กิจกรรมล่าสุด
+class="menu-btn">
+📣 กิจกรรมล่าสุด
 </a>
-</div>
 
-<!-- เจ้าอาวาส -->
-<div class="abbot">
-<h2 id="t_abbot">หลวงพ่อเจ้าอาวาส</h2>
-<div class="album">
-<img src="img/abbot1.png">
-<img src="img/abbot2.png">
-<img src="img/abbot3.png">
-</div>
 </div>
 
 <!-- ทำบุญ -->
 <div class="donate" id="donate">
-<h2 id="t_donate">ร่วมทำบุญกับทางวัด</h2>
+<h2>ร่วมทำบุญกับทางวัด</h2>
 
-<div class="bank" id="bank1">
+<div class="bank">
 ธนาคารกสิกรไทย<br>
 เลขบัญชี : 169-1-82782-4<br>
 ชื่อบัญชี : วัดโบสถ์อินทรสารเพชร
 </div>
 
-<div class="bank" id="bank2">
+<div class="bank">
 ธนาคารไทยพาณิชย์<br>
 เลขบัญชี : 017-273-7305<br>
 ชื่อบัญชี : วัดโบสถ์อินทรสารเพชร
 </div>
 </div>
 
-<!-- แผนที่ -->
-<div class="map">
-<h2 id="t_map">แผนที่การเดินทางมาวัด</h2>
-<a href="https://maps.app.goo.gl/jPjQHDNzGKxpQ1Z48" target="_blank">
-<img src="img/map.png">
-</a>
-<p id="t_mapdesc">กดที่แผนที่เพื่อเปิด Google Maps</p>
-</div>
-
 <!-- ติดต่อ -->
 <div class="contact" id="contact">
-<h2 id="t_contact">ติดต่อวัด</h2>
-<p id="t_contactdesc">
+<h2>ติดต่อวัด</h2>
 วัดโบสถ์อินทรสารเพชร<br>
 โทร : 089-744-5457
-</p>
 </div>
-
-<!-- Facebook -->
-<div class="fb-button">
-<a href="https://www.facebook.com/" target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
-</a>
-</div>
-
-<!-- ⭐ Script วิดีโอ -->
-<script>
-const videos=["temple_1.mp4","temple_2.mp4","temple_3.mp4"];
-let current=0;
-const player=document.getElementById("templeVideo");
-player.onended=function(){
-current++;
-if(current<videos.length){
-player.src=videos[current];
-player.play();
-}
-};
-</script>
-
-<!-- ⭐ Script ภาษา -->
-<script>
-
-const langData={
-
-th:{
-m_home:"หน้าแรก",
-m_history:"ประวัติวัด",
-m_visit:"เยี่ยมชมวัด",
-m_activity:"กิจกรรม",
-m_donate:"ทำบุญ",
-m_contact:"ติดต่อ",
-
-name:"วัดโบสถ์อินทรสารเพชร",
-eng:"Wat Boad Indharasanphet",
-text:"ร่วมทำบุญออนไลน์ เพื่อทำนุบำรุงพระพุทธศาสนา",
-history:"ชมวิดีโอประวัติวัด",
-visit:"ชมวิดีโอเยี่ยมชมวัด",
-activity:"กิจกรรมของวัด",
-donate:"ร่วมทำบุญกับทางวัด",
-map:"แผนที่การเดินทางมาวัด",
-contact:"ติดต่อวัด",
-mapdesc:"กดที่แผนที่เพื่อเปิด Google Maps"
-},
-
-en:{
-m_home:"Home",
-m_history:"History",
-m_visit:"Visit",
-m_activity:"Activities",
-m_donate:"Donate",
-m_contact:"Contact",
-
-name:"Wat Bots Inthrasarnphet",
-eng:"Wat Bots Inthrasarnphet",
-text:"Make an online donation to support Buddhism",
-history:"Temple History Video",
-visit:"Temple Tour Video",
-activity:"Temple Activities",
-donate:"Donation",
-map:"Location Map",
-contact:"Contact",
-mapdesc:"Click map to open Google Maps"
-},
-
-zh:{
-m_home:"首页",
-m_history:"历史",
-m_visit:"参观",
-m_activity:"活动",
-m_donate:"捐款",
-m_contact:"联系",
-
-name:"因陀罗寺",
-eng:"Yintaluo Temple",
-text:"在线捐款支持佛教",
-history:"寺庙历史视频",
-visit:"寺庙参观视频",
-activity:"寺庙活动",
-donate:"捐款",
-map:"位置地图",
-contact:"联系方式",
-mapdesc:"点击地图打开导航"
-}
-
-};
-
-function setLang(lang){
-
-for(let key in langData[lang]){
-let el=document.getElementById(key);
-if(el) el.innerText=langData[lang][key];
-}
-
-localStorage.setItem("lang",lang);
-
-}
-
-window.onload=function(){
-setLang(localStorage.getItem("lang")||"th");
-}
-
-</script>
 
 </body>
 </html>
