@@ -9,81 +9,63 @@
 
 <style>
 
-/* ⭐ พื้นหลังเต็มจอ */
+/* ⭐ พื้นหลัง */
 body{
-  margin:0;
-  font-family:Tahoma, sans-serif;
-  color:white;
+margin:0;
+font-family:Tahoma, sans-serif;
+color:white;
 
-  background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("img/poster.png");
+background:
+linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+url("img/poster.png");
 
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
 }
-/* ⭐ เมนูทองลายไทย บรรทัดเดียว */
+
+/* ⭐ เมนู */
 .menu{
-  display:flex;
-  justify-content:flex-start;
-  gap:14px;
-  padding:14px;
-  background:rgba(0,0,0,0.75);
-  position:sticky;
-  top:0;
-  z-index:999;
-
-  flex-wrap:nowrap;      /* ❗ ห้ามขึ้นบรรทัดใหม่ */
-  overflow-x:auto;       /* ❗ เลื่อนแทน */
-  white-space:nowrap;    /* ❗ บรรทัดเดียว */
+display:flex;
+gap:14px;
+padding:14px;
+background:rgba(0,0,0,0.75);
+position:sticky;
+top:0;
+z-index:999;
+overflow-x:auto;
+white-space:nowrap;
 }
 
-/* ⭐ ปุ่มทอง */
+/* ⭐ ปุ่มเมนู */
 .menu a{
-  white-space:nowrap;    /* ❗ ตัวอักษรบรรทัดเดียว */
-  flex:0 0 auto;         /* ❗ ไม่ยืดไม่หด */
-  padding:12px 22px;
-  font-weight:bold;
-  font-size:18px;
-  text-decoration:none;
-  color:#5a3a00;
+padding:12px 22px;
+font-weight:bold;
+font-size:18px;
+text-decoration:none;
+color:#5a3a00;
 
-  background:linear-gradient(145deg,#fff4b0,#ffd700,#d4af37);
-  border-radius:14px;
-  border:2px solid #b8962e;
-
-  box-shadow:
-    inset 0 2px 6px rgba(255,255,255,0.8),
-    0 6px 14px rgba(0,0,0,0.6);
-
-  position:relative;
+background:linear-gradient(145deg,#fff4b0,#ffd700,#d4af37);
+border-radius:14px;
+border:2px solid #b8962e;
+box-shadow:0 6px 14px rgba(0,0,0,0.6);
 }
 
-/* ⭐ ลายกนก */
-.menu a::before{
-  content:"❦";
-  position:absolute;
-  left:6px;
-  top:50%;
-  transform:translateY(-50%);
-  color:#b8860b;
+/* ⭐ ปุ่มภาษา */
+.lang{
+margin-left:auto;
+display:flex;
+gap:6px;
 }
 
-.menu a::after{
-  content:"❦";
-  position:absolute;
-  right:6px;
-  top:50%;
-  transform:translateY(-50%) scaleX(-1);
-  color:#b8860b;
-}
-
-/* ⭐ ตอนชี้ */
-.menu a:hover{
-  background:linear-gradient(145deg,#fff9d0,#ffe066,#f4c430);
-  transform:translateY(-2px);
-}
+.lang button{
+padding:8px 14px;
+border:none;
+border-radius:8px;
+background:#b8860b;
+color:white;
+font-weight:bold;
+cursor:pointer;
 }
 
 /* ⭐ โลโก้ */
@@ -92,143 +74,110 @@ body{
 
 /* ⭐ ชื่อวัด */
 .name{
-  text-align:center;
-  font-size:34px;
-  font-weight:bold;
-  text-shadow:0 0 12px rgba(0,0,0,0.8);
+text-align:center;
+font-size:34px;
+font-weight:bold;
+text-shadow:0 0 12px rgba(0,0,0,0.8);
 }
 
 .eng{
-  text-align:center;
-  margin-bottom:20px;
-  opacity:0.9;
+text-align:center;
+margin-bottom:20px;
+opacity:0.9;
 }
 
 /* ⭐ รูปวัด */
 .temple img{
-  width:100%;
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+width:100%;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* ⭐ ข้อความ */
 .text{
-  text-align:center;
-  font-size:24px;
-  font-weight:bold;
-  padding:30px;
-  text-shadow:0 0 10px rgba(0,0,0,0.9);
+text-align:center;
+font-size:24px;
+font-weight:bold;
+padding:30px;
+text-shadow:0 0 10px rgba(0,0,0,0.9);
 }
 
 /* ⭐ วิดีโอ */
-.video{
-  text-align:center;
-  padding:20px;
-}
+.video{text-align:center;padding:20px;}
+.video video{width:95%;border-radius:12px;}
 
-.video video{
-  width:95%;
-  border-radius:12px;
-}
-
-/* ⭐ ปุ่ม */
+/* ⭐ ปุ่มแดง */
 .menu-btn{
-  display:inline-block;
-  padding:16px 26px;
-  margin:12px;
-  font-size:20px;
-  font-weight:bold;
-  color:white;
-  background:linear-gradient(145deg,#b30000,#8B0000);
-  border-radius:14px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.5);
-  text-decoration:none;
+display:inline-block;
+padding:16px 26px;
+margin:12px;
+font-size:20px;
+font-weight:bold;
+color:white;
+background:linear-gradient(145deg,#b30000,#8B0000);
+border-radius:14px;
+text-decoration:none;
 }
 
-/* ⭐ กิจกรรม */
-.activity{
-  padding:40px;
-  text-align:center;
-}
-
-/* ⭐ อัลบั้ม */
-.abbot{
-  padding:30px;
-  text-align:center;
-}
-
-.album{
-  display:flex;
-  overflow-x:auto;
-  gap:16px;
-  padding:10px;
-}
-
-.album img{
-  height:260px;
-  border-radius:12px;
-}
-
-/* ⭐ ทำบุญ */
-.donate{
-  text-align:center;
-  padding:40px;
+/* ⭐ ส่วนต่าง ๆ */
+.activity,.abbot,.donate,.map,.contact{
+padding:40px;
+text-align:center;
 }
 
 .bank{
-  background:rgba(0,0,0,0.6);
-  padding:18px;
-  margin:14px auto;
-  border-radius:14px;
-  max-width:420px;
-  font-size:18px;
+background:rgba(0,0,0,0.6);
+padding:18px;
+margin:14px auto;
+border-radius:14px;
+max-width:420px;
+font-size:18px;
 }
 
-/* ⭐ แผนที่ */
-.map{
-  text-align:center;
-  padding:40px;
+.album{
+display:flex;
+overflow-x:auto;
+gap:16px;
 }
 
-.map img{
-  width:95%;
-  max-width:520px;
-  border-radius:14px;
-}
+.album img{height:260px;border-radius:12px;}
 
-/* ⭐ ติดต่อ */
-.contact{
-  text-align:center;
-  padding:40px;
-  background:rgba(0,0,0,0.75);
-}
+.map img{width:95%;max-width:520px;border-radius:14px;}
+
+.contact{background:rgba(0,0,0,0.75);}
 
 /* ⭐ Facebook ลอย */
 .fb-button{
-  position:fixed;
-  bottom:20px;
-  right:20px;
+position:fixed;
+bottom:20px;
+right:20px;
 }
 
-.fb-button img{
-  width:60px;
-}
+.fb-button img{width:60px;}
 
-html { scroll-behavior: smooth; }
+html{scroll-behavior:smooth;}
 
 </style>
 </head>
 
 <body id="top">
 
-<!-- เมนู -->
+<!-- ⭐ เมนู -->
 <div class="menu">
-<a href="#top">หน้าแรก</a>
-<a href="#history">ประวัติวัด</a>
-<a href="#visit">เยี่ยมชมวัด</a>
-<a href="#activity">กิจกรรม</a>
-<a href="#donate">ทำบุญ</a>
-<a href="#contact">ติดต่อ</a>
+
+<a href="#top" id="m_home">หน้าแรก</a>
+<a href="#history" id="m_history">ประวัติวัด</a>
+<a href="#visit" id="m_visit">เยี่ยมชมวัด</a>
+<a href="#activity" id="m_activity">กิจกรรม</a>
+<a href="#donate" id="m_donate">ทำบุญ</a>
+<a href="#contact" id="m_contact">ติดต่อ</a>
+
+<div class="lang">
+<button onclick="setLang('th')">ไทย</button>
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('zh')">中文</button>
+</div>
+
 </div>
 
 <!-- โลโก้ -->
@@ -236,56 +185,50 @@ html { scroll-behavior: smooth; }
 <img src="img/logo.png">
 </div>
 
-<div class="name">วัดโบสถ์อินทรสารเพชร</div>
-<div class="eng">Wat Boad Indharasanphet</div>
+<div class="name" id="t_name">วัดโบสถ์อินทรสารเพชร</div>
+<div class="eng" id="t_eng">Wat Boad Indharasanphet</div>
 
-<!-- รูปวัด -->
 <div class="temple">
 <img src="img/temple.png">
 </div>
 
-<div class="text">
+<div class="text" id="t_text">
 ร่วมทำบุญออนไลน์ เพื่อทำนุบำรุงพระพุทธศาสนา
 </div>
 
-<!-- 🎬 วิดีโอประวัติวัด -->
+<!-- วิดีโอประวัติ -->
 <div class="video" id="history">
-<h2>ชมวิดีโอประวัติวัด</h2>
+<h2 id="t_history">ชมวิดีโอประวัติวัด</h2>
 <video autoplay muted loop controls>
 <source src="video.mp4" type="video/mp4">
 </video>
 </div>
 
-<!-- 🎬 วิดีโอเยี่ยมชมวัด (3 คลิปต่อกัน) -->
+<!-- เยี่ยมชม -->
 <div class="video" id="visit">
-<h2>ชมวิดีโอเยี่ยมชมวัด</h2>
-
+<h2 id="t_visit">ชมวิดีโอเยี่ยมชมวัด</h2>
 <video id="templeVideo" autoplay muted controls>
-  <source src="temple_1.mp4" type="video/mp4">
+<source src="temple_1.mp4" type="video/mp4">
 </video>
-
 </div>
 
 <!-- กิจกรรม -->
 <div class="activity" id="activity">
+<h2 id="t_activity">กิจกรรมของวัด</h2>
 
-<h2>กิจกรรมของวัด</h2>
-
-<a href="donate.html" class="menu-btn">
+<a href="donate.html" class="menu-btn" id="btn_donate">
 ร่วมทำบุญกับทางวัด
 </a>
 
-<a href="https://www.facebook.com/share/p/1DWbUFMH5T/" 
-class="menu-btn" target="_blank">
+<a href="https://www.facebook.com/" target="_blank"
+class="menu-btn" id="btn_news">
 กิจกรรมล่าสุด
 </a>
-
 </div>
 
 <!-- เจ้าอาวาส -->
 <div class="abbot">
-<h2>หลวงพ่อเจ้าอาวาส</h2>
-
+<h2 id="t_abbot">หลวงพ่อเจ้าอาวาส</h2>
 <div class="album">
 <img src="img/abbot1.png">
 <img src="img/abbot2.png">
@@ -295,70 +238,142 @@ class="menu-btn" target="_blank">
 
 <!-- ทำบุญ -->
 <div class="donate" id="donate">
+<h2 id="t_donate">ร่วมทำบุญกับทางวัด</h2>
 
-<h2>ร่วมทำบุญกับทางวัด</h2>
-
-<div class="bank">
+<div class="bank" id="bank1">
 ธนาคารกสิกรไทย<br>
 เลขบัญชี : 169-1-82782-4<br>
 ชื่อบัญชี : วัดโบสถ์อินทรสารเพชร
 </div>
 
-<div class="bank">
+<div class="bank" id="bank2">
 ธนาคารไทยพาณิชย์<br>
 เลขบัญชี : 017-273-7305<br>
 ชื่อบัญชี : วัดโบสถ์อินทรสารเพชร
 </div>
-
 </div>
 
 <!-- แผนที่ -->
 <div class="map">
-
-<h2>แผนที่การเดินทางมาวัด</h2>
-
+<h2 id="t_map">แผนที่การเดินทางมาวัด</h2>
 <a href="https://maps.app.goo.gl/jPjQHDNzGKxpQ1Z48" target="_blank">
 <img src="img/map.png">
 </a>
-
-<p>📍 กดที่แผนที่เพื่อเปิด Google Maps นำทาง</p>
-
+<p id="t_mapdesc">กดที่แผนที่เพื่อเปิด Google Maps</p>
 </div>
 
 <!-- ติดต่อ -->
 <div class="contact" id="contact">
-<h2>ติดต่อวัด</h2>
-<p>
+<h2 id="t_contact">ติดต่อวัด</h2>
+<p id="t_contactdesc">
 วัดโบสถ์อินทรสารเพชร<br>
 โทร : 089-744-5457
 </p>
 </div>
 
-<!-- Facebook ลอย -->
+<!-- Facebook -->
 <div class="fb-button">
-<a href="https://www.facebook.com/share/1G9Ff1QbRu/" target="_blank">
+<a href="https://www.facebook.com/" target="_blank">
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
 </a>
 </div>
 
-<!-- ⭐ Script เล่น 3 คลิปต่อกัน -->
+<!-- ⭐ Script วิดีโอ -->
 <script>
-const videos = [
-  "temple_1.mp4",
-  "temple_2.mp4",
-  "temple_3.mp4"
-];
-
-let current = 0;
-const player = document.getElementById("templeVideo");
-
-player.onended = function () {
-  current++;
-  if (current < videos.length) {
-    player.src = videos[current];
-    player.play();
-  }
+const videos=["temple_1.mp4","temple_2.mp4","temple_3.mp4"];
+let current=0;
+const player=document.getElementById("templeVideo");
+player.onended=function(){
+current++;
+if(current<videos.length){
+player.src=videos[current];
+player.play();
+}
 };
+</script>
+
+<!-- ⭐ Script ภาษา -->
+<script>
+
+const langData={
+
+th:{
+m_home:"หน้าแรก",
+m_history:"ประวัติวัด",
+m_visit:"เยี่ยมชมวัด",
+m_activity:"กิจกรรม",
+m_donate:"ทำบุญ",
+m_contact:"ติดต่อ",
+
+name:"วัดโบสถ์อินทรสารเพชร",
+eng:"Wat Boad Indharasanphet",
+text:"ร่วมทำบุญออนไลน์ เพื่อทำนุบำรุงพระพุทธศาสนา",
+history:"ชมวิดีโอประวัติวัด",
+visit:"ชมวิดีโอเยี่ยมชมวัด",
+activity:"กิจกรรมของวัด",
+donate:"ร่วมทำบุญกับทางวัด",
+map:"แผนที่การเดินทางมาวัด",
+contact:"ติดต่อวัด",
+mapdesc:"กดที่แผนที่เพื่อเปิด Google Maps"
+},
+
+en:{
+m_home:"Home",
+m_history:"History",
+m_visit:"Visit",
+m_activity:"Activities",
+m_donate:"Donate",
+m_contact:"Contact",
+
+name:"Wat Bots Inthrasarnphet",
+eng:"Wat Bots Inthrasarnphet",
+text:"Make an online donation to support Buddhism",
+history:"Temple History Video",
+visit:"Temple Tour Video",
+activity:"Temple Activities",
+donate:"Donation",
+map:"Location Map",
+contact:"Contact",
+mapdesc:"Click map to open Google Maps"
+},
+
+zh:{
+m_home:"首页",
+m_history:"历史",
+m_visit:"参观",
+m_activity:"活动",
+m_donate:"捐款",
+m_contact:"联系",
+
+name:"因陀罗寺",
+eng:"Yintaluo Temple",
+text:"在线捐款支持佛教",
+history:"寺庙历史视频",
+visit:"寺庙参观视频",
+activity:"寺庙活动",
+donate:"捐款",
+map:"位置地图",
+contact:"联系方式",
+mapdesc:"点击地图打开导航"
+}
+
+};
+
+function setLang(lang){
+
+for(let key in langData[lang]){
+let el=document.getElementById(key);
+if(el) el.innerText=langData[lang][key];
+}
+
+localStorage.setItem("lang",lang);
+
+}
+
+window.onload=function(){
+setLang(localStorage.getItem("lang")||"th");
+}
+
 </script>
 
 </body>
