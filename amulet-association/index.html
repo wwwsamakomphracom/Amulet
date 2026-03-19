@@ -3,124 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amulet Association</title>
+<title>ค้นหาใบรับรอง</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
+    margin: 0;
     font-family: sans-serif;
-    overflow-x: hidden;
-}
 
-/* 🔥 พื้นหลังเต็มจอ */
-.section {
-    width: 100%;
-    height: 100vh;
+    /* 🔥 พื้นหลัง (แก้ path ให้ตรง) */
+    background-image: url('amulet-association/images/bg1.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* ❗ สำคัญ: ใช้ images/ */
-.bg1 { background-image: url('images/bg1.png'); }
-.bg2 { background-image: url('images/bg2.png'); }
-.bg3 { background-image: url('images/bg3.png'); }
-.bg4 { background-image: url('images/bg4.png'); }
-
-/* 🔥 ปุ่มเมนู */
-.menu-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    font-size: 30px;
-    color: gold;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-/* 🔥 เมนู */
-.side-menu {
-    position: fixed;
-    top: 0;
-    right: -260px;
-    width: 260px;
-    height: 100%;
-    background: #111;
-    padding-top: 60px;
-    transition: 0.3s;
-    z-index: 999;
-}
-
-.side-menu a {
-    display: block;
-    padding: 15px;
+/* 🔥 กล่องกลาง */
+.container {
+    background: rgba(0,0,0,0.7);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
     color: white;
-    text-decoration: none;
-    border-bottom: 1px solid #333;
 }
 
-.side-menu a:hover {
+input {
+    padding: 10px;
+    width: 250px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
     background: gold;
-    color: black;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-/* 🔥 ช่องคลิก (ค้นหาใบรับรอง) */
-.click-box {
-    position: absolute;
-    top: 180px;   /* ปรับตามตำแหน่งจริง */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 85%;
-    height: 65px;
-    cursor: pointer;
-    z-index: 10;
-    /* debug ใช้ดูตำแหน่ง */
-    /* background: rgba(255,0,0,0.3); */
+.result {
+    margin-top: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🔥 ปุ่มเมนู -->
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="container">
+    <h2>ค้นหาใบรับรองพระแท้</h2>
 
-<!-- 🔥 เมนู (ใส่ลิงก์แล้ว) -->
-<div class="side-menu" id="menu">
-    <a href="index.html">หน้าแรก</a>
-    <a href="page.html">ตรวจสอบพระ</a>
-    <a href="news.html">ข่าวสาร</a>
-    <a href="contact.html">ติดต่อ</a>
+    <input type="text" id="code" placeholder="กรอกรหัสใบรับรอง">
+    <br>
+    <button onclick="search()">ค้นหา</button>
+
+    <div class="result" id="result"></div>
 </div>
-
-<!-- 🔥 Section 1 -->
-<div class="section bg1">
-    <!-- คลิกได้ แต่ยังไม่ใส่ลิงก์ -->
-    <a href="#" class="click-box"></a>
-</div>
-
-<!-- 🔥 Section 2 -->
-<div class="section bg2"></div>
-
-<!-- 🔥 Section 3 -->
-<div class="section bg3"></div>
-
-<!-- 🔥 Section 4 -->
-<div class="section bg4"></div>
 
 <script>
-function toggleMenu() {
-    const menu = document.getElementById("menu");
-    if (menu.style.right === "0px") {
-        menu.style.right = "-260px";
+function search() {
+    const code = document.getElementById("code").value;
+
+    const data = {
+        "1234": "พระแท้",
+        "5678": "พระแท้",
+        "9999": "ปลอม"
+    };
+
+    if(data[code]) {
+        document.getElementById("result").innerHTML = "ผล: " + data[code];
     } else {
-        menu.style.right = "0px";
+        document.getElementById("result").innerHTML = "❌ ไม่พบข้อมูล";
     }
 }
 </script>
