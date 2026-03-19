@@ -3,116 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amulet Association</title>
 
 <style>
-body {
+* {
     margin: 0;
-    font-family: sans-serif;
-    background: url('bg-long.jpg') repeat-y;
-    background-size: 100% auto;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ปุ่มเมนู */
+body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+/* 🔥 พื้นหลังเต็มจอ */
+.section {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* ❗ สำคัญ: ใช้ images/ */
+.bg1 { background-image: url('images/bg1.png'); }
+.bg2 { background-image: url('images/bg2.png'); }
+.bg3 { background-image: url('images/bg3.png'); }
+.bg4 { background-image: url('images/bg4.png'); }
+
+/* 🔥 ปุ่มเมนู */
 .menu-btn {
     position: fixed;
-    top: 15px;
-    right: 15px;
-    font-size: 28px;
-    color: #f4c542;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: gold;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 1000;
 }
 
-/* เมนู */
-.menu {
+/* 🔥 เมนู */
+.side-menu {
     position: fixed;
     top: 0;
-    right: -100%;
-    width: 100%;
+    right: -260px;
+    width: 260px;
     height: 100%;
-    background: #1a1405;
-    color: #fff;
-    transition: 0.4s;
-    padding: 60px 20px;
-    overflow-y: auto;
+    background: #111;
+    padding-top: 60px;
+    transition: 0.3s;
+    z-index: 999;
 }
 
-.menu.active {
-    right: 0;
-}
-
-.menu h2 {
-    color: #f4c542;
-    border-bottom: 1px solid #f4c542;
-    padding-bottom: 5px;
-    margin-top: 20px;
-}
-
-.menu a {
+.side-menu a {
     display: block;
-    padding: 10px 0;
-    color: #fff;
+    padding: 15px;
+    color: white;
     text-decoration: none;
+    border-bottom: 1px solid #333;
 }
 
-.menu a:hover {
-    color: #f4c542;
+.side-menu a:hover {
+    background: gold;
+    color: black;
 }
 
-.close-btn {
+/* 🔥 ช่องคลิก (ค้นหาใบรับรอง) */
+.click-box {
     position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 26px;
+    top: 180px;   /* ปรับตามตำแหน่งจริง */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 65px;
     cursor: pointer;
+    z-index: 10;
+    /* debug ใช้ดูตำแหน่ง */
+    /* background: rgba(255,0,0,0.3); */
 }
 </style>
 </head>
 
 <body>
 
-<div class="menu-btn" onclick="openMenu()">☰</div>
+<!-- 🔥 ปุ่มเมนู -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<div id="menu" class="menu">
-    <div class="close-btn" onclick="closeMenu()">✕</div>
-
-    <!-- หน้าหลัก -->
-    <h2>หน้าหลัก</h2>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e444y2r2d2d494r5r4g5i4m5b2c4e274u214t2r324a2z5i4n5n4k404j4i4q4a4e2z2s286">หน้าแรก</a>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e444x2r2d2d494r5r4g5i4m5b2c4e274u214u2r324a2z5i4n5n4k404j4i4q4a4e2z2s286">ประวัติ</a>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e444r2h2g454i4y554q5d4s3z2o3u244w224e214s3m4m5e456j404e4l4l4d4f223p2u4">คณะกรรมการบริหาร</a>
-
-    <!-- ข่าวสาร -->
-    <h2>ข่าวสารสมาคม</h2>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e4c4r2h2g454i4y554q5d4s3z2o3u244w234e214s3m4m5e456j404e4l4l4d4f223r2u4">ข่าวสาร</a>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e454r2h2g454i4y554q5d4s3z2o3u244w244e214s3m4m5e456j404e4l4l4d4f223p2u4">ปฏิทินงานประกวด</a>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e464r2h2g454i4y554q5d4s3z2o3u244w254e214s3m4m5e456j404e4l4l4d4f223p2u4">ยอดนิยมจากคมเลนส์</a>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e4b4r2h2g454i4y554q5d4s3z2o3v244w224e214s3m4m5e456j404e4l4l4d4f223p2u4">สมาคมชวนชิล</a>
-
-    <!-- สาระ -->
-    <h2>สาระพระเครื่อง</h2>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e4a4r2h2g454i4y554q5d4s3z2o3v244w234e214s3m4m5e456j404e4l4l4d4f223p2u4">เจาะลึกเรื่องพระเครื่อง</a>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e444z2r2d2d494r5r4g5i4m5b2c4e294u214v2r324a2z5i4n5n4k404j4i4q4a4e2z2q286">แนะนำอาจารย์</a>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e494r2h2g454i4y554q5d4s3z2o3v244w254e214s3m4m5e456j404e4l4l4d4f223q2u4">อมตะพระกรุ</a>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e44403r2d2d494r5r4g5i4m5b2c4e2a4u214t2r324a2z5i4n5n4k404j4i4q4a4e2z2q286">สารานุกรมพระเครื่อง</a>
-
-    <!-- วิดีโอ -->
-    <h2>วิดีโอ</h2>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e474r2h2g454i4y554q5d4s3z2o3u244w224e214s3m4m5e456j404e4l4l4d4f223p2u4">มรดกสยาม</a>
-
-    <!-- ใบรับรอง -->
-    <h2>ใบรับรองพระแท้</h2>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e44423r2d2d494r5r4g5i4m5b2c4e274u214w2r324a2z5i4n5n4k404j4i4q4a4e2z2s286">ค้นหาใบรับรองพระแท้</a>
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e44433r2d2d494r5r4g5i4m5b2c4e274u214x2r324a2z5i4n5n4k404j4i4q4a4e2z2s286">ขั้นตอนการออกใบรับรอง</a>
-
+<!-- 🔥 เมนู (ใส่ลิงก์แล้ว) -->
+<div class="side-menu" id="menu">
+    <a href="index.html">หน้าแรก</a>
+    <a href="page.html">ตรวจสอบพระ</a>
+    <a href="news.html">ข่าวสาร</a>
+    <a href="contact.html">ติดต่อ</a>
 </div>
 
+<!-- 🔥 Section 1 -->
+<div class="section bg1">
+    <!-- คลิกได้ แต่ยังไม่ใส่ลิงก์ -->
+    <a href="#" class="click-box"></a>
+</div>
+
+<!-- 🔥 Section 2 -->
+<div class="section bg2"></div>
+
+<!-- 🔥 Section 3 -->
+<div class="section bg3"></div>
+
+<!-- 🔥 Section 4 -->
+<div class="section bg4"></div>
+
 <script>
-function openMenu() {
-    document.getElementById("menu").classList.add("active");
-}
-function closeMenu() {
-    document.getElementById("menu").classList.remove("active");
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    if (menu.style.right === "0px") {
+        menu.style.right = "-260px";
+    } else {
+        menu.style.right = "0px";
+    }
 }
 </script>
 
