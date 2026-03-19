@@ -1,1 +1,12 @@
+body {
+    margin: 0;
+    background-image: 
+        url('images/bg1.png'),
+        url('images/bg2.png'),
+        url('images/bg3.png'),
+        url('images/bg4.png');
 
+    background-position: top, 100vh, 200vh, 300vh;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
