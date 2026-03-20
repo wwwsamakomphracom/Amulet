@@ -4,61 +4,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ตรวจสอบใบรับรองพระแท้</title>
+<title>ค้นหาใบรับรองพระแท้</title>
 
 <style>
 
-/* ===== พื้นหลัง ===== */
 body{
   margin:0;
   font-family:Tahoma, sans-serif;
-  background:url('../images/certificate-bg.png') center/cover no-repeat fixed;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  background:#000;
 }
 
-/* ===== กล่องค้นหา ===== */
+/* ⭐ พื้นหลังเต็มหน้า */
+.bg{
+  width:100%;
+  min-height:100vh;
+  background:url("../images/certificate-bg.png") center top no-repeat;
+  background-size:100% auto;  /* สำคัญ: ให้ยาวตามภาพ */
+  position:relative;
+}
+
+/* ⭐ กล่องช่องค้นหา */
 .search-box{
-  background:rgba(0,0,0,0.75);
-  padding:40px;
-  border-radius:18px;
-  text-align:center;
-  color:#fff;
-  box-shadow:0 0 25px rgba(0,0,0,0.8);
-}
+  position:absolute;
 
-/* หัวข้อ */
-h1{
-  margin-bottom:20px;
+  /* 🔥 ปรับตำแหน่งตามภาพ */
+  top:180px;
+  left:50%;
+  transform:translateX(-50%);
+
+  width:85%;
+  max-width:520px;
+
+  display:flex;
+  box-shadow:0 0 10px rgba(0,0,0,0.5);
 }
 
 /* ช่องกรอก */
-input{
+.search-box input{
+  flex:1;
   padding:14px;
-  width:280px;
-  font-size:20px;
+  font-size:16px;
   border:none;
-  border-radius:10px;
   outline:none;
-  text-align:center;
 }
 
-/* ปุ่ม */
-button{
-  margin-top:18px;
-  padding:14px 30px;
-  font-size:18px;
-  background:#FFD700;
+/* ปุ่มค้นหา */
+.search-box button{
+  width:60px;
   border:none;
-  border-radius:10px;
+  background:#caa24c;
+  color:#fff;
+  font-size:20px;
   cursor:pointer;
-  font-weight:bold;
 }
 
-button:hover{
-  background:#ffcc00;
+/* เอฟเฟกต์กด */
+.search-box button:hover{
+  background:#b8923f;
 }
 
 </style>
@@ -66,35 +68,15 @@ button:hover{
 
 <body>
 
-<div class="search-box">
+<div class="bg">
 
-<h1>ตรวจสอบใบรับรองพระแท้</h1>
-
-<input id="code" placeholder="กรอกเลขบัตรรับรอง">
-
-<br>
-
-<button onclick="search()">ค้นหา</button>
+  <!-- 🔎 ช่องค้นหา -->
+  <form class="search-box" action="#">
+    <input type="text" placeholder="ค้นหาจากเลขบัตร xxxx-xxxxx">
+    <button type="submit">🔍</button>
+  </form>
 
 </div>
-
-<script>
-
-function search(){
-
-  let code = document.getElementById("code").value.trim();
-
-  if(code === ""){
-    alert("กรุณากรอกเลขบัตร");
-    return;
-  }
-
-  // ไปยังหน้าเลขนั้น
-  window.location.href = code + ".html";
-
-}
-
-</script>
 
 </body>
 </html>
