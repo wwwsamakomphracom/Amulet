@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ตรวจสอบใบรับรองพระแท้</title>
+
+<style>
+
+/* ===== พื้นหลัง ===== */
+body{
+  margin:0;
+  font-family:Tahoma, sans-serif;
+  background:url('../images/certificate-bg.png') center/cover no-repeat fixed;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* ===== กล่องค้นหา ===== */
+.search-box{
+  background:rgba(0,0,0,0.75);
+  padding:40px;
+  border-radius:18px;
+  text-align:center;
+  color:#fff;
+  box-shadow:0 0 25px rgba(0,0,0,0.8);
+}
+
+/* หัวข้อ */
+h1{
+  margin-bottom:20px;
+}
+
+/* ช่องกรอก */
+input{
+  padding:14px;
+  width:280px;
+  font-size:20px;
+  border:none;
+  border-radius:10px;
+  outline:none;
+  text-align:center;
+}
+
+/* ปุ่ม */
+button{
+  margin-top:18px;
+  padding:14px 30px;
+  font-size:18px;
+  background:#FFD700;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+button:hover{
+  background:#ffcc00;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="search-box">
+
+<h1>ตรวจสอบใบรับรองพระแท้</h1>
+
+<input id="code" placeholder="กรอกเลขบัตรรับรอง">
+
+<br>
+
+<button onclick="search()">ค้นหา</button>
+
+</div>
+
+<script>
+
+function search(){
+
+  let code = document.getElementById("code").value.trim();
+
+  if(code === ""){
+    alert("กรุณากรอกเลขบัตร");
+    return;
+  }
+
+  // ไปยังหน้าเลขนั้น
+  window.location.href = code + ".html";
+
+}
+
+</script>
+
+</body>
+</html>
