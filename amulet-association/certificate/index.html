@@ -14,21 +14,25 @@ body{
   background:#000;
 }
 
-/* ⭐ พื้นหลังเต็มหน้า */
-.bg{
-  width:100%;
-  min-height:100vh;
-  background:url("../images/certificate-bg.png") center top no-repeat;
-  background-size:100% auto;  /* สำคัญ: ให้ยาวตามภาพ */
+/* ⭐ กล่องภาพ */
+.wrapper{
   position:relative;
+  width:100%;
 }
 
-/* ⭐ กล่องช่องค้นหา */
+/* ⭐ ภาพพื้นหลังจริง */
+.wrapper img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* 🔎 ช่องค้นหา */
 .search-box{
   position:absolute;
 
-  /* 🔥 ปรับตำแหน่งตามภาพ */
-  top:180px;
+  /* 🔥 ปรับตำแหน่งให้ตรงภาพ */
+  top:4.5%;     /* เปอร์เซ็นต์ = แม่นในทุกมือถือ */
   left:50%;
   transform:translateX(-50%);
 
@@ -36,7 +40,7 @@ body{
   max-width:520px;
 
   display:flex;
-  box-shadow:0 0 10px rgba(0,0,0,0.5);
+  box-shadow:0 0 12px rgba(0,0,0,0.6);
 }
 
 /* ช่องกรอก */
@@ -58,7 +62,6 @@ body{
   cursor:pointer;
 }
 
-/* เอฟเฟกต์กด */
 .search-box button:hover{
   background:#b8923f;
 }
@@ -68,7 +71,10 @@ body{
 
 <body>
 
-<div class="bg">
+<div class="wrapper">
+
+  <!-- 🖼 ภาพพื้นหลัง -->
+  <img src="certificate-bg.png" alt="ใบรับรอง">
 
   <!-- 🔎 ช่องค้นหา -->
   <form class="search-box" action="#">
