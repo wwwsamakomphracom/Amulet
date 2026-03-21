@@ -8,62 +8,71 @@
 
 <style>
 
+/* 🔱 พื้นหลังเหมือนหน้าเว็บหลัก */
 body{
   margin:0;
   font-family:Tahoma, sans-serif;
-  background:#000;
+
+  background:
+    radial-gradient(circle at top, rgba(255,220,120,0.6), transparent 60%),
+    linear-gradient(to bottom,#b38b00,#1b1a05);
+
+  color:#fff;
 }
 
-/* ⭐ กล่องภาพ */
-.wrapper{
-  position:relative;
-  width:100%;
+/* 🔝 Header */
+.header{
+  background:linear-gradient(to bottom,#f4d06f,#a67c00);
+  padding:15px;
+  text-align:center;
+  color:#4b3900;
+  font-weight:bold;
+  font-size:20px;
 }
 
-/* ⭐ ภาพพื้นหลังจริง */
-.wrapper img{
-  width:100%;
-  height:auto;
-  display:block;
-}
-
-/* 🔎 ช่องค้นหา */
-.search-box{
-  position:absolute;
-
-  /* 🔥 ปรับตำแหน่งให้ตรงภาพ */
-  top:4.5%;     /* เปอร์เซ็นต์ = แม่นในทุกมือถือ */
-  left:50%;
-  transform:translateX(-50%);
-
-  width:85%;
-  max-width:520px;
-
-  display:flex;
-  box-shadow:0 0 12px rgba(0,0,0,0.6);
+/* 📦 กล่องค้นหา */
+.container{
+  max-width:500px;
+  margin:40px auto;
+  background:#3b3200;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.7);
+  text-align:center;
 }
 
 /* ช่องกรอก */
-.search-box input{
-  flex:1;
+input{
+  width:90%;
   padding:14px;
-  font-size:16px;
+  font-size:18px;
+  border-radius:10px;
   border:none;
-  outline:none;
+  margin:15px 0;
 }
 
 /* ปุ่มค้นหา */
-.search-box button{
-  width:60px;
+button{
+  background:linear-gradient(to right,#e6c55a,#b38b00);
+  color:#4b3900;
+  font-size:18px;
+  font-weight:bold;
   border:none;
-  background:#caa24c;
-  color:#fff;
-  font-size:20px;
+  padding:12px 30px;
+  border-radius:10px;
   cursor:pointer;
 }
 
-.search-box button:hover{
-  background:#b8923f;
+/* ผลลัพธ์ */
+.result{
+  margin-top:25px;
+  font-size:18px;
+}
+
+.result img{
+  width:100%;
+  border-radius:12px;
+  margin-top:15px;
 }
 
 </style>
@@ -71,18 +80,46 @@ body{
 
 <body>
 
-<div class="wrapper">
+<div class="header">
+  🔎 ค้นหาใบรับรองพระแท้
+</div>
 
-  <!-- 🖼 ภาพพื้นหลัง -->
-  <img src="certificate-bg.png" alt="ใบรับรอง">
+<div class="container">
 
-  <!-- 🔎 ช่องค้นหา -->
-  <form class="search-box" action="#">
-    <input type="text" placeholder="ค้นหาจากเลขบัตร xxxx-xxxxx">
-    <button type="submit">🔍</button>
-  </form>
+  <p>กรอกเลขใบรับรอง</p>
+
+  <input id="code" placeholder="เช่น OB754419535TH">
+
+  <br>
+
+  <button onclick="searchCert()">ค้นหา</button>
+
+  <div class="result" id="result"></div>
 
 </div>
+
+<script>
+
+function searchCert(){
+
+  const code = document.getElementById("code").value.trim();
+  const box = document.getElementById("result");
+
+  if(code === "OB754419535TH"){
+
+    box.innerHTML = `
+      <p>✅ พบข้อมูลใบรับรอง</p>
+      <img src="../images/cert1.png">
+    `;
+
+  }else{
+
+    box.innerHTML = "❌ ไม่พบข้อมูล";
+
+  }
+}
+
+</script>
 
 </body>
 </html>
