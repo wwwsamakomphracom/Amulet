@@ -8,7 +8,7 @@
 
 <style>
 
-/* 🔱 พื้นหลังเหมือนหน้าเว็บหลัก */
+/* 🔱 พื้นหลังทอง เลื่อนขึ้นลงได้ */
 body{
   margin:0;
   font-family:Tahoma, sans-serif;
@@ -20,23 +20,25 @@ body{
   color:#fff;
 }
 
-/* 🔝 Header */
+/* 🔝 แถบหัว */
 .header{
   background:linear-gradient(to bottom,#f4d06f,#a67c00);
-  padding:15px;
+  padding:18px;
   text-align:center;
   color:#4b3900;
   font-weight:bold;
   font-size:20px;
+  position:sticky;
+  top:0;
 }
 
 /* 📦 กล่องค้นหา */
-.container{
-  max-width:500px;
+.search-box{
+  max-width:520px;
   margin:40px auto;
   background:#3b3200;
   padding:25px;
-  border-radius:18px;
+  border-radius:20px;
   box-shadow:0 15px 35px rgba(0,0,0,0.7);
   text-align:center;
 }
@@ -51,7 +53,7 @@ input{
   margin:15px 0;
 }
 
-/* ปุ่มค้นหา */
+/* ปุ่ม */
 button{
   background:linear-gradient(to right,#e6c55a,#b38b00);
   color:#4b3900;
@@ -63,16 +65,16 @@ button{
   cursor:pointer;
 }
 
-/* ผลลัพธ์ */
+/* 📄 พื้นที่ผลลัพธ์ */
 .result{
-  margin-top:25px;
-  font-size:18px;
-}
-
-.result img{
-  width:100%;
-  border-radius:12px;
-  margin-top:15px;
+  max-width:520px;
+  margin:20px auto 80px;
+  background:#3b3200;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.6);
+  min-height:200px;
+  text-align:center;
 }
 
 </style>
@@ -81,10 +83,10 @@ button{
 <body>
 
 <div class="header">
-  🔎 ค้นหาใบรับรองพระแท้
+  🔎 ระบบค้นหาใบรับรองพระแท้
 </div>
 
-<div class="container">
+<div class="search-box">
 
   <p>กรอกเลขใบรับรอง</p>
 
@@ -94,8 +96,10 @@ button{
 
   <button onclick="searchCert()">ค้นหา</button>
 
-  <div class="result" id="result"></div>
+</div>
 
+<div class="result" id="result">
+  ผลการค้นหาจะแสดงที่นี่
 </div>
 
 <script>
@@ -105,17 +109,10 @@ function searchCert(){
   const code = document.getElementById("code").value.trim();
   const box = document.getElementById("result");
 
-  if(code === "OB754419535TH"){
-
-    box.innerHTML = `
-      <p>✅ พบข้อมูลใบรับรอง</p>
-      <img src="../images/cert1.png">
-    `;
-
+  if(code === ""){
+    box.innerHTML = "⚠️ กรุณากรอกเลขใบรับรอง";
   }else{
-
-    box.innerHTML = "❌ ไม่พบข้อมูล";
-
+    box.innerHTML = "🔍 กำลังค้นหา… (จะเชื่อมฐานข้อมูลภายหลัง)";
   }
 }
 
