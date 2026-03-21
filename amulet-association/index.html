@@ -4,81 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>สมาคมผู้นิยมพระเครื่องพระบูชาไทย</title>
+<title>สมาคมพระเครื่อง</title>
 
 <style>
 
+/* 🔥 พื้นหลังทองเหมือนเว็บสมาคม */
 body{
   margin:0;
   font-family:Tahoma, sans-serif;
-  background:#f4f4f4;
-  color:#333;
-}
 
-/* ===== Header ===== */
+  background:
+    radial-gradient(circle at top, rgba(255,220,120,0.6), transparent 60%),
+    linear-gradient(to bottom,#b38b00,#1b1a05);
 
-.header{
-  background:#e0e0e0;
-  text-align:center;
-  padding:100px 20px;
-}
-
-.header h1{
-  margin:0;
-  font-size:34px;
-}
-
-/* ===== กล่องเนื้อหา ===== */
-
-.section{
-  max-width:1100px;
-  margin:40px auto;
-  padding:0 20px;
-}
-
-.box{
-  background:#fff;
-  border-radius:12px;
-  padding:30px;
-  margin-bottom:30px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
-
-/* ===== รูปกิจกรรม ===== */
-
-.image-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-}
-
-.image-grid img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:10px;
-}
-
-/* ===== Footer ===== */
-
-.footer{
-  background:#222;
   color:#fff;
-  text-align:center;
-  padding:25px;
-}
-
-/* 🌐 ปุ่มภาษา */
-.lang-switch{
-  position:fixed;
-  top:15px;
-  right:75px;
-  background:rgba(0,0,0,0.6);
-  color:#fff;
-  padding:6px 10px;
-  border-radius:4px;
-  font-size:14px;
-  z-index:9999;
 }
 
 /* ☰ ปุ่มเมนู */
@@ -87,13 +26,13 @@ body{
   top:15px;
   right:15px;
   background:#d4af37;
-  color:#fff;
+  color:#4b3900;
   font-size:28px;
   width:48px;
   height:48px;
   text-align:center;
   line-height:48px;
-  border-radius:4px;
+  border-radius:6px;
   z-index:9999;
   cursor:pointer;
 }
@@ -105,35 +44,39 @@ body{
   right:-320px;
   width:300px;
   height:100%;
-  background:#1a1406;
+  background:linear-gradient(to bottom,#3b2f00,#0f0e02);
   padding:20px;
   transition:0.3s;
-  z-index:9998;
   overflow-y:auto;
+  z-index:9998;
 }
 
 .side-menu.active{
   right:0;
 }
 
+/* 🏛️ หัวข้อเมนู (คลิกไม่ได้) */
 .menu-title{
-  color:#d4af37;
-  font-size:20px;
-  margin:20px 0 10px;
-  border-bottom:1px solid #d4af37;
-  padding-bottom:5px;
+  color:#ffd86b;
+  font-size:22px;
+  margin:25px 0 10px;
+  border-bottom:1px solid #ffd86b;
+  padding-bottom:6px;
+  font-weight:bold;
 }
 
+/* 🔘 ปุ่มเมนู */
 .side-menu a{
   display:block;
-  color:#ffffff;
+  color:#fff;
   text-decoration:none;
-  padding:8px 0;
+  padding:12px 0;
   font-size:18px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 .side-menu a:hover{
-  color:#d4af37;
+  color:#ffd86b;
 }
 
 </style>
@@ -141,76 +84,45 @@ body{
 
 <body>
 
-<!-- 🌐 ปุ่มภาษา -->
-<div class="lang-switch">
-  🇹🇭 TH | 🇬🇧 EN
-</div>
-
-<!-- ☰ ปุ่มเมนู -->
+<!-- ☰ ปุ่มเปิดเมนู -->
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<!-- 📜 เมนู -->
+<!-- 🏛️ เมนูสมาคมครบ -->
 <div class="side-menu" id="menu">
 
   <div class="menu-title">หน้าหลัก</div>
-  <a href="#">ประวัติ</a>
-  <a href="#">คณะกรรมการ</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e444x2r2d2d494r5r4g5i4m5b2c4e274u214u2r324a2z5i4n5n4k404j4i4q4a4e2z2s286">ประวัติ</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e444r2h2g454i4y554q5d4s3z2o3u244w224e214s3m4m5e456j404e4l4l4d4f223p2u4">คณะกรรมการ</a>
   <a href="#">ติดต่อเรา</a>
 
   <div class="menu-title">ข่าวสารสมาคม</div>
-  <a href="#">แวดวงพระเครื่อง</a>
-  <a href="#">ปฏิทินงานประกวด</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e4c4r2h2g454i4y554q5d4s3z2o3u244w234e214s3m4m5e456j404e4l4l4d4f223r2u4">แวดวงพระเครื่อง</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e454r2h2g454i4y554q5d4s3z2o3u244w244e214s3m4m5e456j404e4l4l4d4f223p2u4">ปฏิทินงานประกวด</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e464r2h2g454i4y554q5d4s3z2o3u244w254e214s3m4m5e456j404e4l4l4d4f223p2u4">ยอดนิยมจากคมเลนส์</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e4b4r2h2g454i4y554q5d4s3z2o3v244w224e214s3m4m5e456j404e4l4l4d4f223p2u4">สมาคมชวนชิล</a>
+
+  <div class="menu-title">สาระพระเครื่อง</div>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e4a4r2h2g454i4y554q5d4s3z2o3v244w234e214s3m4m5e456j404e4l4l4d4f223p2u4">เจาะลึกเรื่องพระเครื่อง</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e444z2r2d2d494r5r4g5i4m5b2c4e294u214v2r324a2z5i4n5n4k404j4i4q4a4e2z2q286">แนะนำอาจารย์</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e494r2h2g454i4y554q5d4s3z2o3v244w254e214s3m4m5e456j404e4l4l4d4f223q2u4">อมตะพระกรุ</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e44403r2d2d494r5r4g5i4m5b2c4e2a4u214t2r324a2z5i4n5n4k404j4i4q4a4e2z2q286">สารานุกรมพระเครื่อง</a>
+
+  <div class="menu-title">วิดีโอ</div>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e474r2h2g454i4y554q5d4s3z2o3u244w224e214s3m4m5e456j404e4l4l4d4f223p2u4">มรดกสยาม</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e44413r2d2d494r5r4g5i4m5b2c4e2a4u214v2r324a2z5i4n5n4k404j4i4q4a4e2z2q286">ร้านเด่น เว้นเดย์</a>
+  <a href="#">วิดีโออื่นๆ</a>
 
   <div class="menu-title">ใบรับรองพระแท้</div>
-  <a href="certificate/">ค้นหาใบรับรองพระแท้</a>
+  <a href="#">ค้นหาใบรับรองพระแท้</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e44433r2d2d494r5r4g5i4m5b2c4e274u214x2r324a2z5i4n5n4k404j4i4q4a4e2z2s286">ขั้นตอนการออกใบรับรอง</a>
+  <a href="#">กติกาการออกบัตรรับรอง</a>
 
-</div>
-
-<!-- 🏛️ ส่วนหัว -->
-
-<div class="header">
-  <h1>สมาคมผู้นิยมพระเครื่องพระบูชาไทย</h1>
-  <p>องค์กรรับรองพระแท้ เพื่ออนุรักษ์พระพุทธศิลป์ไทย</p>
-</div>
-
-<!-- 📦 เนื้อหา -->
-
-<div class="section">
-
-  <div class="box">
-    <h2>เกี่ยวกับสมาคม</h2>
-    <p>
-      สมาคมผู้นิยมพระเครื่องพระบูชาไทย เป็นองค์กรที่ทำหน้าที่ตรวจสอบ
-      และรับรองความแท้ของพระเครื่อง เพื่อสร้างความเชื่อมั่นแก่ประชาชน
-    </p>
-  </div>
-
-  <div class="box">
-    <h2>กิจกรรมสมาคม</h2>
-
-    <div class="image-grid">
-      <img src="images/bg1.png">
-      <img src="images/bg2.png">
-      <img src="images/bg3.png">
-      <img src="images/bg4.png">
-    </div>
-
-  </div>
-
-</div>
-
-<!-- Footer -->
-<div class="footer">
-  © 2026 สมาคมผู้นิยมพระเครื่องพระบูชาไทย
 </div>
 
 <script>
-
-/* เปิด-ปิดเมนู */
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
-
 </script>
 
 </body>
