@@ -7,20 +7,20 @@
 
 <style>
 
-/* ===== พื้นหลัง (เหลือภาพอย่างเดียว) ===== */
+/* ===== พื้นหลัง: รูปอย่างเดียว ===== */
 body{
 margin:0;
 font-family:Tahoma, sans-serif;
 color:#fff;
 
-/* ⭐ ใช้ภาพเดียว ไม่ซ้อน */
-background:#000 url("images/bg8.png") no-repeat top center;
-background-size:cover;
+/* ⭐ ไม่มีสีดำ ไม่มีพื้นหลังอื่น */
+background:url("images/bg8.png") no-repeat top center;
+background-size:100% auto;
 
 overflow-x:hidden;
 }
 
-/* ===== ปุ่ม 3 ขีด ===== */
+/* ===== ปุ่มเมนู 3 ขีด ===== */
 .menu-btn{
 position:fixed;
 top:12px;
@@ -28,90 +28,44 @@ right:12px;
 background:#fff;
 color:#000;
 font-size:20px;
-padding:6px 12px;
+padding:5px 10px;
 border-radius:5px;
 cursor:pointer;
 z-index:9999;
+box-shadow:0 0 8px rgba(0,0,0,0.8);
 }
 
-/* ===== เมนูแบบสมาคม ===== */
+/* ===== เมนูเด้ง ===== */
 .side-menu{
 position:fixed;
 top:0;
 right:-320px;
 width:300px;
 height:100%;
-background:#1a1400;
-transition:0.35s;
-padding:70px 20px;
+background:#111;
+transition:0.3s;
+padding-top:70px;
 z-index:9998;
 overflow-y:auto;
 border-left:2px solid gold;
 }
 
-.side-menu.open{
-right:0;
-}
-
-/* ===== หัวข้อสีทอง (กดไม่ได้) ===== */
-.menu-title{
-color:#d4af37;
-font-weight:bold;
-margin-top:20px;
-padding-bottom:8px;
-border-bottom:1px solid #d4af37;
-}
-
-/* ===== เมนูคลิกได้ ===== */
 .side-menu a{
 display:block;
-padding:12px 0;
-color:#eee;
+padding:14px 20px;
+color:#fff;
 text-decoration:none;
-font-size:17px;
+border-bottom:1px solid rgba(255,255,255,0.15);
+font-weight:bold;
 }
 
 .side-menu a:hover{
+background:#222;
 color:#ffd700;
 }
 
-/* ===== กล่องเนื้อหา ===== */
-.wrapper{
-width:1000px;
-margin:80px auto;
-background:rgba(0,0,0,0.75);
-box-shadow:0 0 25px rgba(0,0,0,1);
-}
-
-/* ===== หัวเว็บ ===== */
-.header{
-background:#000;
-color:#ffd700;
-text-align:center;
-padding:25px;
-border-bottom:3px solid gold;
-font-size:26px;
-font-weight:bold;
-}
-
-/* ===== Section ===== */
-.section{
-padding:70px 30px;
-border-bottom:1px solid rgba(255,255,255,0.2);
-min-height:500px;
-}
-
-.section h2{
-color:#ffd700;
-margin-top:0;
-}
-
-/* ===== Footer ===== */
-.footer{
-background:#000;
-color:#ccc;
-text-align:center;
-padding:25px;
+.side-menu.open{
+right:0;
 }
 
 </style>
@@ -119,56 +73,33 @@ padding:25px;
 
 <body>
 
-<!-- ⭐ ปุ่มเมนู -->
+<!-- ⭐ ปุ่ม 3 ขีด -->
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
 <!-- ⭐ เมนู -->
 <div class="side-menu" id="menu">
 
-<div class="menu-title">หน้าแรก</div>
-<a href="index.html">หน้าแรก</a>
-<a href="history.html">ประวัติ</a>
-<a href="board.html">คณะกรรมการ</a>
-
-<div class="menu-title">ข่าวสารสมาคม</div>
-<a href="news.html">แวดวงพระเครื่อง</a>
-<a href="calendar.html">ปฏิทินงานประกวด</a>
-<a href="popular.html">ยอดนิยมจากคมเลนส์</a>
-<a href="chill.html">สมาคมชวนชิล</a>
-
-<div class="menu-title">สาระพระเครื่อง</div>
-<a href="deep.html">เจาะลึกเรื่องพระเครื่อง</a>
-<a href="teacher.html">แนะนำอาจารย์</a>
-<a href="ancient.html">อมตะพระกรุ</a>
-<a href="encyclopedia.html">สารานุกรมพระเครื่อง</a>
-
-<div class="menu-title">วิดีโอ</div>
-<a href="heritage.html">มรดกสยาม</a>
-<a href="shop.html">ร้านเด่น</a>
-<a href="video.html">วีดีโออื่น ๆ</a>
-
-<div class="menu-title">ใบรับรองพระแท้</div>
-<a href="certificate.html">ขั้นตอนการออกใบรับรอง</a>
-<a href="rules.html">กติกาการออกบัตรรับรอง</a>
+<a href="#home">หน้าแรก</a>
+<a href="#history">ประวัติ</a>
+<a href="#board">คณะกรรมการ</a>
+<a href="#news">ข่าวสาร</a>
+<a href="#calendar">ปฏิทินประกวด</a>
+<a href="#popular">ยอดนิยม</a>
+<a href="#chill">สมาคมชวนชิล</a>
+<a href="#deep">เจาะลึกพระ</a>
+<a href="#teacher">แนะนำอาจารย์</a>
+<a href="#ancient">อมตะพระกรุ</a>
+<a href="#encyclopedia">สารานุกรม</a>
+<a href="#heritage">มรดกสยาม</a>
+<a href="#shop">ร้านเด่น</a>
+<a href="#video">วีดีโอ</a>
+<a href="#certificate">ออกใบรับรอง</a>
+<a href="#rules">กติกา</a>
 
 </div>
 
-<!-- ===== เนื้อหา ===== -->
-<div class="wrapper">
-
-<div class="header">
-สมาคมผู้นิยมพระเครื่องพระบูชาไทย
-</div>
-
-<div class="section"><h2>หน้าแรก</h2></div>
-<div class="section"><h2>เนื้อหาตัวอย่าง</h2></div>
-<div class="section"><h2>เนื้อหาตัวอย่าง</h2></div>
-
-<div class="footer">
-© สมาคมผู้นิยมพระเครื่องพระบูชาไทย
-</div>
-
-</div>
+<!-- ⭐ พื้นที่ให้เลื่อน -->
+<div style="height:3500px;"></div>
 
 <script>
 function toggleMenu(){
