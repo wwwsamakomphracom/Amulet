@@ -7,52 +7,60 @@
 
 <style>
 
-/* ===== พื้นหลังหลัก ===== */
+/* ===== พื้นหลังมือถือ ===== */
 body{
 margin:0;
 font-family:Tahoma, sans-serif;
-
-/* ⭐ พื้นหลังเลื่อนตามหน้า */
-background:#000 url("images/bg8.png") no-repeat top center;
-background-size:100% auto;
-
 color:#fff;
+
+/* ⭐ ทำให้ภาพพอดอมือถือ */
+background:#000 url("images/bg8.png") no-repeat top center;
+background-size:cover;     /* เต็มจอ */
+background-attachment:scroll;
+
 overflow-x:hidden;
 }
 
-/* ===== ปุ่มเมนู 3 ขีด ===== */
+/* ===== ปุ่ม 3 ขีด ===== */
 .menu-btn{
 position:fixed;
-top:12px;
-right:12px;
+top:15px;
+right:15px;
 background:#fff;
 color:#000;
-font-size:20px;
-padding:5px 10px;
-border-radius:5px;
+font-size:22px;
+padding:6px 12px;
+border-radius:6px;
 cursor:pointer;
-z-index:9999;
-box-shadow:0 0 8px rgba(0,0,0,0.8);
+z-index:10000;
+box-shadow:0 0 10px rgba(0,0,0,0.9);
 }
 
-/* ===== เมนูเด้ง ===== */
+/* ===== เมนูด้านข้าง ===== */
 .side-menu{
 position:fixed;
 top:0;
-right:-320px;
-width:300px;
+right:-100%;          /* ซ่อนสนิท */
+width:80%;
+max-width:320px;
 height:100%;
-background:#111;        /* โทนมืด */
-transition:0.3s;
+background:#111;
+transition:0.35s;
 padding-top:70px;
-z-index:9998;
+z-index:9999;
 overflow-y:auto;
 border-left:2px solid gold;
 }
 
+/* ⭐ เปิดเมนู */
+.side-menu.open{
+right:0;
+}
+
+/* ===== ลิงก์เมนู ===== */
 .side-menu a{
 display:block;
-padding:14px 20px;
+padding:15px 20px;
 color:#fff;
 text-decoration:none;
 border-bottom:1px solid rgba(255,255,255,0.15);
@@ -61,17 +69,13 @@ font-weight:bold;
 
 .side-menu a:hover{
 background:#222;
-color:#ffd700;          /* โฮเวอร์สีทอง */
-}
-
-/* ⭐ เปิดเมนู */
-.side-menu.open{
-right:0;
+color:#ffd700;
 }
 
 /* ===== กล่องเนื้อหา ===== */
 .wrapper{
-width:1000px;
+width:95%;
+max-width:1000px;
 margin:80px auto;
 background:rgba(0,0,0,0.75);
 box-shadow:0 0 25px rgba(0,0,0,1);
@@ -82,21 +86,21 @@ box-shadow:0 0 25px rgba(0,0,0,1);
 background:#000;
 color:#ffd700;
 text-align:center;
-padding:25px;
+padding:22px;
 border-bottom:3px solid gold;
-font-size:26px;
+font-size:22px;
 font-weight:bold;
 }
 
 /* ===== Section ===== */
 .section{
-padding:70px 30px;
+padding:60px 20px;
 border-bottom:1px solid rgba(255,255,255,0.2);
-min-height:500px;
+min-height:450px;
 }
 
 .section h2{
-color:#ffd700;   /* ⭐ หัวข้อสีทอง */
+color:#ffd700;
 margin-top:0;
 }
 
@@ -169,9 +173,19 @@ padding:25px;
 </div>
 
 <script>
+
+/* ⭐ เปิด-ปิดเมนู */
 function toggleMenu(){
 document.getElementById("menu").classList.toggle("open");
 }
+
+/* ⭐ กดเมนูแล้วปิดอัตโนมัติ */
+document.querySelectorAll(".side-menu a").forEach(link=>{
+link.addEventListener("click",()=>{
+document.getElementById("menu").classList.remove("open");
+});
+});
+
 </script>
 
 </body>
