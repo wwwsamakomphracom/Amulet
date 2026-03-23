@@ -1,98 +1,47 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ค้นหาใบรับรองพระแท้</title>
+<title>ค้นหาใบรับรอง</title>
 
 <style>
 
-/* 🔥 พื้นหลังภาพเดียว เลื่อนขึ้นลงได้ */
+/* ===== พื้นหลังเต็มจอ ===== */
 body{
-  margin:0;
-  font-family:Tahoma, sans-serif;
-  color:#fff;
-
-  background:url("../images/certificate-bg.png")
-             no-repeat center top;
-  background-size:cover;
-  background-attachment:scroll;
+margin:0;
+font-family:Tahoma, sans-serif;
+background:#000;
 }
 
-/* ⭐ เงาบาง ๆ เพื่อให้อ่านตัวหนังสือได้ */
-.overlay{
-  min-height:100vh;
-  background:rgba(0,0,0,0.35);
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+/* ⭐ กล่องภาพ */
+.bg-box{
+position:relative;
+width:100%;
+max-width:1000px;
+margin:auto;
 }
 
-/* 🔝 หัวข้อ */
-.header{
-  margin-top:40px;
-  font-size:28px;
-  font-weight:bold;
-  text-shadow:0 3px 12px rgba(0,0,0,0.9);
+/* ⭐ ภาพพื้นหลัง */
+.bg-box img{
+width:100%;
+display:block;
 }
 
-/* 📦 กล่องค้นหาแบบกลืนภาพ */
-.search-box{
-  margin-top:120px;
+/* ===== พื้นที่คลิก ===== */
+.click-area{
+position:absolute;
 
-  background:rgba(0,0,0,0.45);
-  backdrop-filter:blur(8px);
+/* ⭐ ปรับตำแหน่งตรงช่องค้นหา */
+top:72%;
+left:8%;
+width:84%;
+height:8%;
 
-  padding:35px;
-  border-radius:18px;
-
-  text-align:center;
-  box-shadow:0 20px 60px rgba(0,0,0,0.8);
-}
-
-/* ช่องกรอก */
-input{
-  width:260px;
-  padding:14px;
-  font-size:18px;
-
-  border:none;
-  border-radius:10px;
-
-  margin:15px 0;
-}
-
-/* ปุ่ม */
-button{
-  background:#e6c55a;
-  color:#4b3900;
-  font-size:18px;
-  font-weight:bold;
-
-  border:none;
-  padding:12px 28px;
-  border-radius:10px;
-
-  cursor:pointer;
-}
-
-/* 📄 ผลลัพธ์ */
-.result{
-  margin:50px auto 120px;
-
-  background:rgba(0,0,0,0.45);
-  backdrop-filter:blur(6px);
-
-  padding:25px;
-  border-radius:18px;
-
-  min-height:120px;
-  width:320px;
-
-  text-align:center;
+/* โปร่งใส */
+background:rgba(255,0,0,0); 
+cursor:pointer;
 }
 
 </style>
@@ -100,46 +49,15 @@ button{
 
 <body>
 
-<div class="overlay">
+<div class="bg-box">
 
-<div class="header">
-🔎 ระบบค้นหาใบรับรองพระแท้ สมาคม
-</div>
+<!-- ⭐ รูปหน้าเว็บค้นหา -->
+<img src="images/search-bg.png">
 
-<div class="search-box">
-
-<p>กรอกเลขใบรับรอง</p>
-
-<input id="code" placeholder="เช่น OB754419535TH">
-
-<br>
-
-<button onclick="searchCert()">ค้นหา</button>
+<!-- ⭐ พื้นที่คลิก -->
+<a href="search-result.html" class="click-area"></a>
 
 </div>
-
-<div class="result" id="result">
-ผลการค้นหาจะแสดงที่นี่
-</div>
-
-</div>
-
-<script>
-
-function searchCert(){
-
-  const code = document.getElementById("code").value.trim();
-  const box = document.getElementById("result");
-
-  if(code === ""){
-    box.innerHTML = "⚠️ กรุณากรอกเลขใบรับรอง";
-  }else{
-    box.innerHTML = "🔍 ไม่พบข้อมูล (ยังไม่ได้เชื่อมฐานข้อมูล)";
-  }
-
-}
-
-</script>
 
 </body>
 </html>
