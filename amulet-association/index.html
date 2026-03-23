@@ -7,60 +7,52 @@
 
 <style>
 
-/* ===== พื้นหลังมือถือ ===== */
+/* ===== พื้นหลังหลัก ===== */
 body{
 margin:0;
 font-family:Tahoma, sans-serif;
-color:#fff;
 
-/* ⭐ ทำให้ภาพพอดอมือถือ */
+/* ⭐ พื้นหลังเลื่อนตามหน้า */
 background:#000 url("images/bg8.png") no-repeat top center;
-background-size:cover;     /* เต็มจอ */
-background-attachment:scroll;
+background-size:100% auto;
 
+color:#fff;
 overflow-x:hidden;
 }
 
-/* ===== ปุ่ม 3 ขีด ===== */
+/* ===== ปุ่มเมนู 3 ขีด ===== */
 .menu-btn{
 position:fixed;
-top:15px;
-right:15px;
+top:12px;
+right:12px;
 background:#fff;
 color:#000;
-font-size:22px;
-padding:6px 12px;
-border-radius:6px;
+font-size:20px;
+padding:5px 10px;
+border-radius:5px;
 cursor:pointer;
-z-index:10000;
-box-shadow:0 0 10px rgba(0,0,0,0.9);
+z-index:9999;
+box-shadow:0 0 8px rgba(0,0,0,0.8);
 }
 
-/* ===== เมนูด้านข้าง ===== */
+/* ===== เมนูเด้ง ===== */
 .side-menu{
 position:fixed;
 top:0;
-right:-100%;          /* ซ่อนสนิท */
-width:80%;
-max-width:320px;
+right:-320px;
+width:300px;
 height:100%;
-background:#111;
-transition:0.35s;
+background:#111;        /* โทนมืด */
+transition:0.3s;
 padding-top:70px;
-z-index:9999;
+z-index:9998;
 overflow-y:auto;
 border-left:2px solid gold;
 }
 
-/* ⭐ เปิดเมนู */
-.side-menu.open{
-right:0;
-}
-
-/* ===== ลิงก์เมนู ===== */
 .side-menu a{
 display:block;
-padding:15px 20px;
+padding:14px 20px;
 color:#fff;
 text-decoration:none;
 border-bottom:1px solid rgba(255,255,255,0.15);
@@ -69,13 +61,17 @@ font-weight:bold;
 
 .side-menu a:hover{
 background:#222;
-color:#ffd700;
+color:#ffd700;          /* โฮเวอร์สีทอง */
+}
+
+/* ⭐ เปิดเมนู */
+.side-menu.open{
+right:0;
 }
 
 /* ===== กล่องเนื้อหา ===== */
 .wrapper{
-width:95%;
-max-width:1000px;
+width:1000px;
 margin:80px auto;
 background:rgba(0,0,0,0.75);
 box-shadow:0 0 25px rgba(0,0,0,1);
@@ -86,21 +82,21 @@ box-shadow:0 0 25px rgba(0,0,0,1);
 background:#000;
 color:#ffd700;
 text-align:center;
-padding:22px;
+padding:25px;
 border-bottom:3px solid gold;
-font-size:22px;
+font-size:26px;
 font-weight:bold;
 }
 
 /* ===== Section ===== */
 .section{
-padding:60px 20px;
+padding:70px 30px;
 border-bottom:1px solid rgba(255,255,255,0.2);
-min-height:450px;
+min-height:500px;
 }
 
 .section h2{
-color:#ffd700;
+color:#ffd700;   /* ⭐ หัวข้อสีทอง */
 margin-top:0;
 }
 
@@ -140,6 +136,32 @@ padding:25px;
 <a href="#certificate">ออกใบรับรอง</a>
 <a href="#rules">กติกา</a>
 
+</div>
+
+<!-- ===== เนื้อหา ===== -->
+<div class="wrapper">
+
+<div class="header">
+สมาคมผู้นิยมพระเครื่องพระบูชาไทย
+</div>
+
+<div id="home" class="section"><h2>หน้าแรก</h2></div>
+<div id="history" class="section"><h2>ประวัติ</h2></div>
+<div id="board" class="section"><h2>คณะกรรมการบริหาร</h2></div>
+<div id="news" class="section"><h2>ข่าวสาร</h2></div>
+<div id="calendar" class="section"><h2>ปฏิทินงานประกวด</h2></div>
+<div id="popular" class="section"><h2>ยอดนิยมจากคมเลนส์</h2></div>
+<div id="chill" class="section"><h2>สมาคมชวนชิล</h2></div>
+<div id="deep" class="section"><h2>เจาะลึกเรื่องพระเครื่อง</h2></div>
+<div id="teacher" class="section"><h2>แนะนำอาจารย์</h2></div>
+<div id="ancient" class="section"><h2>อมตะพระกรุ</h2></div>
+<div id="encyclopedia" class="section"><h2>สารานุกรมพระเครื่อง</h2></div>
+<div id="heritage" class="section"><h2>มรดกสยาม</h2></div>
+<div id="shop" class="section"><h2>ร้านเด่น</h2></div>
+<div id="video" class="section"><h2>วีดีโออื่น ๆ</h2></div>
+<div id="certificate" class="section"><h2>ขั้นตอนการออกใบรับรองพระแท้</h2></div>
+<div id="rules" class="section"><h2>กติกาการออกบัตรรับรอง</h2></div>
+
 <div class="footer">
 © สมาคมผู้นิยมพระเครื่องพระบูชาไทย
 </div>
@@ -147,19 +169,9 @@ padding:25px;
 </div>
 
 <script>
-
-/* ⭐ เปิด-ปิดเมนู */
 function toggleMenu(){
 document.getElementById("menu").classList.toggle("open");
 }
-
-/* ⭐ กดเมนูแล้วปิดอัตโนมัติ */
-document.querySelectorAll(".side-menu a").forEach(link=>{
-link.addEventListener("click",()=>{
-document.getElementById("menu").classList.remove("open");
-});
-});
-
 </script>
 
 </body>
