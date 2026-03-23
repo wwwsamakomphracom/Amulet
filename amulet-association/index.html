@@ -7,76 +7,105 @@
 
 <style>
 
+/* ===== พื้นหลังหลัก ===== */
 body{
 margin:0;
 font-family:Tahoma, sans-serif;
-background:#1f1f1f;
 
-/* ⭐ ให้เลื่อนได้แน่นอน */
+/* ⭐ พื้นหลังเลื่อนตามหน้า */
+background:#000 url("images/bg8.png") no-repeat top center;
+background-size:100% auto;
+
+color:#fff;
 overflow-x:hidden;
-overflow-y:auto;
 }
 
-/* กรอบ */
-.wrapper{
-width:1000px;
-margin:auto;
-background:#efe9dc;
-box-shadow:0 0 25px rgba(0,0,0,0.9);
+/* ===== ปุ่มเมนู 3 ขีด ===== */
+.menu-btn{
+position:fixed;
+top:12px;
+right:12px;
+background:#fff;
+color:#000;
+font-size:20px;
+padding:5px 10px;
+border-radius:5px;
+cursor:pointer;
+z-index:9999;
+box-shadow:0 0 8px rgba(0,0,0,0.8);
 }
 
-/* Header */
-.header{
-background:#5a0000;
-color:#ffd700;
-text-align:center;
-padding:20px;
-border-bottom:5px solid gold;
-}
-
-/* เมนู */
-.nav{
-background:#caa300;
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-position:sticky;   /* ⭐ เมนูลอยตาม */
+/* ===== เมนูเด้ง ===== */
+.side-menu{
+position:fixed;
 top:0;
-z-index:999;
+right:-320px;
+width:300px;
+height:100%;
+background:#111;        /* โทนมืด */
+transition:0.3s;
+padding-top:70px;
+z-index:9998;
+overflow-y:auto;
+border-left:2px solid gold;
 }
 
-.nav a{
-padding:12px 14px;
+.side-menu a{
+display:block;
+padding:14px 20px;
+color:#fff;
 text-decoration:none;
-color:white;
+border-bottom:1px solid rgba(255,255,255,0.15);
 font-weight:bold;
 }
 
-.nav a:hover{
-background:#5a4200;
+.side-menu a:hover{
+background:#222;
+color:#ffd700;          /* โฮเวอร์สีทอง */
 }
 
-/* Section */
-.section{
-padding:60px 25px;
-border-bottom:2px solid #ccc;
-background:#fff;
+/* ⭐ เปิดเมนู */
+.side-menu.open{
+right:0;
+}
 
-/* ⭐ ทำให้แต่ละส่วนสูงพอให้เลื่อน */
+/* ===== กล่องเนื้อหา ===== */
+.wrapper{
+width:1000px;
+margin:80px auto;
+background:rgba(0,0,0,0.75);
+box-shadow:0 0 25px rgba(0,0,0,1);
+}
+
+/* ===== หัวเว็บ ===== */
+.header{
+background:#000;
+color:#ffd700;
+text-align:center;
+padding:25px;
+border-bottom:3px solid gold;
+font-size:26px;
+font-weight:bold;
+}
+
+/* ===== Section ===== */
+.section{
+padding:70px 30px;
+border-bottom:1px solid rgba(255,255,255,0.2);
 min-height:500px;
 }
 
 .section h2{
-color:#8b0000;
+color:#ffd700;   /* ⭐ หัวข้อสีทอง */
 margin-top:0;
 }
 
-/* Footer */
+/* ===== Footer ===== */
 .footer{
-background:#2a0000;
-color:white;
+background:#000;
+color:#ccc;
 text-align:center;
-padding:20px;
+padding:25px;
 }
 
 </style>
@@ -84,13 +113,12 @@ padding:20px;
 
 <body>
 
-<div class="wrapper">
+<!-- ⭐ ปุ่ม 3 ขีด -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<div class="header">
-<h1>สมาคมผู้นิยมพระเครื่องพระบูชาไทย</h1>
-</div>
+<!-- ⭐ เมนูเด้ง -->
+<div class="side-menu" id="menu">
 
-<div class="nav">
 <a href="#home">หน้าแรก</a>
 <a href="#history">ประวัติ</a>
 <a href="#board">คณะกรรมการ</a>
@@ -107,93 +135,44 @@ padding:20px;
 <a href="#video">วีดีโอ</a>
 <a href="#certificate">ออกใบรับรอง</a>
 <a href="#rules">กติกา</a>
+
 </div>
 
-<div id="home" class="section">
-<h2>หน้าแรก</h2>
-<p>เนื้อหาหน้าแรก</p>
+<!-- ===== เนื้อหา ===== -->
+<div class="wrapper">
+
+<div class="header">
+สมาคมผู้นิยมพระเครื่องพระบูชาไทย
 </div>
 
-<div id="history" class="section">
-<h2>ประวัติ</h2>
-<p>เนื้อหาประวัติสมาคม</p>
-</div>
-
-<div id="board" class="section">
-<h2>คณะกรรมการบริหาร</h2>
-<p>รายชื่อคณะกรรมการ</p>
-</div>
-
-<div id="news" class="section">
-<h2>ข่าวสาร</h2>
-<p>ข่าวประชาสัมพันธ์</p>
-</div>
-
-<div id="calendar" class="section">
-<h2>ปฏิทินงานประกวด</h2>
-<p>รายละเอียดงานประกวดพระ</p>
-</div>
-
-<div id="popular" class="section">
-<h2>ยอดนิยมจากคมเลนส์</h2>
-<p>พระยอดนิยม</p>
-</div>
-
-<div id="chill" class="section">
-<h2>สมาคมชวนชิล</h2>
-<p>กิจกรรมและบทความ</p>
-</div>
-
-<div id="deep" class="section">
-<h2>เจาะลึกเรื่องพระเครื่อง</h2>
-<p>บทวิเคราะห์พระเครื่อง</p>
-</div>
-
-<div id="teacher" class="section">
-<h2>แนะนำอาจารย์</h2>
-<p>ข้อมูลอาจารย์</p>
-</div>
-
-<div id="ancient" class="section">
-<h2>อมตะพระกรุ</h2>
-<p>พระกรุสำคัญ</p>
-</div>
-
-<div id="encyclopedia" class="section">
-<h2>สารานุกรมพระเครื่อง</h2>
-<p>ความรู้พระเครื่อง</p>
-</div>
-
-<div id="heritage" class="section">
-<h2>มรดกสยาม</h2>
-<p>พระสำคัญของไทย</p>
-</div>
-
-<div id="shop" class="section">
-<h2>ร้านเด่น</h2>
-<p>ร้านพระแนะนำ</p>
-</div>
-
-<div id="video" class="section">
-<h2>วีดีโออื่น ๆ</h2>
-<p>คลิปวิดีโอ</p>
-</div>
-
-<div id="certificate" class="section">
-<h2>ขั้นตอนการออกใบรับรองพระแท้</h2>
-<p>รายละเอียดขั้นตอน</p>
-</div>
-
-<div id="rules" class="section">
-<h2>กติกาการออกบัตรรับรอง</h2>
-<p>ข้อกำหนด</p>
-</div>
+<div id="home" class="section"><h2>หน้าแรก</h2></div>
+<div id="history" class="section"><h2>ประวัติ</h2></div>
+<div id="board" class="section"><h2>คณะกรรมการบริหาร</h2></div>
+<div id="news" class="section"><h2>ข่าวสาร</h2></div>
+<div id="calendar" class="section"><h2>ปฏิทินงานประกวด</h2></div>
+<div id="popular" class="section"><h2>ยอดนิยมจากคมเลนส์</h2></div>
+<div id="chill" class="section"><h2>สมาคมชวนชิล</h2></div>
+<div id="deep" class="section"><h2>เจาะลึกเรื่องพระเครื่อง</h2></div>
+<div id="teacher" class="section"><h2>แนะนำอาจารย์</h2></div>
+<div id="ancient" class="section"><h2>อมตะพระกรุ</h2></div>
+<div id="encyclopedia" class="section"><h2>สารานุกรมพระเครื่อง</h2></div>
+<div id="heritage" class="section"><h2>มรดกสยาม</h2></div>
+<div id="shop" class="section"><h2>ร้านเด่น</h2></div>
+<div id="video" class="section"><h2>วีดีโออื่น ๆ</h2></div>
+<div id="certificate" class="section"><h2>ขั้นตอนการออกใบรับรองพระแท้</h2></div>
+<div id="rules" class="section"><h2>กติกาการออกบัตรรับรอง</h2></div>
 
 <div class="footer">
 © สมาคมผู้นิยมพระเครื่องพระบูชาไทย
 </div>
 
 </div>
+
+<script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("open");
+}
+</script>
 
 </body>
 </html>
