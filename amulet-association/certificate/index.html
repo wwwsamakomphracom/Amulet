@@ -3,22 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ค้นหาใบรับรอง</title>
+<title>ค้นหาใบรับรองพระแท้</title>
 
 <style>
-
-/* ===== พื้นหลัง ===== */
 body{
   margin:0;
-  font-family:Tahoma, sans-serif;
   background:#000;
+  font-family:Tahoma,sans-serif;
 }
 
 /* ⭐ กล่องภาพ */
 .bg-box{
   position:relative;
-  width:100%;
   max-width:1000px;
   margin:auto;
 }
@@ -29,20 +25,31 @@ body{
   display:block;
 }
 
-/* ===== พื้นที่คลิก ===== */
-.click-area{
+/* ⭐ ช่องกรอก */
+.input-box{
   position:absolute;
-
-  /* ⭐ ปรับตำแหน่งช่องค้นหา */
-  top:72%;
+  top:71%;
   left:8%;
-  width:84%;
+  width:60%;
   height:8%;
-
-  background:rgba(255,0,0,0);
-  cursor:pointer;
+  font-size:18px;
+  padding:8px;
+  border:none;
+  outline:none;
+  background:rgba(255,255,255,0.9);
 }
 
+/* ⭐ ปุ่มค้นหา */
+.search-btn{
+  position:absolute;
+  top:71%;
+  right:8%;
+  width:20%;
+  height:8%;
+  border:none;
+  background:rgba(0,0,0,0);
+  cursor:pointer;
+}
 </style>
 </head>
 
@@ -50,13 +57,27 @@ body{
 
 <div class="bg-box">
 
-<!-- ⭐ ใช้ชื่อไฟล์ที่ถูกต้อง -->
-<img src="images/certificate-bg.png" alt="certificate">
+  <!-- ⭐ Path ถูกต้องสำหรับโครงสร้างคุณ -->
+  <img src="../images/certificate-bg.png" alt="search">
 
-<!-- ⭐ พื้นที่คลิก -->
-<a href="search-result.html" class="click-area"></a>
+  <!-- ⭐ ช่องใส่เลข -->
+  <input type="text" class="input-box" placeholder="กรอกเลขใบรับรอง">
+
+  <!-- ⭐ ปุ่มค้นหา -->
+  <button class="search-btn" onclick="goSearch()"></button>
 
 </div>
+
+<script>
+function goSearch(){
+  const code = document.querySelector(".input-box").value;
+
+  if(code.trim() !== ""){
+    // ⭐ เตรียมไว้ใส่ลิงก์จริงในอนาคต
+    alert("ค้นหาเลข: " + code);
+  }
+}
+</script>
 
 </body>
 </html>
