@@ -19,6 +19,54 @@
       overflow-x: hidden;
     }
 
+    /* ช่องค้นหาด้านบน */
+    .search-container {
+      position: absolute; /* อยู่เหนือภาพ */
+      top: 20px; /* ระยะจากขอบบน */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 950px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.1); /* ใส่สีพื้นโปร่งเล็กน้อย ถ้าต้องการ */
+      padding: 0 10px;
+      z-index: 1000;
+    }
+
+    .search-container input[type="text"] {
+      width: calc(100% - 160px); /* เหลือที่ให้ปุ่มข้างขวา */
+      height: 100%;
+      font-size: 32px;
+      padding-left: 20px;
+      border: 2px solid #d4af37;
+      border-radius: 8px;
+      background-color: #fff;
+      color: #000;
+    }
+
+    .search-container input::placeholder {
+      color: #888;
+    }
+
+    .search-container button {
+      width: 150px;
+      height: 150px;
+      background-color: #d4af37; /* สีเหลืองตามที่บอก */
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-container button img {
+      width: 50px; /* ขนาดแว่นขยายภายในปุ่ม */
+      height: 50px;
+    }
+
     /* คอนเทนเนอร์รูปภาพ */
     .image-container {
       width: 100%;
@@ -38,12 +86,38 @@
         background-size: contain;
         padding-top: 10px;
       }
+      .search-container {
+        width: 90%;
+        height: 100px;
+      }
+      .search-container input[type="text"] {
+        font-size: 20px;
+      }
+      .search-container button {
+        width: 100px;
+        height: 100px;
+      }
+      .search-container button img {
+        width: 40px;
+        height: 40px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- ⭐ ช่องค้นหาด้านบน -->
+  <div class="search-container">
+    <input type="text" placeholder="ค้นหาจากเลขบัตร   ××××-××××">
+    <button>
+      <img src="images/search-icon-white.png" alt="ค้นหา">
+    </button>
+  </div>
+
+  <!-- ⭐ ภาพพื้นหลัง -->
   <div class="image-container">
     <!-- ภาพเป็น background ของ div จึงไม่ต้องใช้ <img> -->
   </div>
+
 </body>
 </html>
