@@ -8,40 +8,39 @@
 
 <style>
 
-/* ===== พื้นหลังเต็มจอ ===== */
+/* ===== พื้นหลัง ===== */
 body{
-margin:0;
-font-family:Tahoma, sans-serif;
-background:#000;
+  margin:0;
+  font-family:Tahoma, sans-serif;
+  background:#000;
 }
 
 /* ⭐ กล่องภาพ */
 .bg-box{
-position:relative;
-width:100%;
-max-width:1000px;
-margin:auto;
+  position:relative;
+  width:100%;
+  max-width:1000px;
+  margin:auto;
 }
 
 /* ⭐ ภาพพื้นหลัง */
 .bg-box img{
-width:100%;
-display:block;
+  width:100%;
+  display:block;
 }
 
 /* ===== พื้นที่คลิก ===== */
 .click-area{
-position:absolute;
+  position:absolute;
 
-/* ⭐ ปรับตำแหน่งตรงช่องค้นหา */
-top:72%;
-left:8%;
-width:84%;
-height:8%;
+  /* ⭐ ปรับตำแหน่งช่องค้นหา */
+  top:72%;
+  left:8%;
+  width:84%;
+  height:8%;
 
-/* โปร่งใส */
-background:rgba(255,0,0,0); 
-cursor:pointer;
+  background:rgba(255,0,0,0);
+  cursor:pointer;
 }
 
 </style>
@@ -51,8 +50,8 @@ cursor:pointer;
 
 <div class="bg-box">
 
-<!-- ⭐ รูปหน้าเว็บค้นหา -->
-<img src="images/search-bg.png">
+<!-- ⭐ ใช้ชื่อไฟล์ที่ถูกต้อง -->
+<img src="images/certificate-bg.png" alt="certificate">
 
 <!-- ⭐ พื้นที่คลิก -->
 <a href="search-result.html" class="click-area"></a>
