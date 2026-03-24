@@ -1,27 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TAG163823093</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAG163823093</title>
+  <style>
+    /* พื้นฐานของหน้าเว็บ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
-body{
-  margin:0;
-  background:#000;
-}
+    body, html {
+      height: 100%;
+      font-family: Tahoma, sans-serif;
+      background-color: #000; /* พื้นหลังดำเวลารูปโหลดช้า */
+      overflow-x: hidden;
+    }
 
-img{
-  width:100%;
-  height:auto;
-  display:block;
-}
-</style>
+    /* คอนเทนเนอร์รูปภาพ */
+    .image-container {
+      width: 100%;
+      min-height: 100vh;
+      background: url('../TAG163823093/TAG163823093.png') no-repeat center top;
+      background-size: contain; /* ทำให้พอดีกับความกว้างและสูงตามสัดส่วน */
+      background-attachment: scroll; /* ให้เลื่อนตามหน้า */
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 20px; /* เว้นขอบบนเล็กน้อย */
+    }
+
+    /* สำหรับมือถือ ปรับให้รูปเต็มหน้าจอ */
+    @media (max-width: 768px) {
+      .image-container {
+        background-size: contain;
+        padding-top: 10px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<img src="TAG163823093.png" alt="TAG163823093">
-
+  <div class="image-container">
+    <!-- ภาพเป็น background ของ div จึงไม่ต้องใช้ <img> -->
+  </div>
 </body>
 </html>
