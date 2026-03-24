@@ -1,123 +1,28 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TAG163823093</title>
-  <style>
-    /* พื้นฐานของหน้าเว็บ */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAG163823093</title>
 
-    body, html {
-      height: 100%;
-      font-family: Tahoma, sans-serif;
-      background-color: #000; /* พื้นหลังดำเวลารูปโหลดช้า */
-      overflow-x: hidden;
-    }
+<style>
+/* 🔥 พื้นหลังภาพยาว เลื่อนขึ้น-ลงได้ */
+body {
+  margin: 0;
+  background-image: url("TAG163823093.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto; /* ปรับให้ภาพเต็มความกว้าง ยาวตามขนาดจริง */
+}
 
-    /* ช่องค้นหาด้านบน */
-    .search-container {
-      position: absolute; /* อยู่เหนือภาพ */
-      top: 20px; /* ระยะจากขอบบน */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 950px;
-      height: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(255, 255, 255, 0.1); /* ใส่สีพื้นโปร่งเล็กน้อย ถ้าต้องการ */
-      padding: 0 10px;
-      z-index: 1000;
-    }
-
-    .search-container input[type="text"] {
-      width: calc(100% - 160px); /* เหลือที่ให้ปุ่มข้างขวา */
-      height: 100%;
-      font-size: 32px;
-      padding-left: 20px;
-      border: 2px solid #d4af37;
-      border-radius: 8px;
-      background-color: #fff;
-      color: #000;
-    }
-
-    .search-container input::placeholder {
-      color: #888;
-    }
-
-    .search-container button {
-      width: 150px;
-      height: 150px;
-      background-color: #d4af37; /* สีเหลืองตามที่บอก */
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .search-container button img {
-      width: 50px; /* ขนาดแว่นขยายภายในปุ่ม */
-      height: 50px;
-    }
-
-    /* คอนเทนเนอร์รูปภาพ */
-    .image-container {
-      width: 100%;
-      min-height: 100vh;
-      background: url('../TAG163823093/TAG163823093.png') no-repeat center top;
-      background-size: contain; /* ทำให้พอดีกับความกว้างและสูงตามสัดส่วน */
-      background-attachment: scroll; /* ให้เลื่อนตามหน้า */
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding-top: 20px; /* เว้นขอบบนเล็กน้อย */
-    }
-
-    /* สำหรับมือถือ ปรับให้รูปเต็มหน้าจอ */
-    @media (max-width: 768px) {
-      .image-container {
-        background-size: contain;
-        padding-top: 10px;
-      }
-      .search-container {
-        width: 90%;
-        height: 100px;
-      }
-      .search-container input[type="text"] {
-        font-size: 20px;
-      }
-      .search-container button {
-        width: 100px;
-        height: 100px;
-      }
-      .search-container button img {
-        width: 40px;
-        height: 40px;
-      }
-    }
-  </style>
+/* ⭐ เพิ่มความสูงของหน้าให้เลื่อนลงได้ */
+.page {
+  height: 10000px; /* ปรับตามความยาวของภาพ */
+}
+</style>
 </head>
+
 <body>
-
-  <!-- ⭐ ช่องค้นหาด้านบน -->
-  <div class="search-container">
-    <input type="text" placeholder="ค้นหาจากเลขบัตร   ××××-××××">
-    <button>
-      <img src="images/search-icon-white.png" alt="ค้นหา">
-    </button>
-  </div>
-
-  <!-- ⭐ ภาพพื้นหลัง -->
-  <div class="image-container">
-    <!-- ภาพเป็น background ของ div จึงไม่ต้องใช้ <img> -->
-  </div>
-
+<div class="page"></div>
 </body>
 </html>
