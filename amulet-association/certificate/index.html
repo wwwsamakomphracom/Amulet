@@ -10,7 +10,7 @@
   body, html {
     height:100%;
     font-family: Tahoma, sans-serif;
-    background-color: #000;
+    background-color: #000; /* พื้นหลังดำเวลาภาพโหลดช้า */
     overflow-x: hidden;
   }
 
@@ -63,11 +63,11 @@
   .image-container {
     width: 100%;
     min-height: 1903px; /* ความสูงตามภาพ */
-    background-image: url("samakom-background.png"); /* ใส่ชื่อไฟล์รูปสมาคม */
+    background-image: url("container.png"); /* ใช้ไฟล์ container.png */
     background-repeat: no-repeat;
     background-position: top center;
-    background-size: 100% auto;
-    background-attachment: scroll;
+    background-size: 100% auto; /* กว้างเต็ม สูงตามสัดส่วน */
+    background-attachment: scroll; /* เลื่อนตามหน้า */
   }
 
   @media (max-width: 768px) {
