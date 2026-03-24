@@ -55,10 +55,6 @@ body{
   padding:20px;
 }
 
-.dropdown-menu.open{
-  right:0;
-}
-
 /* ===== เนื้อหาเมนู ===== */
 .menu-title{
   color:#d4af37;
@@ -80,20 +76,39 @@ body{
   color:#ffd700;
 }
 
+/* ===== โค้ดใหม่: ภาพพื้นหลังยาว 2 ภาพต่อกัน ===== */
+.long-bg {
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
+}
+
+.long-bg img {
+  width: 100%;
+  height: auto; /* รักษาสัดส่วนภาพ */
+  display: block;
+}
+
+/* ป้องกันเลื่อนแนวนอน */
+body, html {
+  overflow-x: hidden;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- ⭐ ภาพพื้นหลัง (ไฟล์ถูกต้อง) -->
-<div class="bg">
-  <img src="images/bg8.png" alt="">
+<!-- ⭐ ภาพพื้นหลัง 2 ภาพต่อกัน -->
+<div class="long-bg">
+  <img src="tag-verification/amulet-association/images/bg18.png" alt="bg18">
+  <img src="tag-verification/amulet-association/images/bg28.png" alt="bg28">
 </div>
 
 <!-- ⭐ ปุ่ม ☰ -->
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<!-- ⭐ เมนู (ครบตามที่คุณส่ง) -->
+<!-- ⭐ เมนู (ครบตามเดิม) -->
 <div id="menu" class="dropdown-menu">
 
   <div class="menu-content">
