@@ -6,18 +6,25 @@
 <title>TAG163823093</title>
 
 <style>
-/* 🔥 พื้นหลังภาพยาว เลื่อนขึ้น-ลงได้ */
-body {
+/* 🔥 พื้นฐาน */
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* 🔥 พื้นหลังภาพยาว เลื่อนขึ้น-ลงได้เต็มพอดี */
+body {
   background-image: url("TAG163823093.png");
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: 100% auto; /* ปรับให้ภาพเต็มความกว้าง ยาวตามขนาดจริง */
+  background-size: 100% auto; /* ความกว้างเต็ม, ความสูงตามสัดส่วนภาพ */
 }
 
-/* ⭐ เพิ่มความสูงของหน้าให้เลื่อนลงได้ */
+/* ⭐ div ช่วยให้เลื่อนลงได้พอดี */
 .page {
-  height: 1903px; /* ปรับตามความยาวของภาพ */
+  width: 100%;
+  min-height: 100vh; /* ขั้นต่ำ = หน้าจอ */
 }
 </style>
 </head>
