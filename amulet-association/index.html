@@ -7,7 +7,7 @@
 
 <style>
 
-/* ===== พื้นหลังภาพยาว (แก้เฉพาะส่วนนี้) ===== */
+/* ===== พื้นหลังภาพยาว (เดิม) ===== */
 body{
   margin:0;
   font-family:Tahoma, sans-serif;
@@ -57,7 +57,7 @@ body{
 
 /* ===== เนื้อหาเมนู ===== */
 .menu-title{
-  color:#d4af37;
+  color:#d4af37; /* หัวข้อเป็นสีทอง */
   font-weight:bold;
   margin-top:20px;
   border-bottom:1px solid #6b5200;
@@ -66,17 +66,17 @@ body{
 
 .menu-content a{
   display:block;
-  color:#eee;
+  color:#fff; /* ตัวหนังสือสีขาว */
   text-decoration:none;
   padding:10px 0;
   font-size:18px;
 }
 
 .menu-content a:hover{
-  color:#ffd700;
+  color:#ffd700; /* เมื่อ hover เป็นทอง */
 }
 
-/* ===== โค้ดใหม่: ภาพพื้นหลังยาว 2 ภาพต่อกัน ===== */
+/* ===== ภาพพื้นหลังยาว 2 ภาพต่อกัน ===== */
 .long-bg {
   width: 100%;
   max-width: 1920px;
@@ -101,14 +101,14 @@ body, html {
 
 <!-- ⭐ ภาพพื้นหลัง 2 ภาพต่อกัน -->
 <div class="long-bg">
-  <img src="tag-verification/amulet-association/images/bg18.png" alt="bg18">
-  <img src="tag-verification/amulet-association/images/bg28.png" alt="bg28">
+  <img src="images/bg18.png" alt="bg18">
+  <img src="images/bg28.png" alt="bg28">
 </div>
 
 <!-- ⭐ ปุ่ม ☰ -->
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<!-- ⭐ เมนู (ครบตามเดิม) -->
+<!-- ⭐ เมนู -->
 <div id="menu" class="dropdown-menu">
 
   <div class="menu-content">
