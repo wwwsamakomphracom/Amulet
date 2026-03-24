@@ -7,88 +7,81 @@
 
 <style>
 
-/* ===== พื้นหลังภาพยาว 1920 × 33397 ===== */
+/* ===== พื้นหลังภาพยาว ===== */
 body{
   margin:0;
   font-family:Tahoma, sans-serif;
   color:#fff;
 
-  background-color:#000;
-  background-image:url("images/bg8.png");
-  background-repeat:no-repeat;
-  background-position:center top;
-
-  /* ⭐ สำคัญ — ให้เห็นเต็มความยาว */
+  background:#000 url("images/bg8.png") no-repeat center top;
   background-size:100% auto;
 }
 
-/* 📱 มือถือให้แสดงดีขึ้น */
-@media(max-width:768px){
-  body{
-    background-size:auto 100%;
-  }
+/* ===== ปุ่มเมนู 3 ขีด ===== */
+.menu-btn{
+  position:fixed;
+  top:15px;
+  right:15px;
+  font-size:30px;
+  color:gold;
+  cursor:pointer;
+  z-index:9999;
+  background:rgba(0,0,0,0.7);
+  padding:5px 12px;
+  border-radius:6px;
 }
 
-/* ===== เมนูด้านบน ===== */
-.nav{
+/* ===== เมนูสไลด์ ===== */
+.side-menu{
   position:fixed;
   top:0;
-  left:0;
-  width:100%;
-  background:rgba(0,0,0,0.9);
-  z-index:9999;
-  padding:10px 0;
-  box-shadow:0 2px 10px #000;
+  right:-320px;
+  width:300px;
+  height:100%;
+  background:#111;
+  overflow-y:auto;
+  transition:0.3s;
+  z-index:9998;
+  padding:20px;
+  box-shadow:-5px 0 20px #000;
 }
 
-.menu{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:6px;
+/* ⭐ เมื่อเปิดเมนู */
+.side-menu.open{
+  right:0;
 }
 
-/* ===== หัวข้อเมนู ===== */
+/* ===== หัวข้อ ===== */
 .menu-title{
   color:gold;
   font-weight:bold;
+  margin-top:18px;
+  margin-bottom:6px;
   font-size:18px;
-  padding:8px 12px;
-  margin-top:6px;
-  width:100%;
-  text-align:center;
 }
 
-/* ===== ปุ่มเมนู ===== */
-.menu a{
+/* ===== ลิงก์เมนู ===== */
+.side-menu a{
+  display:block;
   color:#fff;
   text-decoration:none;
-  padding:8px 12px;
-  border-radius:4px;
-  background:rgba(255,255,255,0.05);
+  padding:8px 0;
+  border-bottom:1px solid #333;
   font-size:14px;
 }
 
-.menu a:hover{
-  background:gold;
-  color:#000;
+.side-menu a:hover{
+  color:gold;
 }
 
-/* ===== เนื้อหา ===== */
+/* ===== พื้นที่เนื้อหา (กันเมนูบัง) ===== */
 .content{
-  max-width:1100px;
-  margin:auto;
-  padding:140px 20px 60px;
-  line-height:1.7;
-  text-shadow:0 0 5px #000;
+  padding:80px 20px;
+  text-align:center;
 }
 
 h1{
   color:gold;
-  text-align:center;
-  margin-bottom:30px;
 }
 
 </style>
@@ -96,63 +89,43 @@ h1{
 
 <body>
 
-<!-- ===== เมนู ===== -->
-<div class="nav">
-  <div class="menu">
+<!-- ☰ ปุ่มเมนู -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-    <div class="menu-title">หน้าหลัก</div>
+<!-- ===== เมนูด้านข้าง ===== -->
+<div id="menu" class="side-menu">
 
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e444x2r2d2d494r5r4g5i4m5b2c4e274u214u2r324a2z5i4n5n4k404j4i4q4a4e2z2s286" target="_blank">ประวัติ</a>
+  <div class="menu-title">หน้าหลัก</div>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e444x2r2d2d494r5r4g5i4m5b2c4e274u214u2r324a2z5i4n5n4k404j4i4q4a4e2z2s286" target="_blank">ประวัติ</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e444r2h2g454i4y554q5d4s3z2o3u244w224e214s3m4m5e456j404e4l4l4d4f223p2u4" target="_blank">คณะกรรมการ</a>
+  <a href="#">ติดต่อเรา</a>
 
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e444r2h2g454i4y554q5d4s3z2o3u244w224e214s3m4m5e456j404e4l4l4d4f223p2u4" target="_blank">คณะกรรมการ</a>
+  <div class="menu-title">ข่าวสารสมาคม</div>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e4c4r2h2g454i4y554q5d4s3z2o3u244w234e214s3m4m5e456j404e4l4l4d4f223r2u4" target="_blank">แวดวงพระเครื่อง</a>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e454r2h2g454i4y554q5d4s3z2o3u244w244e214s3m4m5e456j404e4l4l4d4f223p2u4" target="_blank">ปฏิทินงานประกวด</a>
 
-    <a href="#">ติดต่อเรา</a>
+  <div class="menu-title">สาระพระเครื่อง</div>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e4a4r2h2g454i4y554q5d4s3z2o3v244w234e214s3m4m5e456j404e4l4l4d4f223p2u4" target="_blank">เจาะลึกเรื่องพระเครื่อง</a>
 
-    <div class="menu-title">ข่าวสารสมาคม</div>
+  <div class="menu-title">วีดิโอ</div>
+  <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e474r2h2g454i4y554q5d4s3z2o3u244w224e214s3m4m5e456j404e4l4l4d4f223p2u4" target="_blank">มรดกสยาม</a>
 
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e4c4r2h2g454i4y554q5d4s3z2o3u244w234e214s3m4m5e456j404e4l4l4d4f223r2u4" target="_blank">แวดวงพระเครื่อง</a>
+  <div class="menu-title">ใบรับรองพระแท้</div>
+  <a href="#">ค้นหาใบรับรองพระแท้</a>
 
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e454r2h2g454i4y554q5d4s3z2o3u244w244e214s3m4m5e456j404e4l4l4d4f223p2u4" target="_blank">ปฏิทินงานประกวด</a>
-
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e464r2h2g454i4y554q5d4s3z2o3u244w254e214s3m4m5e456j404e4l4l4d4f223p2u4" target="_blank">ยอดนิยมจากคมเลนส์</a>
-
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e4b4r2h2g454i4y554q5d4s3z2o3v244w224e214s3m4m5e456j404e4l4l4d4f223p2u4" target="_blank">สมาคมชวนชิล</a>
-
-    <div class="menu-title">สาระพระเครื่อง</div>
-
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e4a4r2h2g454i4y554q5d4s3z2o3v244w234e214s3m4m5e456j404e4l4l4d4f223p2u4" target="_blank">เจาะลึกเรื่องพระเครื่อง</a>
-
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e444z2r2d2d494r5r4g5i4m5b2c4e294u214v2r324a2z5i4n5n4k404j4i4q4a4e2z2q286" target="_blank">แนะนำอาจารย์</a>
-
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e494r2h2g454i4y554q5d4s3z2o3v244w254e214s3m4m5e456j404e4l4l4d4f223q2u4" target="_blank">อมตะพระกรุ</a>
-
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e44403r2d2d494r5r4g5i4m5b2c4e2a4u214t2r324a2z5i4n5n4k404j4i4q4a4e2z2q286" target="_blank">สารานุกรมพระเครื่อง</a>
-
-    <div class="menu-title">วีดิโอ</div>
-
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e474r2h2g454i4y554q5d4s3z2o3u244w224e214s3m4m5e456j404e4l4l4d4f223p2u4" target="_blank">มรดกสยาม</a>
-
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e44413r2d2d494r5r4g5i4m5b2c4e2a4u214v2r324a2z5i4n5n4k404j4i4q4a4e2z2q286" target="_blank">ร้านเด่น เว้นเดย์</a>
-
-    <div class="menu-title">ใบรับรองพระแท้</div>
-
-    <a href="#">ค้นหาใบรับรองพระแท้</a>
-
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e44423r2d2d494r5r4g5i4m5b2c4e274u214w2r324a2z5i4n5n4k404j4i4q4a4e2z2s286" target="_blank">ขั้นตอนการออกใบรับรอง</a>
-
-    <a href="https://www.samakomphra.com/page/home/views/w4e254g4i5e5e4h4c2e44433r2d2d494r5r4g5i4m5b2c4e274u214x2r324a2z5i4n5n4k404j4i4q4a4e2z2s286" target="_blank">กติกาการออกบัตร</a>
-
-  </div>
 </div>
 
 <!-- ===== เนื้อหา ===== -->
 <div class="content">
   <h1>สมาคมพระเครื่อง</h1>
-  <p style="text-align:center">
-    หน้าเว็บสมาคม (เวอร์ชันรวมเมนู) <br>
-    เลื่อนดูได้ตามต้องการ
-  </p>
+  <p>เลื่อนดูภาพพื้นหลังได้ตามต้องการ</p>
 </div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("open");
+}
+</script>
 
 </body>
 </html>
