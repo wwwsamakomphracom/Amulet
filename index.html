@@ -100,6 +100,13 @@
       cursor: pointer;
     }
 
+    .search-result {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #1e4fa3;
+      min-height: 24px;
+    }
+
     .bottom-logo {
       text-align: center;
       margin: 30px 0;
@@ -162,6 +169,7 @@
     <input type="text" id="tagInput" placeholder="กรอกเลข TAG">
     <br>
     <button onclick="searchTag()">ค้นหา</button>
+    <div class="search-result" id="searchResult"></div>
   </div>
 
   <div class="bottom-logo">
@@ -182,25 +190,26 @@
 
   function searchTag() {
     const tag = document.getElementById("tagInput").value.trim().toUpperCase();
+    const resultDiv = document.getElementById("searchResult");
 
     const tagMap = {
-  "TAG836628463": "https://wirakan90-ai.github.io/tag-verification/TAG836628463/",
-  "TAG725538266": "https://wirakan90-ai.github.io/tag-verification/TAG725538266/",
-  "TAG736628325": "https://wirakan90-ai.github.io/tag-verification/TAG736628325/",
-  "TAG887389266": "https://verify.amulettags.online/TAG887389266/",
-  "TAG945728551": "https://wirakan90-ai.github.io/tag-verification/TAG945728551/",
-  "TAG573378885": "https://wirakan90-ai.github.io/tag-verification/TAG573378885/",
-  "TAG163823093": "https://verify.amulettags.online/TAG163823093/"  // 
-  "TAG8277162678":"https://verify.amulettags.online/TAG8277162678/"
- };
+      "TAG836628463": "https://wirakan90-ai.github.io/tag-verification/TAG836628463/",
+      "TAG725538266": "https://wirakan90-ai.github.io/tag-verification/TAG725538266/",
+      "TAG736628325": "https://wirakan90-ai.github.io/tag-verification/TAG736628325/",
+      "TAG887389266": "https://verify.amulettags.online/TAG887389266/",
+      "TAG945728551": "https://wirakan90-ai.github.io/tag-verification/TAG945728551/",
+      "TAG573378885": "https://wirakan90-ai.github.io/tag-verification/TAG573378885/",
+      "TAG163823093": "https://verify.amulettags.online/TAG163823093/",
+      "TAG8277162678": "https://verify.amulettags.online/TAG8277162678/"  // <-- เพิ่มเลขใหม่
+    };
 
     if (tagMap[tag]) {
       window.location.href = tagMap[tag];
     } else {
-      alert("ไม่พบข้อมูลบัตรนี้");
+      resultDiv.textContent = "ไม่พบข้อมูลบัตรนี้";
     }
   }
 </script>
 
 </body>
-</html>
+  </html>
