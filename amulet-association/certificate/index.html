@@ -15,41 +15,39 @@
 body {
   font-family: Tahoma, sans-serif;
 
-  /* 🖼️ พื้นหลังเต็มจอ */
+  /* 🖼️ พื้นหลัง */
   background-image: url("certificate1.png");
-  background-size: contain; /* ให้เห็นทั้งภาพ */
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: top center;
   background-color: #000;
 
-  /* ให้เลื่อนลงได้ */
-  min-height: 200vh;
+  height: 200vh;
 }
 
-/* 🔍 ช่องค้นหา (เล็กลง + ลงล่าง) */
+/* 🔍 ช่องค้นหา */
 .search-container {
-  position: fixed;
-  bottom: 40px; /* ย้ายลงล่าง */
+  position: absolute;
+  top: 22vh; /* 👈 ใต้ลูกศรแบบอิงหน้าจอ */
   left: 50%;
   transform: translateX(-50%);
-  width: 75%;
-  max-width: 300px; /* เล็กลง */
-  height: 40px;
+  width: 90%;
+  max-width: 420px;
+  height: 38px;
   display: flex;
-  z-index: 1000;
 }
 
 .search-container input {
   flex: 1;
   padding: 0 8px;
-  font-size: 13px; /* เล็กลง */
+  font-size: 13px;
   border: 2px solid #d4af37;
   border-right: none;
   outline: none;
 }
 
 .search-container button {
-  width: 40px;
+  width: 38px;
   background: #d4af37;
   border: none;
   cursor: pointer;
@@ -61,14 +59,12 @@ body {
 
 <body>
 
-<!-- 🔍 ช่องค้นหา -->
 <div class="search-container">
   <input id="searchInput" type="text" placeholder="ค้นหาจากเลขบัตร. ××××-××××">
   <button onclick="searchCert()">🔍</button>
 </div>
 
 <script>
-// 🔍 ค้นหา
 function searchCert() {
   let value = document.getElementById("searchInput").value.trim();
 
@@ -79,7 +75,6 @@ function searchCert() {
   }
 }
 
-// ⌨️ Enter
 document.getElementById("searchInput").addEventListener("keypress", function(e) {
   if (e.key === "Enter") {
     searchCert();
