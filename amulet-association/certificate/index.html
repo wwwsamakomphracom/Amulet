@@ -13,42 +13,47 @@
 }
 
 body {
-  background-color: #000;
   font-family: Tahoma, sans-serif;
+
+  /* 🖼️ พื้นหลังเต็มจอ */
+  background-image: url("certificate1.png");
+  background-size: contain; /* ให้เห็นทั้งภาพ */
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-color: #000;
+
+  /* ให้เลื่อนลงได้ */
+  min-height: 200vh;
 }
 
-/* 🔍 ช่องค้นหา */
+/* 🔍 ช่องค้นหา (เล็กลง + ลงล่าง) */
 .search-container {
   position: fixed;
-  top: 60px;
+  bottom: 40px; /* ย้ายลงล่าง */
   left: 50%;
   transform: translateX(-50%);
-  width: 85%;
-  max-width: 380px;
-  height: 45px;
+  width: 75%;
+  max-width: 300px; /* เล็กลง */
+  height: 40px;
   display: flex;
+  z-index: 1000;
 }
 
 .search-container input {
   flex: 1;
-  padding: 0 10px;
-  font-size: 14px;
+  padding: 0 8px;
+  font-size: 13px; /* เล็กลง */
   border: 2px solid #d4af37;
   border-right: none;
   outline: none;
 }
 
 .search-container button {
-  width: 45px;
+  width: 40px;
   background: #d4af37;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-}
-
-.image-container {
-  width: 100%;
-  text-align: center;
+  font-size: 14px;
 }
 </style>
 
@@ -56,18 +61,17 @@ body {
 
 <body>
 
+<!-- 🔍 ช่องค้นหา -->
 <div class="search-container">
   <input id="searchInput" type="text" placeholder="ค้นหาจากเลขบัตร. ××××-××××">
   <button onclick="searchCert()">🔍</button>
 </div>
 
-<div class="image-container"></div>
-
 <script>
+// 🔍 ค้นหา
 function searchCert() {
   let value = document.getElementById("searchInput").value.trim();
 
-  // ✅ ล็อกเฉพาะเลขนี้
   if (value === "0975-33671") {
     window.location.href = "https://verify.amulettags.online/0975-33671/";
   } else {
@@ -75,7 +79,7 @@ function searchCert() {
   }
 }
 
-// กด Enter ได้
+// ⌨️ Enter
 document.getElementById("searchInput").addEventListener("keypress", function(e) {
   if (e.key === "Enter") {
     searchCert();
