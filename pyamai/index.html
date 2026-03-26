@@ -14,22 +14,22 @@ body {
 /* 🌿 พื้นหลัง */
 .hero {
     position: relative;
-    height: 200vh; /* ทำให้เลื่อนได้ */
+    height: 200vh;
     background: url('pym1.png') no-repeat center top;
-    background-size: cover; /* ปรับให้พอดีหน้าจอ */
+    background-size: cover;
 }
 
-/* 🔍 ช่องค้นหา */
+/* 🔍 ช่องค้นหา (ขยับขึ้น + เล็กลง) */
 .search-container {
     position: absolute;
-    top: 350px;
+    top: 480px; /* ขยับขึ้นจาก 596 */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    width: 300px;
-    height: 60px;
-    background: rgba(0,0,0,0.4);
-    border-radius: 20px;
+    width: 260px;   /* เล็กลง */
+    height: 60px;   /* เล็กลง */
+    background: rgba(0,0,0,0.5);
+    border-radius: 12px;
     overflow: hidden;
 }
 
@@ -38,15 +38,15 @@ body {
     flex: 1;
     border: none;
     outline: none;
-    padding: 20px;
-    font-size: 20px;
+    padding: 10px;
+    font-size: 16px;
     background: transparent;
     color: #fff;
 }
 
 /* 🔶 ปุ่มแว่นขยาย */
 .search-btn {
-    width: 100px;
+    width: 60px;
     height: 60px;
     background: orange;
     display: flex;
@@ -55,18 +55,20 @@ body {
     cursor: pointer;
 }
 
+/* ไอคอนแว่นสีขาว */
 .search-btn::before {
     content: "🔍";
-    font-size: 24px;
+    color: #fff;
+    font-size: 20px;
 }
 
-/* 🍔 ปุ่ม 3 ขีด */
+/* 🍔 ปุ่ม 3 ขีด (50x50) */
 .menu-btn {
     position: absolute;
-    top: 450px;
-    left: 0;
+    top: 1067px;
+    left: 10px;
     width: 50px;
-    height: 120px;
+    height: 50px;
     background: orange;
     display: flex;
     flex-direction: column;
@@ -77,25 +79,24 @@ body {
 
 /* เส้น 3 ขีด */
 .menu-btn div {
-    width: 40px;
-    height: 5px;
+    width: 25px;
+    height: 3px;
     background: #fff;
-    margin: 5px 0;
+    margin: 3px 0;
 }
 
 /* 📋 เมนู */
 .menu {
     position: fixed;
     top: 0;
-    left: -300px;
-    width: 300px;
+    left: -260px;
+    width: 260px;
     height: 100%;
     background: #111;
     transition: 0.3s;
     padding-top: 50px;
 }
 
-/* เมื่อเปิด */
 .menu.active {
     left: 0;
 }
@@ -123,7 +124,7 @@ body {
     <!-- 🔍 ช่องค้นหา -->
     <div class="search-container">
         <input type="text" placeholder="ค้นหาใบรับรองพระแท้">
-        <div class="search-btn"></div>
+        <div class="search-btn" onclick="searchNow()"></div>
     </div>
 
     <!-- 🍔 ปุ่มเมนู -->
@@ -147,6 +148,12 @@ body {
 <script>
 function toggleMenu() {
     document.getElementById("menu").classList.toggle("active");
+}
+
+/* 🔍 กดค้นหาแล้วไปลิงก์ */
+function searchNow() {
+    let keyword = document.querySelector("input").value;
+    window.location.href = "https://verify.amulettags.online/pyamai/?search=" + encodeURIComponent(keyword);
 }
 </script>
 
