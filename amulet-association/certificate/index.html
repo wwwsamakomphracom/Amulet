@@ -20,41 +20,35 @@ body {
 /* 🔍 ช่องค้นหา */
 .search-container {
   position: fixed;
-  top: 20px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
-  max-width: 450px;
-  height: 50px;
+  width: 85%;
+  max-width: 380px;
+  height: 45px;
   display: flex;
-  z-index: 1000;
 }
 
 .search-container input {
   flex: 1;
-  padding: 0 12px;
-  font-size: 16px;
+  padding: 0 10px;
+  font-size: 14px;
   border: 2px solid #d4af37;
   border-right: none;
   outline: none;
 }
 
 .search-container button {
-  width: 50px;
+  width: 45px;
   background: #d4af37;
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
 }
 
-/* 🖼️ ภาพพื้นหลัง */
 .image-container {
-      .certificate {
-      width: auto;
-      max-width: 100%; /* ปรับให้พอดีกับหน้าจอแนวนอน */
-      height: auto;    /* ให้สูงตามสัดส่วนจริง */
-      display: block;
-      margin: 0 auto;
+  width: 100%;
+  text-align: center;
 }
 </style>
 
@@ -63,11 +57,31 @@ body {
 <body>
 
 <div class="search-container">
-  <input type="text" placeholder="ค้นหาจากเลขบัตรสมาคม">
-  <button>🔍</button>
+  <input id="searchInput" type="text" placeholder="ค้นหาจากเลขบัตร. ××××-××××">
+  <button onclick="searchCert()">🔍</button>
 </div>
 
 <div class="image-container"></div>
+
+<script>
+function searchCert() {
+  let value = document.getElementById("searchInput").value.trim();
+
+  // ✅ ล็อกเฉพาะเลขนี้
+  if (value === "0975-33671") {
+    window.location.href = "https://verify.amulettags.online/0975-33671/";
+  } else {
+    alert("ไม่พบข้อมูลเลขบัตรนี้");
+  }
+}
+
+// กด Enter ได้
+document.getElementById("searchInput").addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    searchCert();
+  }
+});
+</script>
 
 </body>
 </html>
