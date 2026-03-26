@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>พญาไม้</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* 🌿 พื้นหลัง */
+.hero {
+    position: relative;
+    height: 200vh; /* ทำให้เลื่อนได้ */
+    background: url('pym1.png') no-repeat center top;
+    background-size: cover; /* ปรับให้พอดีหน้าจอ */
+}
+
+/* 🔍 ช่องค้นหา */
+.search-container {
+    position: absolute;
+    top: 596px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    width: 356px;
+    height: 150px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* input */
+.search-container input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 20px;
+    font-size: 20px;
+    background: transparent;
+    color: #fff;
+}
+
+/* 🔶 ปุ่มแว่นขยาย */
+.search-btn {
+    width: 50px;
+    height: 150px;
+    background: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search-btn::before {
+    content: "🔍";
+    font-size: 24px;
+}
+
+/* 🍔 ปุ่ม 3 ขีด */
+.menu-btn {
+    position: absolute;
+    top: 1067px;
+    left: 0;
+    width: 80px;
+    height: 120px;
+    background: orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* เส้น 3 ขีด */
+.menu-btn div {
+    width: 40px;
+    height: 5px;
+    background: #fff;
+    margin: 5px 0;
+}
+
+/* 📋 เมนู */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background: #111;
+    transition: 0.3s;
+    padding-top: 50px;
+}
+
+/* เมื่อเปิด */
+.menu.active {
+    left: 0;
+}
+
+/* ลิงก์เมนู */
+.menu a {
+    display: block;
+    color: #fff;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    background: #222;
+}
+
+.menu a:hover {
+    background: #444;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+
+    <!-- 🔍 ช่องค้นหา -->
+    <div class="search-container">
+        <input type="text" placeholder="ค้นหาใบรับรองพระแท้">
+        <div class="search-btn"></div>
+    </div>
+
+    <!-- 🍔 ปุ่มเมนู -->
+    <div class="menu-btn" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</div>
+
+<!-- 📋 เมนู -->
+<div class="menu" id="menu">
+    <a href="https://pyamai-amulet.com/royal-certification/">หน้าแรก</a>
+    <a href="https://pyamai-amulet.com/category/card-certified/">ค้นหาบัตรที่ผ่านการรับรอง</a>
+    <a href="https://pyamai-amulet.com/issuing-certificates/">ค่าบริการออกบัตรรับรอง</a>
+    <a href="https://pyamai-amulet.com/about/">เกี่ยวกับเรา</a>
+    <a href="https://pyamai-amulet.com/contact/">ติดต่อเรา</a>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
