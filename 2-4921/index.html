@@ -31,12 +31,42 @@ body{
   padding:20px;
 }
 
+/* 🔥 กล่องครอบรูปบัตร (เพิ่มใหม่) */
+.card{
+  position: relative;
+  width:100%;
+  max-width:600px;
+  margin:auto;
+}
+
 /* รูปบัตร */
 .certificate{
   width:100%;
-  max-width:600px;
   display:block;
-  margin:auto;
+}
+
+/* 🔵 จุดวางรูปพระ (เพิ่มใหม่) */
+.amulet-point{
+  position:absolute;
+  top:1378px;   /* Y */
+  left:105px;   /* X */
+  width:110px;
+  cursor:pointer;
+  z-index:5;
+}
+
+.amulet-point img{
+  width:100%;
+  height:100px;
+  object-fit:contain;
+  border:2px solid gold;
+  border-radius:12px;
+  background:#111;
+  transition:0.3s;
+}
+
+.amulet-point:hover{
+  transform:scale(1.05);
 }
 
 /* 🔥 กล่อง section แบบมืออาชีพ */
@@ -50,7 +80,7 @@ body{
   box-shadow:0 0 20px rgba(255,165,0,0.3);
 }
 
-/* 🔥 ช่องรูปพระ */
+/* 🔥 ช่องรูปพระ (คงของเดิม) */
 .amulet-box{
   width:110px;
   margin:auto;
@@ -137,8 +167,15 @@ body{
   <p>รหัส 2-4921</p>
 </div>
 
-<!-- รูปบัตร -->
-<img src="./2-4921.png" class="certificate">
+<!-- 🔥 แก้ตรงนี้ -->
+<div class="card">
+  <img src="./2-4921.png" class="certificate">
+
+  <!-- 🔵 รูปพระวางตามพิกัด -->
+  <div class="amulet-point" onclick="openAmulet()">
+    <img src="./2-4921b.png">
+  </div>
+</div>
 
 <!-- 🔵 SECTION รูปพระ -->
 <div class="section-box">
