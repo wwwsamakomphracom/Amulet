@@ -1,172 +1,186 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nakhon Amulet - ใบรับรอง 2-4921</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nakhon Amulet - 2-4921</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    body {
-      font-family: Tahoma, sans-serif;
-      color: #fff;
-      background: #000;
-      text-align: center;
-    }
+body{
+  font-family:Tahoma,sans-serif;
+  background:#000;
+  color:#fff;
+  text-align:center;
+}
 
-    .navbar {
-      width: 100%;
-      background: rgba(0,0,0,0.8);
-      padding: 12px 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 10;
-    }
+/* Navbar */
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,0.8);
+  padding:10px;
+  z-index:10;
+}
 
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
+/* Header */
+.header{
+  margin-top:60px;
+  padding:20px;
+}
 
-    .header {
-      margin-top: 60px;
-      padding: 20px;
-      background: rgba(0,0,0,0.5);
-    }
+/* รูปบัตร */
+.certificate{
+  width:100%;
+  max-width:600px;
+  display:block;
+  margin:auto;
+}
 
-    .header h1 {
-      color: gold;
-      font-size: 22px;
-    }
+/* 🔥 กล่อง section แบบมืออาชีพ */
+.section-box{
+  width:90%;
+  max-width:600px;
+  margin:20px auto;
+  padding:20px;
+  border-radius:20px;
+  background:linear-gradient(145deg, rgba(255,165,0,0.2), rgba(0,0,0,0.6));
+  box-shadow:0 0 20px rgba(255,165,0,0.3);
+}
 
-    .certificate {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+/* 🔥 ช่องรูปพระ */
+.amulet-box{
+  width:110px;
+  margin:auto;
+  border-radius:12px;
+  overflow:hidden;
+  border:2px solid gold;
+  cursor:pointer;
+  background:#111;
+  transition:0.3s;
+}
 
-    .wrapper {
-      min-height: 120vh;
-    }
+.amulet-box:hover{
+  transform:scale(1.05);
+}
 
-    /* 🔥 ครอบรูปบัตรเพื่อให้วาง overlay ได้ */
-    .certificate-wrapper {
-      position: relative;
-      display: inline-block;
-      margin-top: 10px;
-    }
+.amulet-box img{
+  width:100%;
+  height:100px;
+  object-fit:contain;
+}
 
-    /* 🔥 กล่องรูปพระ (วางทับตำแหน่งในภาพ) */
-    .amulet-box {
-      position: absolute;
+.amulet-box span{
+  display:block;
+  padding:5px;
+  font-weight:bold;
+}
 
-      /* 🔥 ปรับตรงนี้ให้ตรงช่องในภาพ */
-      bottom: 60px;   /* ระยะจากล่าง */
-      left: 50%;
-      transform: translateX(-50%);
+/* 🔥 ปุ่มดูบัตร */
+.full-btn{
+  width:90%;
+  max-width:500px;
+  margin:20px auto;
+  padding:15px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(to right, gold, orange);
+  color:#000;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
 
-      width: 100px;
-      height: 130px;
+.full-btn:hover{
+  transform:scale(1.03);
+}
 
-      border: 2px solid gold;
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      background: rgba(0,0,0,0.6);
-      text-align: center;
-    }
+/* 🔥 popup */
+.popup{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.95);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
 
-    .amulet-box img {
-      width: 100%;
-      height: 90px;
-      object-fit: contain;
-    }
+.popup img{
+  max-width:90%;
+  max-height:90%;
+}
 
-    .amulet-box span {
-      display: block;
-      color: white;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    /* 🔥 popup */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .popup img {
-      max-width: 90%;
-      max-height: 90%;
-    }
-
-    .popup span {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 30px;
-      cursor: pointer;
-    }
-
-  </style>
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:30px;
+  color:#fff;
+  cursor:pointer;
+}
+</style>
 </head>
 
 <body>
 
+<div class="navbar">พระเครื่องพระนคร</div>
 
-  <div class="wrapper">
+<div class="header">
+  <h2>ใบรับรองพระแท้</h2>
+  <p>รหัส 2-4921</p>
+</div>
 
-    <div class="header">
-      <h1>ใบรับรองพระแท้</h1>
-      <p>รหัสใบรับรอง: 2-4921</p>
-    </div>
+<!-- รูปบัตร -->
+<img src="./2-4921.png" class="certificate">
 
-    <!-- 🔥 ครอบรูปบัตร -->
-    <div class="certificate-wrapper">
+<!-- 🔵 SECTION รูปพระ -->
+<div class="section-box">
+  <p>รูปภาพประกอบเพิ่มเติมของพระเครื่อง (1 รูป)</p>
 
-      <img src="./2-4921.png" class="certificate">
-
-      <!-- 🔥 รูปพระทับตำแหน่ง -->
-      <div class="amulet-box" onclick="openPopup()">
-        <img src="./2-4921b.png">
-        <span>2-4921</span>
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- 🔥 popup -->
-  <div class="popup" id="popup">
-    <span onclick="closePopup()">✖</span>
+  <div class="amulet-box" onclick="openAmulet()">
     <img src="./2-4921b.png">
+    <span>2-4921</span>
   </div>
+</div>
 
-  <script>
-    function openPopup() {
-      document.getElementById("popup").style.display = "flex";
-    }
+<!-- 🔴 ปุ่มดูบัตร -->
+<button class="full-btn" onclick="openCert()">
+  ดูบัตรรับรองขนาดเต็ม
+</button>
 
-    function closePopup() {
-      document.getElementById("popup").style.display = "none";
-    }
-  </script>
+<!-- 🔥 popup รูปพระ -->
+<div class="popup" id="amuletPopup">
+  <span class="close" onclick="closeAll()">✖</span>
+  <img src="./2-4921b.png">
+</div>
+
+<!-- 🔥 popup รูปบัตร -->
+<div class="popup" id="certPopup">
+  <span class="close" onclick="closeAll()">✖</span>
+  <img src="./2-4921.png">
+</div>
+
+<script>
+function openAmulet(){
+  document.getElementById("amuletPopup").style.display="flex";
+}
+
+function openCert(){
+  document.getElementById("certPopup").style.display="flex";
+}
+
+function closeAll(){
+  document.getElementById("amuletPopup").style.display="none";
+  document.getElementById("certPopup").style.display="none";
+}
+</script>
 
 </body>
 </html>
