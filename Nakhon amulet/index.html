@@ -10,33 +10,21 @@
             margin: 0;
             font-family: Tahoma, sans-serif;
 
-            /* พื้นหลัง */
-            background-image: url("Nakhon amulet.png");
+            /* ใช้รูปในโฟลเดอร์เดียวกัน */
+            background-image: url("./Nakhon amulet.png");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed; /* พื้นหลังนิ่ง */
 
-            /* ให้พื้นหลังเลื่อนตามหน้า */
-            background-attachment: scroll;
         }
 
-        /* กล่องเนื้อหา */
         .container {
+            min-height: 200vh; /* เลื่อนขึ้นลงได้ */
+            padding: 100px 20px;
             text-align: center;
             color: white;
-            padding: 100px 20px;
             background: rgba(0,0,0,0.4);
-
-            /* ทำให้ยาวเกิน 1 จอ เพื่อให้เลื่อน */
-            min-height: 200vh;
-        }
-
-        h1 {
-            font-size: 36px;
-        }
-
-        p {
-            font-size: 18px;
         }
     </style>
 </head>
@@ -45,8 +33,7 @@
     <div class="container">
         <h1>ยินดีต้อนรับ</h1>
         <p>เว็บไซต์ Nakhon Amulet</p>
-
-        <p>เลื่อนลงเพื่อดูเพิ่มเติม</p>
+        <p>เลื่อนลงได้ 👇</p>
     </div>
 
 </body>
