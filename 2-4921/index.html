@@ -49,35 +49,52 @@
 
     .certificate {
       max-width: 100%;
-      margin-top: 10px;
+      height: auto;
+      display: block;
     }
 
     .wrapper {
       min-height: 120vh;
     }
 
-    /* 🔥 กล่องรูปพระเล็ก */
+    /* 🔥 ครอบรูปบัตรเพื่อให้วาง overlay ได้ */
+    .certificate-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    /* 🔥 กล่องรูปพระ (วางทับตำแหน่งในภาพ) */
     .amulet-box {
-      width: 120px;
-      height: 140px;
-      margin: 20px auto;
+      position: absolute;
+
+      /* 🔥 ปรับตรงนี้ให้ตรงช่องในภาพ */
+      bottom: 60px;   /* ระยะจากล่าง */
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 100px;
+      height: 130px;
+
       border: 2px solid gold;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       cursor: pointer;
+      background: rgba(0,0,0,0.6);
       text-align: center;
     }
 
     .amulet-box img {
       width: 100%;
-      height: 100px;
-      object-fit: cover;
+      height: 90px;
+      object-fit: contain;
     }
 
     .amulet-box span {
       display: block;
-      padding: 5px;
       color: white;
+      font-weight: bold;
+      font-size: 14px;
     }
 
     /* 🔥 popup */
@@ -104,7 +121,6 @@
       top: 20px;
       right: 30px;
       font-size: 30px;
-      color: white;
       cursor: pointer;
     }
 
@@ -113,11 +129,6 @@
 
 <body>
 
-  <div class="navbar">
-    <a href="#">หน้าแรก</a>
-    <a href="#">ค้นหาใบรับรอง</a>
-    <a href="#">ติดต่อ</a>
-  </div>
 
   <div class="wrapper">
 
@@ -126,20 +137,22 @@
       <p>รหัสใบรับรอง: 2-4921</p>
     </div>
 
-    <!-- รูปบัตร -->
-    <img src="./2-4921.png" class="certificate">
+    <!-- 🔥 ครอบรูปบัตร -->
+    <div class="certificate-wrapper">
 
-    <!-- 🔥 ช่องรูปพระเล็ก -->
-    <p>รูปภาพประกอบเพิ่มเติมของพระเครื่อง (1 รูป)</p>
+      <img src="./2-4921.png" class="certificate">
 
-    <div class="amulet-box" onclick="openPopup()">
-      <img src="./2-4921b.png">
-      <span>2-4921</span>
+      <!-- 🔥 รูปพระทับตำแหน่ง -->
+      <div class="amulet-box" onclick="openPopup()">
+        <img src="./2-4921b.png">
+        <span>2-4921</span>
+      </div>
+
     </div>
 
   </div>
 
-  <!-- 🔥 popup รูปใหญ่ -->
+  <!-- 🔥 popup -->
   <div class="popup" id="popup">
     <span onclick="closePopup()">✖</span>
     <img src="./2-4921b.png">
