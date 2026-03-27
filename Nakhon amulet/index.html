@@ -1,35 +1,98 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nakhon Amulet</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nakhon Amulet - ใบรับรองNakhon amulet</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Tahoma, sans-serif;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-            /* 🔥 แก้ตรงนี้ */
-            background-image: url("./Nakhon amulet.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+    body {
+      font-family: Tahoma, sans-serif;
+      color: #fff;
+      background: #000;
+      text-align: center;
+    }
 
-            /* ❌ เดิม fixed → ทำให้ไม่เลื่อน */
-            /* background-attachment: fixed; */
+    /* Navbar */
+    .navbar {
+      width: 100%;
+      background: rgba(0,0,0,0.8);
+      padding: 12px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
 
-            /* ✅ เปลี่ยนเป็น scroll */
-            background-attachment: scroll;
-        }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
 
-        .container {
-            min-height: 200vh;
-            padding: 100px 20px;
-            text-align: center;
-            color: white;
-            background: rgba(0,0,0,0.4);
-        }
-    </style>
+    .navbar a:hover {
+      color: gold;
+    }
+
+    /* Header */
+    .header {
+      margin-top: 60px;
+      padding: 20px;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .header h1 {
+      color: gold;
+      font-size: 22px;
+    }
+
+    .header p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    /* รูปใบรับรอง */
+    .certificate {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+    }
+
+    /* รองรับการเลื่อน */
+    .wrapper {
+      min-height: 120vh;
+    }
+  </style>
 </head>
+
+<body>
+
+  <!-- เมนู -->
+  <div class="navbar">
+    <a href="#">หน้าแรก</a>
+    <a href="#">ค้นหาใบรับรอง</a>
+    <a href="#">ติดต่อ</a>
+  </div>
+
+  <div class="wrapper">
+
+    <!-- หัวข้อ -->
+    <div class="header">
+      <h1>ใบรับรองพระแท้</h1>
+      <p>รหัสใบรับรอง: Nakhon amulet</p>
+    </div>
+
+    <!-- รูปใบรับรอง -->
+    <img src="./Nakhon amulet.png" alt="ใบรับรอง Nakhon amulet" class="certificate">
+
+  </div>
+
+</body>
 </html>
