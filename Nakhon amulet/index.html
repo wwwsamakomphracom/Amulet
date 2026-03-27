@@ -1,98 +1,107 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nakhon Amulet - ใบรับรองNakhon amulet</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nakhon Amulet</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: Tahoma, sans-serif;
 
-    body {
-      font-family: Tahoma, sans-serif;
-      color: #fff;
-      background: #000;
-      text-align: center;
-    }
+            background-image: url("./Nakhon amulet.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+        }
 
-    /* Navbar */
-    .navbar {
-      width: 100%;
-      background: rgba(0,0,0,0.8);
-      padding: 12px 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 10;
-    }
+        .container {
+            min-height: 200vh;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            background: rgba(0,0,0,0.4);
+        }
 
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
+        /* 🔥 ปุ่ม 2 ขีด */
+        .menu-btn {
+    position: fixed;
+    top: 10px;     /* ระยะจากด้านบน */
+    left: 10px;    /* ระยะจากด้านซ้าย */
+    z-index: 9999; /* อยู่หน้าสุด */
+    cursor: pointer;
+}
 
-    .navbar a:hover {
-      color: gold;
-    }
+        .menu-btn div {
+            width: 30px;
+            height: 4px;
+            background: white;
+            margin: 6px 0;
+            border-radius: 2px;
+        }
 
-    /* Header */
-    .header {
-      margin-top: 60px;
-      padding: 20px;
-      background: rgba(0,0,0,0.5);
-    }
+        /* 🔥 เมนูด้านข้าง */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            padding-top: 60px;
+            transition: 0.3s;
+            z-index: 999;
+        }
 
-    .header h1 {
-      color: gold;
-      font-size: 22px;
-    }
+        .side-menu a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
 
-    .header p {
-      margin-top: 5px;
-      font-size: 14px;
-    }
+        .side-menu a:hover {
+            background: rgba(255,255,255,0.1);
+        }
 
-    /* รูปใบรับรอง */
-    .certificate {
-      max-width: 100%;
-      height: auto;
-      margin-top: 10px;
-    }
-
-    /* รองรับการเลื่อน */
-    .wrapper {
-      min-height: 120vh;
-    }
-  </style>
+        /* เปิดเมนู */
+        .side-menu.active {
+            left: 0;
+        }
+    </style>
 </head>
-
 <body>
 
-  <!-- เมนู -->
-  <div class="navbar">
-    <a href="#">หน้าแรก</a>
-    <a href="#">ค้นหาใบรับรอง</a>
-    <a href="#">ติดต่อ</a>
-  </div>
-
-  <div class="wrapper">
-
-    <!-- หัวข้อ -->
-    <div class="header">
-      <h1>ใบรับรองพระแท้</h1>
-      <p>รหัสใบรับรอง: Nakhon amulet</p>
+    <!-- ปุ่ม 2 ขีด -->
+    <div class="menu-btn" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
     </div>
 
-    <!-- รูปใบรับรอง -->
-    <img src="./Nakhon amulet.png" alt="ใบรับรอง Nakhon amulet" class="certificate">
+    <!-- เมนู -->
+    <div class="side-menu" id="menu">
+        <a href="https://www.phrakhruangphranakhon195.com/%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%99%E0%B8%84%E0%B8%A3">
+            🏠 หน้าแรก
+        </a>
+        <a href="https://www.phrakhruangphranakhon195.com/about">
+            📞 ติดต่อเรา
+        </a>
+    </div>
 
-  </div>
+    <div class="container">
+        <h1>พระเครื่องพระนคร</h1>
+        <p>เว็บไซต์ Nakhon Amulet</p>
+        <p>เลื่อนลงได้ 👇</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
+    </script>
 
 </body>
 </html>
