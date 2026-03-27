@@ -1,102 +1,114 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nakhon Amulet</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nakhon Amulet</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Tahoma, sans-serif;
+<style>
+body {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
 
-            background-image: url("./Nakhon amulet.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: scroll;
-        }
+    background-image: url("./Nakhon amulet.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-        .container {
-            min-height: 200vh;
-            padding: 100px 20px;
-            text-align: center;
-            color: white;
-            background: rgba(0,0,0,0.4);
-        }
+    /* 🔥 เอา scroll จริง */
+    background-attachment: scroll;
+}
 
-        /* 🔥 ปุ่ม 2 ขีด */
-        .menu-btn {
+/* 🔥 ใช้ container จริง */
+.container {
+    min-height: 2500px; /* 🔥 เพิ่มความยาว */
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.4);
+}
+
+/* 🔥 ปุ่ม 2 ขีด */
+.menu-btn {
     position: fixed;
-    top: 10px;     /* ระยะจากด้านบน */
-    left: 10px;    /* ระยะจากด้านซ้าย */
-    z-index: 9999; /* อยู่หน้าสุด */
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
     cursor: pointer;
 }
 
-        .menu-btn div {
-            width: 30px;
-            height: 4px;
-            background: white;
-            margin: 6px 0;
-            border-radius: 2px;
-        }
+.menu-btn div {
+    width: 30px;
+    height: 4px;
+    background: white;
+    margin: 6px 0;
+    border-radius: 2px;
+}
 
-        /* 🔥 เมนูด้านข้าง */
-        .side-menu {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            width: 250px;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            padding-top: 60px;
-            transition: 0.3s;
-            z-index: 999;
-        }
+/* 🔥 เมนูด้านข้าง */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    padding-top: 60px;
+    transition: 0.3s;
+    z-index: 999;
+}
 
-        .side-menu a {
-            display: block;
-            padding: 15px;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-        }
+.side-menu a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
 
-        .side-menu a:hover {
-            background: rgba(255,255,255,0.1);
-        }
+.side-menu a:hover {
+    background: rgba(255,255,255,0.1);
+}
 
-        /* เปิดเมนู */
-        .side-menu.active {
-            left: 0;
-        }
-    </style>
+/* เปิดเมนู */
+.side-menu.active {
+    left: 0;
+}
+</style>
 </head>
+
 <body>
 
-    <!-- ปุ่ม 2 ขีด -->
-    <div class="menu-btn" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-    </div>
+<!-- ปุ่ม 2 ขีด -->
+<div class="menu-btn" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+</div>
 
-    <!-- เมนู -->
-    <div class="side-menu" id="menu">
-        <a href="https://www.phrakhruangphranakhon195.com/%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%99%E0%B8%84%E0%B8%A3">
-            🏠 หน้าแรก
-        </a>
-        <a href="https://www.phrakhruangphranakhon195.com/about">
-            📞 ติดต่อเรา
-        </a>
-    </div>
+<!-- เมนู -->
+<div class="side-menu" id="menu">
+    <a href="https://www.phrakhruangphranakhon195.com/%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%99%E0%B8%84%E0%B8%A3">
+        🏠 หน้าแรก
+    </a>
+    <a href="https://www.phrakhruangphranakhon195.com/about">
+        📞 ติดต่อเรา
+    </a>
+</div>
 
-    
-    <script>
-        function toggleMenu() {
-            document.getElementById("menu").classList.toggle("active");
-        }
-    </script>
+<!-- 🔥 ใส่ container จริง -->
+<div class="container">
+    <h1>พระเครื่องพระนคร</h1>
+    <p>เลื่อนลงดูเนื้อหาได้</p>
+
+    <!-- 🔥 เพิ่มเนื้อหาให้เลื่อน -->
+    <div style="height:2000px;"></div>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
