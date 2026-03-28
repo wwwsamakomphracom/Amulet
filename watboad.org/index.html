@@ -189,7 +189,39 @@ html{scroll-behavior:smooth;}
 <div class="text">
 ร่วมทำบุญออนไลน์ เพื่อทำนุบำรุงพระพุทธศาสนา
 </div>
+<!-- ⭐ เพิ่มใน <style> -->
+<style>
+.map iframe{
+width:95%;
+max-width:600px;
+height:350px;
+border:0;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+margin-top:20px;
+}
+</style>
 
+<!-- ⭐ เพิ่มปุ่มเมนู (ใส่ใน .menu) -->
+<a href="#map">แผนที่</a>
+
+<!-- ⭐ วางก่อน contact -->
+<div class="map" id="map">
+<h2>แผนที่วัด</h2>
+
+<img src="img/map.png" alt="แผนที่วัด">
+
+<iframe 
+src="https://www.google.com/maps?q=https://maps.app.goo.gl/PZxo5fk8nBrXjmMQA&output=embed">
+</iframe>
+
+<br><br>
+
+<a href="https://maps.app.goo.gl/PZxo5fk8nBrXjmMQA" target="_blank" class="menu-btn">
+📍 เปิดใน Google Maps
+</a>
+
+</div>
 <!-- ประวัติ -->
 <div class="video" id="history">
 <h2>ชมวิดีโอประวัติวัด</h2>
@@ -206,44 +238,3 @@ html{scroll-behavior:smooth;}
 </video>
 </div>
 
-<!-- ⭐ กิจกรรม (ปุ่มที่หายอยู่ตรงนี้) -->
-<div class="activity" id="activity">
-<h2>กิจกรรมของวัด</h2>
-
-<a href="donate.html" class="menu-btn">
-🙏 ร่วมทำบุญกับทางวัด
-</a>
-
-<a href="https://www.facebook.com/" target="_blank"
-class="menu-btn">
-📣 กิจกรรมล่าสุด
-</a>
-
-</div>
-
-<!-- ทำบุญ -->
-<div class="donate" id="donate">
-<h2>ร่วมทำบุญกับทางวัด</h2>
-
-<div class="bank">
-ธนาคารกสิกรไทย<br>
-เลขบัญชี : 169-1-82782-4<br>
-ชื่อบัญชี : วัดโบสถ์อินทรสารเพชร
-</div>
-
-<div class="bank">
-ธนาคารไทยพาณิชย์<br>
-เลขบัญชี : 017-273-7305<br>
-ชื่อบัญชี : วัดโบสถ์อินทรสารเพชร
-</div>
-</div>
-
-<!-- ติดต่อ -->
-<div class="contact" id="contact">
-<h2>ติดต่อวัด</h2>
-วัดโบสถ์อินทรสารเพชร<br>
-โทร : 089-744-5457
-</div>
-
-</body>
-</html>
