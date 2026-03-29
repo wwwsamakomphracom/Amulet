@@ -5,13 +5,22 @@
 <title>ร่วมทำบุญกับทางวัด</title>
 
 <style>
-body{font-family:tahoma;background:#f7f7f7;margin:0;text-align:center;}
+body{
+font-family:tahoma;
+background:#f7f7f7;
+margin:0;
+text-align:center;
+}
 
-.section{padding:25px;}
+/* กล่อง section */
+.section{
+padding:25px;
+}
 
+/* ปุ่มเมนู */
 .menu-btn{
 display:block;
-background:#8B0000;
+background:linear-gradient(145deg,#a00000,#5a0000);
 color:white;
 padding:16px;
 margin:12px auto;
@@ -21,8 +30,10 @@ border-radius:14px;
 text-decoration:none;
 font-size:19px;
 font-weight:bold;
+box-shadow:0 6px 15px rgba(0,0,0,0.3);
 }
 
+/* input */
 input,textarea,select{
 padding:12px;
 width:90%;
@@ -33,6 +44,7 @@ border-radius:8px;
 border:1px solid #ccc;
 }
 
+/* ปุ่ม */
 button{
 background:#8B0000;
 color:white;
@@ -41,8 +53,10 @@ border:none;
 border-radius:10px;
 font-size:16px;
 margin-top:10px;
+cursor:pointer;
 }
 
+/* กล่อง list */
 .list{
 margin:30px auto;
 max-width:520px;
@@ -50,6 +64,32 @@ background:white;
 padding:15px;
 border-radius:10px;
 text-align:left;
+}
+
+/* ⭐ กล่องโอนเงิน */
+.bank-box{
+display:none;
+background:white;
+padding:20px;
+border-radius:14px;
+max-width:420px;
+margin:20px auto;
+box-shadow:0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* ⭐ อนุโมทนา */
+.thank{
+display:none;
+font-size:20px;
+color:green;
+margin-top:20px;
+}
+
+/* ⭐ preview สลิป */
+.preview img{
+max-width:200px;
+margin-top:10px;
+border-radius:10px;
 }
 
 </style>
@@ -61,20 +101,42 @@ text-align:left;
 
 <h2>ร่วมทำบุญกับทางวัด</h2>
 
-<!-- 🪷 รายการทำบุญ -->
+<!-- 🪷 รายการทำบุญ (แก้ให้กดแล้วเด้งระบบ) -->
 
-<a href="#" class="menu-btn">1️⃣ ทำบุญค่าน้ำค่าไฟ</a>
+<a href="#" onclick="openDonate('water')" class="menu-btn">1️⃣ ทำบุญค่าน้ำค่าไฟ</a>
 <a href="https://www.facebook.com/share/1NCvTDkAWU/" class="menu-btn">2️⃣ ทำบุญโลงศพ</a>
-<a href="#" class="menu-btn">3️⃣ ทำบุญสร้างอาคารปฏิบัติธรรม</a>
-<a href="#" class="menu-btn">4️⃣ ทำบุญทอดกฐิน</a>
+<a href="#" onclick="openDonate('building')" class="menu-btn">3️⃣ ทำบุญสร้างอาคารปฏิบัติธรรม</a>
+<a href="#" onclick="openDonate('kathin')" class="menu-btn">4️⃣ ทำบุญทอดกฐิน</a>
 <a href="https://www.facebook.com/share/p/1DaLUrNUNA/" class="menu-btn">5️⃣ ทำบุญทอดผ้าป่า</a>
 <a href="https://line.me/ti/p/5rwEQEuJ8D" class="menu-btn">6️⃣ ทำบุญถวายสังฆทาน (จองล่วงหน้า)</a>
-<a href="#" class="menu-btn">7️⃣ ทำบุญชำระหนี้สงฆ์</a>
-<a href="#" class="menu-btn">8️⃣ ทำบุญแก่พระอาพาธ</a>
+<a href="#" onclick="openDonate('debt')" class="menu-btn">7️⃣ ทำบุญชำระหนี้สงฆ์</a>
+<a href="#" onclick="openDonate('monk')" class="menu-btn">8️⃣ ทำบุญแก่พระอาพาธ</a>
 <a href="https://www.facebook.com/share/1GkbU9a6k3/" class="menu-btn">9️⃣ ทำบุญบวชพระ-สามเณร</a>
 
 </div>
 
+<!-- ⭐ กล่องแสดงบัญชี -->
+<div class="bank-box" id="bankBox">
+
+<h3 id="donateTitle"></h3>
+
+<p id="bankInfo"></p>
+
+<button onclick="copyAccount()">📋 คัดลอกเลขบัญชี</button>
+
+<br><br>
+
+<input type="file" id="slip" accept="image/*" onchange="previewSlip()"><br>
+
+<div class="preview" id="preview"></div>
+
+<button onclick="submitSlip()">📩 แจ้งการโอน</button>
+
+<div class="thank" id="thankBox">
+🙏 อนุโมทนาบุญ ขอให้ท่านเจริญรุ่งเรือง 🙏
+</div>
+
+</div>
 
 <!-- 🧾 ขอใบอนุโมทนาบัตร -->
 
@@ -104,17 +166,85 @@ text-align:left;
 
 </div>
 
-
 <!-- ⭐ รายชื่อผู้ทำบุญ -->
-
 <div class="list">
 <h3>รายชื่อผู้ร่วมทำบุญ</h3>
 <div id="donorList"></div>
 </div>
 
-
 <script>
 
+let currentAccount="";
+
+/* เปิดกล่องโอน */
+function openDonate(type){
+
+document.getElementById("bankBox").style.display="block"
+
+let title=document.getElementById("donateTitle")
+let bank=document.getElementById("bankInfo")
+
+if(type==="water"){
+title.innerHTML="💡 ทำบุญค่าน้ำค่าไฟ"
+bank.innerHTML="ธนาคารกสิกรไทย<br>เลขบัญชี: 169-1-82782-4"
+currentAccount="169-1-82782-4"
+}
+
+if(type==="building"){
+title.innerHTML="🏗️ สร้างอาคารปฏิบัติธรรม"
+bank.innerHTML="ธนาคารไทยพาณิชย์<br>เลขบัญชี: 017-273-7305"
+currentAccount="017-273-7305"
+}
+
+if(type==="kathin"){
+title.innerHTML="🪔 ทอดกฐิน"
+bank.innerHTML="ธนาคารกสิกรไทย<br>เลขบัญชี: 169-1-82782-4"
+currentAccount="169-1-82782-4"
+}
+
+if(type==="debt"){
+title.innerHTML="💰 ชำระหนี้สงฆ์"
+bank.innerHTML="ธนาคารไทยพาณิชย์<br>เลขบัญชี: 017-273-7305"
+currentAccount="017-273-7305"
+}
+
+if(type==="monk"){
+title.innerHTML="🏥 พระอาพาธ"
+bank.innerHTML="ธนาคารกสิกรไทย<br>เลขบัญชี: 169-1-82782-4"
+currentAccount="169-1-82782-4"
+}
+
+}
+
+/* คัดลอก */
+function copyAccount(){
+navigator.clipboard.writeText(currentAccount)
+alert("คัดลอกเลขบัญชีแล้ว")
+}
+
+/* preview สลิป */
+function previewSlip(){
+let file=document.getElementById("slip").files[0]
+let preview=document.getElementById("preview")
+
+if(file){
+preview.innerHTML=`<img src="${URL.createObjectURL(file)}">`
+}
+}
+
+/* ส่งสลิป */
+function submitSlip(){
+let file=document.getElementById("slip").files[0]
+
+if(!file){
+alert("กรุณาแนบสลิป")
+return
+}
+
+document.getElementById("thankBox").style.display="block"
+}
+
+/* ระบบเดิม (ไม่ลบ) */
 function saveDonor(){
 
 let name=document.getElementById("name").value
