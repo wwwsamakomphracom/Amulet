@@ -13,7 +13,6 @@ margin:0;
 text-align:center;
 }
 
-/* header */
 .header{
 background:#8B0000;
 color:white;
@@ -22,12 +21,8 @@ font-size:20px;
 font-weight:bold;
 }
 
-/* section */
-.section{
-padding:25px;
-}
+.section{padding:25px;}
 
-/* ปุ่ม */
 .menu-btn{
 display:block;
 background:linear-gradient(145deg,#a00000,#5a0000);
@@ -43,8 +38,7 @@ font-weight:bold;
 box-shadow:0 6px 15px rgba(0,0,0,0.3);
 }
 
-/* input */
-input,textarea,select{
+input{
 padding:12px;
 width:90%;
 max-width:420px;
@@ -54,7 +48,6 @@ border-radius:8px;
 border:1px solid #ccc;
 }
 
-/* ปุ่ม */
 button{
 background:#8B0000;
 color:white;
@@ -66,7 +59,6 @@ margin-top:10px;
 cursor:pointer;
 }
 
-/* list */
 .list{
 margin:30px auto;
 max-width:520px;
@@ -77,7 +69,6 @@ text-align:left;
 box-shadow:0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* bank box */
 .bank-box{
 display:none;
 background:white;
@@ -88,7 +79,6 @@ margin:20px auto;
 box-shadow:0 6px 20px rgba(0,0,0,0.2);
 }
 
-/* thank */
 .thank{
 display:none;
 font-size:20px;
@@ -96,14 +86,12 @@ color:green;
 margin-top:20px;
 }
 
-/* slip */
 .preview img{
 max-width:200px;
 margin-top:10px;
 border-radius:10px;
 }
 
-/* donor card */
 .card{
 background:#fff;
 padding:12px;
@@ -123,18 +111,24 @@ box-shadow:0 3px 10px rgba(0,0,0,0.15);
 </div>
 
 <div class="section">
-
 <h2>เลือกทำบุญ</h2>
 
+<!-- 🔥 ของเดิม -->
 <a href="#" onclick="openDonate('water')" class="menu-btn">💡 ค่าน้ำค่าไฟ</a>
 <a href="#" onclick="openDonate('building')" class="menu-btn">🏗️ สร้างอาคาร</a>
 <a href="#" onclick="openDonate('kathin')" class="menu-btn">🪔 ทอดกฐิน</a>
 <a href="#" onclick="openDonate('debt')" class="menu-btn">💰 ชำระหนี้สงฆ์</a>
 <a href="#" onclick="openDonate('monk')" class="menu-btn">🏥 พระอาพาธ</a>
 
+<!-- 🔥 เพิ่มใหม่ (ไม่ลบของเดิม) -->
+<a href="#" onclick="openDonate('sangha')" class="menu-btn">🎁 ถวายสังฆทาน</a>
+<a href="#" onclick="openDonate('coffin')" class="menu-btn">⚰️ โลงศพไร้ญาติ</a>
+<a href="#" onclick="openDonate('animal')" class="menu-btn">🐶 หมาแมวจรจัด</a>
+<a href="#" onclick="openDonate('ordination')" class="menu-btn">🧘 บวชพระ-สามเณร</a>
+<a href="#" onclick="openDonate('papa')" class="menu-btn">🌿 ทอดผ้าป่า</a>
+
 </div>
 
-<!-- กล่องโอน -->
 <div class="bank-box" id="bankBox">
 
 <h3 id="donateTitle"></h3>
@@ -143,6 +137,11 @@ box-shadow:0 3px 10px rgba(0,0,0,0.15);
 <button onclick="copyAccount()">📋 คัดลอกเลขบัญชี</button>
 
 <br><br>
+
+<!-- 🔥 เพิ่มฟอร์ม (ของเดิมไม่มี) -->
+<input id="donorName" placeholder="ชื่อผู้ทำบุญ"><br>
+<input id="donorPhone" placeholder="เบอร์โทร"><br>
+<input id="donorAmount" placeholder="จำนวนเงิน"><br>
 
 <input type="file" id="slip" accept="image/*" onchange="previewSlip()"><br>
 <div class="preview" id="preview"></div>
@@ -155,7 +154,6 @@ box-shadow:0 3px 10px rgba(0,0,0,0.15);
 
 </div>
 
-<!-- รายชื่อ -->
 <div class="list">
 <h3>📜 ประวัติการทำบุญ</h3>
 <div id="donorList"></div>
@@ -167,7 +165,7 @@ let currentAccount="";
 let currentType="";
 let currentSlip="";
 
-/* เปิด */
+/* 🔥 ของเดิม + เพิ่ม type ใหม่ */
 function openDonate(type){
 
 document.getElementById("bankBox").style.display="block"
@@ -207,15 +205,45 @@ bank.innerHTML="กสิกรไทย : 169-1-82782-4"
 currentAccount="169-1-82782-4"
 }
 
+/* 🔥 เพิ่มใหม่ */
+if(type==="sangha"){
+title.innerHTML="🎁 ถวายสังฆทาน"
+bank.innerHTML="กสิกรไทย : 169-1-82782-4"
+currentAccount="169-1-82782-4"
 }
 
-/* คัดลอก */
+if(type==="coffin"){
+title.innerHTML="⚰️ โลงศพไร้ญาติ"
+bank.innerHTML="ไทยพาณิชย์ : 017-273-7305"
+currentAccount="017-273-7305"
+}
+
+if(type==="animal"){
+title.innerHTML="🐶 หมาแมวจรจัด"
+bank.innerHTML="กสิกรไทย : 169-1-82782-4"
+currentAccount="169-1-82782-4"
+}
+
+if(type==="ordination"){
+title.innerHTML="🧘 บวชพระ-สามเณร"
+bank.innerHTML="ไทยพาณิชย์ : 017-273-7305"
+currentAccount="017-273-7305"
+}
+
+if(type==="papa"){
+title.innerHTML="🌿 ทอดผ้าป่า"
+bank.innerHTML="กสิกรไทย : 169-1-82782-4"
+currentAccount="169-1-82782-4"
+}
+
+}
+
+/* ของเดิม */
 function copyAccount(){
 navigator.clipboard.writeText(currentAccount)
 alert("คัดลอกแล้ว")
 }
 
-/* preview */
 function previewSlip(){
 let file=document.getElementById("slip").files[0]
 let preview=document.getElementById("preview")
@@ -226,33 +254,48 @@ preview.innerHTML=`<img src="${currentSlip}">`
 }
 }
 
-/* บันทึก */
+/* 🔥 อัปเกรดของเดิม */
 function submitSlip(){
 
 let file=document.getElementById("slip").files[0]
+let name=document.getElementById("donorName").value
+let phone=document.getElementById("donorPhone").value
+let amount=document.getElementById("donorAmount").value
 
-if(!file){
-alert("❌ ต้องแนบสลิป")
+if(!file || !name || !phone || !amount){
+alert("❌ กรอกข้อมูลให้ครบ")
 return
 }
 
-let name=prompt("ชื่อผู้ทำบุญ")
-let amount=prompt("จำนวนเงิน")
-
-if(!name || !amount){
-alert("กรอกไม่ครบ")
+if(isNaN(amount)){
+alert("❌ จำนวนเงินไม่ถูกต้อง")
 return
 }
+
+if(file.size < 5000){
+alert("❌ สลิปไม่ถูกต้อง")
+return
+}
+
+let reader=new FileReader()
+
+reader.onload=function(e){
 
 let donors=JSON.parse(localStorage.getItem("donors")||"[]")
 
 donors.push({
-name,
+name:name,
+phone:phone,
 type:currentType,
 amount:parseFloat(amount),
-slip:currentSlip,
+slip:e.target.result,
 date:new Date().toLocaleString()
 })
+
+/* 🔥 ลบ 2 รายการแรก */
+if(donors.length > 2){
+donors.splice(0,2)
+}
 
 localStorage.setItem("donors",JSON.stringify(donors))
 
@@ -260,9 +303,13 @@ document.getElementById("thankBox").style.display="block"
 
 showDonors()
 calculateTotals()
+
 }
 
-/* แสดง */
+reader.readAsDataURL(file)
+}
+
+/* ของเดิม */
 function showDonors(){
 let donors=JSON.parse(localStorage.getItem("donors")||"[]")
 let html=""
@@ -279,34 +326,18 @@ html+=`
 document.getElementById("donorList").innerHTML=html
 }
 
-/* รวมยอด */
 function calculateTotals(){
-
 let donors=JSON.parse(localStorage.getItem("donors")||"[]")
-
-let totals={}
-
-donors.forEach(d=>{
-if(!totals[d.type]) totals[d.type]=0
-totals[d.type]+=d.amount
-})
-
-let html="📊 ยอดรวม<br>"
-
-for(let t in totals){
-html+=`${t} : ${totals[t]} บาท<br>`
+let total=0
+donors.forEach(d=> total+=d.amount)
+document.getElementById("totalSummary").innerHTML="💰 "+total+" บาท"
 }
 
-document.getElementById("totalSummary").innerHTML=html
-}
-
-/* วิว */
 function countViews(){
 let views=localStorage.getItem("views") || 0
 views++
 localStorage.setItem("views",views)
-
-document.getElementById("viewCount").innerHTML="👁️ ผู้เข้าชม: "+views
+document.getElementById("viewCount").innerHTML="👁️ "+views
 }
 
 /* โหลด */
