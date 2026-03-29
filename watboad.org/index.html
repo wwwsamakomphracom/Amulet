@@ -94,7 +94,7 @@ text-shadow:0 0 10px rgba(0,0,0,0.9);
 .video{text-align:center;padding:20px;}
 .video video{width:95%;border-radius:12px;}
 
-/* ⭐ ปุ่มแดง (เด่นขึ้น) */
+/* ⭐ ปุ่มแดง */
 .menu-btn{
 display:inline-block;
 padding:18px 30px;
@@ -112,7 +112,7 @@ box-shadow:0 8px 22px rgba(0,0,0,0.7);
 .activity,.abbot,.donate,.map,.contact{
 padding:60px 20px;
 text-align:center;
-scroll-margin-top:90px; /* ⭐ กันเมนูบัง */
+scroll-margin-top:90px;
 }
 
 /* ⭐ กล่องกิจกรรม */
@@ -125,19 +125,44 @@ margin:auto;
 
 /* ⭐ ธนาคาร */
 .bank{
-background:rgba(0,0,0,0.7);
-padding:18px;
+background:rgba(0,0,0,0.75);
+padding:20px;
 margin:14px auto;
 border-radius:14px;
 max-width:420px;
 font-size:18px;
+box-shadow:0 6px 20px rgba(0,0,0,0.6);
 }
 
+/* ⭐ กล่องติดต่อ */
+.contact-box{
+background:rgba(255,255,255,0.1);
+padding:20px;
+border-radius:12px;
+max-width:400px;
+margin:20px auto;
+box-shadow:0 6px 20px rgba(0,0,0,0.6);
+font-size:20px;
+}
+
+/* ⭐ อัลบั้ม */
 .album{display:flex;overflow-x:auto;gap:16px;}
 .album img{height:260px;border-radius:12px;}
 
-.map img{width:95%;max-width:520px;border-radius:14px;}
+/* ⭐ MAP */
+.map img{
+width:95%;
+max-width:520px;
+border-radius:14px;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+.map img:hover{
+transform:scale(1.05);
+}
 
+/* ⭐ ติดต่อ */
 .contact{
 background:rgba(0,0,0,0.85);
 font-size:22px;
@@ -165,6 +190,7 @@ html{scroll-behavior:smooth;}
 <a href="#visit">เยี่ยมชมวัด</a>
 <a href="#activity">กิจกรรม</a>
 <a href="#donate">ทำบุญ</a>
+<a href="#map">แผนที่</a>
 <a href="#contact">ติดต่อ</a>
 
 <div class="lang">
@@ -206,7 +232,7 @@ html{scroll-behavior:smooth;}
 </video>
 </div>
 
-<!-- ⭐ กิจกรรม (ปุ่มที่หายอยู่ตรงนี้) -->
+<!-- ⭐ กิจกรรม -->
 <div class="activity" id="activity">
 <h2>กิจกรรมของวัด</h2>
 
@@ -214,54 +240,45 @@ html{scroll-behavior:smooth;}
 🙏 ร่วมทำบุญกับทางวัด
 </a>
 
-<a href="https://www.facebook.com/" target="_blank"
-class="menu-btn">
+<a href="https://www.facebook.com/" target="_blank" class="menu-btn">
 📣 กิจกรรมล่าสุด
 </a>
 
 </div>
 
-<!-- ทำบุญ -->
+<!-- ⭐ ทำบุญ (หลายหัวข้อ) -->
 <div class="donate" id="donate">
 <h2>ร่วมทำบุญกับทางวัด</h2>
 
 <div class="bank">
+<h3>🛕 สร้างโบสถ์</h3>
 ธนาคารกสิกรไทย<br>
 เลขบัญชี : 169-1-82782-4<br>
 ชื่อบัญชี : วัดโบสถ์อินทรสารเพชร
 </div>
 
 <div class="bank">
+<h3>🙏 บูรณะวัด</h3>
 ธนาคารไทยพาณิชย์<br>
 เลขบัญชี : 017-273-7305<br>
 ชื่อบัญชี : วัดโบสถ์อินทรสารเพชร
 </div>
+
+<div class="bank">
+<h3>🍚 ถวายภัตตาหาร</h3>
+ธนาคารกสิกรไทย<br>
+เลขบัญชี : 169-1-82782-4
 </div>
-<!-- ⭐ เพิ่มใน <style> -->
-<style>
-.map iframe{
-width:95%;
-max-width:600px;
-height:350px;
-border:0;
-border-radius:14px;
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
-margin-top:20px;
-}
-</style>
 
-<!-- ⭐ เพิ่มปุ่มเมนู (ใส่ใน .menu) -->
-<a href="#map">แผนที่</a>
+</div>
 
-<!-- ⭐ วางก่อน contact -->
+<!-- ⭐ MAP (เหลือรูปเดียว) -->
 <div class="map" id="map">
 <h2>แผนที่วัด</h2>
 
-<img src="img/map.png" alt="แผนที่วัด">
-
-<iframe 
-src="https://www.google.com/maps?q=https://maps.app.goo.gl/PZxo5fk8nBrXjmMQA&output=embed">
-</iframe>
+<a href="https://maps.app.goo.gl/PZxo5fk8nBrXjmMQA" target="_blank">
+  <img src="img/map.png" alt="แผนที่วัด">
+</a>
 
 <br><br>
 
@@ -270,11 +287,16 @@ src="https://www.google.com/maps?q=https://maps.app.goo.gl/PZxo5fk8nBrXjmMQA&out
 </a>
 
 </div>
-<!-- ติดต่อ -->
+
+<!-- ⭐ ติดต่อ -->
 <div class="contact" id="contact">
 <h2>ติดต่อวัด</h2>
+
+<div class="contact-box">
 วัดโบสถ์อินทรสารเพชร<br>
-โทร : 089-744-5457
+📞 โทร : 089-744-5457
+</div>
+
 </div>
 
 </body>
