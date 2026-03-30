@@ -178,6 +178,21 @@ right:20px;
 
 html{scroll-behavior:smooth;}
 
+/* ⭐⭐⭐ เพิ่มใหม่: เจ้าอาวาส */
+.abbot img{
+width:160px;
+margin:10px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.7);
+}
+
+/* ⭐⭐⭐ เพิ่มใหม่: รูปในกล่องธนาคาร */
+.bank img{
+width:100%;
+border-radius:10px;
+margin-bottom:10px;
+}
+
 </style>
 </head>
 
@@ -185,13 +200,13 @@ html{scroll-behavior:smooth;}
 
 <!-- ⭐ เมนู -->
 <div class="menu">
-<a href="#top">หน้าแรก</a>
-<a href="#history">ประวัติวัด</a>
-<a href="#visit">เยี่ยมชมวัด</a>
-<a href="#activity">กิจกรรม</a>
-<a href="#donate">ทำบุญ</a>
-<a href="#map">แผนที่</a>
-<a href="#contact">ติดต่อ</a>
+<a href="#top" data-key="menu_home">หน้าแรก</a>
+<a href="#history" data-key="menu_history">ประวัติวัด</a>
+<a href="#visit" data-key="menu_visit">เยี่ยมชมวัด</a>
+<a href="#activity" data-key="menu_activity">กิจกรรม</a>
+<a href="#donate" data-key="menu_donate">ทำบุญ</a>
+<a href="#map" data-key="menu_map">แผนที่</a>
+<a href="#contact" data-key="menu_contact">ติดต่อ</a>
 
 <div class="lang">
 <button onclick="setLang('th')">ไทย</button>
@@ -205,92 +220,96 @@ html{scroll-behavior:smooth;}
 <img src="img/logo.png">
 </div>
 
-<div class="name">วัดโบสถ์อินทรสารเพชร</div>
-<div class="eng">Wat Boad Indharasanphet</div>
+<div class="name" data-key="title">วัดโบสถ์อินทรสารเพชร</div>
+<div class="eng" data-key="subtitle">Wat Boad Indharasanphet</div>
 
 <div class="temple">
 <img src="img/temple.png">
 </div>
 
-<div class="text">
+<div class="text" data-key="welcome">
 ร่วมทำบุญออนไลน์ เพื่อทำนุบำรุงพระพุทธศาสนา
 </div>
 
-<!-- ประวัติ -->
+<div class="abbot">
+<h2 data-key="abbot">เจ้าอาวาส</h2>
+
+<img src="img/abbot.png">
+<img src="img/abbot1.png">
+<img src="img/abbot2.png">
+<img src="img/abbot3.png">
+</div>
+
 <div class="video" id="history">
-<h2>ชมวิดีโอประวัติวัด</h2>
+<h2 data-key="history">ชมวิดีโอประวัติวัด</h2>
 <video autoplay muted loop controls>
 <source src="video.mp4" type="video/mp4">
 </video>
 </div>
 
-<!-- เยี่ยมชม -->
 <div class="video" id="visit">
-<h2>ชมวิดีโอเยี่ยมชมวัด</h2>
+<h2 data-key="visit">ชมวิดีโอเยี่ยมชมวัด</h2>
 <video autoplay muted controls>
 <source src="temple_1.mp4" type="video/mp4">
 </video>
 </div>
 
-<!-- ⭐ กิจกรรม -->
 <div class="activity" id="activity">
-<h2>กิจกรรมของวัด</h2>
+<h2 data-key="activity">กิจกรรมของวัด</h2>
 
-<a href="donate.html" class="menu-btn">
+<a href="donate.html" class="menu-btn" data-key="donate_btn">
 🙏 ร่วมทำบุญกับทางวัด
 </a>
 
-<a href="https://www.facebook.com/" target="_blank" class="menu-btn">
+<a href="https://www.facebook.com/share/p/1Bi8ZC7ZMS/" target="_blank" class="menu-btn" data-key="news">
 📣 กิจกรรมล่าสุด
 </a>
 
 </div>
 
-<!-- ⭐ ทำบุญ (หลายหัวข้อ) -->
 <div class="donate" id="donate">
-<h2>ร่วมทำบุญกับทางวัด</h2>
+<h2 data-key="donate_title">ร่วมทำบุญกับทางวัด</h2>
 
 <div class="bank">
-<h3>🛕 สร้างโบสถ์</h3>
+<img src="img/construction.png">
+<h3 data-key="build">🛕 สร้างโบสถ์อาคารปฏิบัตธรรม</h3>
 ธนาคารกสิกรไทย<br>
 เลขบัญชี : 169-1-82782-4<br>
 ชื่อบัญชี : วัดโบสถ์อินทรสารเพชร
 </div>
 
 <div class="bank">
-<h3>🙏 บูรณะวัด</h3>
+<h3 data-key="repair">🙏 บูรณะวัด</h3>
 ธนาคารไทยพาณิชย์<br>
 เลขบัญชี : 017-273-7305<br>
 ชื่อบัญชี : วัดโบสถ์อินทรสารเพชร
 </div>
 
 <div class="bank">
-<h3>🍚 ถวายภัตตาหาร</h3>
+<h3 data-key="food">🍚 ถวายภัตตาหาร สามเณรภาคฤดูร้อน</h3>
 ธนาคารกสิกรไทย<br>
 เลขบัญชี : 169-1-82782-4
 </div>
 
 </div>
 
-<!-- ⭐ MAP (เหลือรูปเดียว) -->
 <div class="map" id="map">
-<h2>แผนที่วัด</h2>
+<h2 data-key="map">แผนที่วัด</h2>
 
 <a href="https://maps.app.goo.gl/PZxo5fk8nBrXjmMQA" target="_blank">
-  <img src="img/map.png" alt="แผนที่วัด">
+<img src="img/map.png">
 </a>
 
 <br><br>
 
-<a href="https://maps.app.goo.gl/PZxo5fk8nBrXjmMQA" target="_blank" class="menu-btn">
+<a href="https://maps.app.goo.gl/PZxo5fk8nBrXjmMQA" target="_blank" class="menu-btn" data-key="map_btn">
 📍 เปิดใน Google Maps
 </a>
 
 </div>
 
-<!-- ⭐ ติดต่อ -->
 <div class="contact" id="contact">
-<h2>ติดต่อวัด</h2>
+<h2 data-key="contact">ติดต่อวัด</h2>
 
 <div class="contact-box">
 วัดโบสถ์อินทรสารเพชร<br>
@@ -298,6 +317,26 @@ html{scroll-behavior:smooth;}
 </div>
 
 </div>
+
+<!-- ⭐⭐⭐ ระบบเปลี่ยนภาษา -->
+<script>
+const langData={
+th:{menu_home:"หน้าแรก",menu_history:"ประวัติวัด",menu_visit:"เยี่ยมชมวัด",menu_activity:"กิจกรรม",menu_donate:"ทำบุญ",menu_map:"แผนที่",menu_contact:"ติดต่อ",title:"วัดโบสถ์อินทรสารเพชร",subtitle:"Wat Boad Indharasanphet",welcome:"ร่วมทำบุญออนไลน์ เพื่อทำนุบำรุงพระพุทธศาสนา",abbot:"เจ้าอาวาส",history:"ชมวิดีโอประวัติวัด",visit:"ชมวิดีโอเยี่ยมชมวัด",activity:"กิจกรรมของวัด",donate_btn:"ร่วมทำบุญกับทางวัด",news:"กิจกรรมล่าสุด",donate_title:"ร่วมทำบุญกับทางวัด",build:"สร้างโบสถ์อาคารปฏิบัตธรรม",repair:"บูรณะวัด",food:"ถวายภัตตาหาร สามเณรภาคฤดูร้อน",map:"แผนที่วัด",map_btn:"เปิดใน Google Maps",contact:"ติดต่อวัด"},
+en:{menu_home:"Home",menu_history:"History",menu_visit:"Visit",menu_activity:"Activities",menu_donate:"Donate",menu_map:"Map",menu_contact:"Contact",title:"Wat Boad Indharasanphet",subtitle:"Temple Website",welcome:"Support Buddhism through donation",abbot:"Abbot",history:"Temple History Video",visit:"Temple Visit Video",activity:"Temple Activities",donate_btn:"Make a Donation",news:"Latest News",donate_title:"Support the Temple",build:"Temple Construction",repair:"Temple Renovation",food:"Food Offering",map:"Location",map_btn:"Open in Google Maps",contact:"Contact"},
+zh:{menu_home:"首页",menu_history:"历史",menu_visit:"参观",menu_activity:"活动",menu_donate:"捐款",menu_map:"地图",menu_contact:"联系",title:"อินทรสารเพชร寺",subtitle:"寺庙官网",welcome:"欢迎参与功德",abbot:"住持",history:"寺庙历史视频",visit:"参观视频",activity:"寺庙活动",donate_btn:"捐款",news:"最新活动",donate_title:"支持寺庙",build:"建设佛殿",repair:"修缮寺庙",food:"供养沙弥",map:"位置",map_btn:"打开地图",contact:"联系"}
+};
+
+function setLang(lang){
+document.querySelectorAll("[data-key]").forEach(el=>{
+const key=el.getAttribute("data-key");
+if(langData[lang][key]){
+el.innerText=langData[lang][key];
+}
+});
+}
+
+setLang('th');
+</script>
 
 </body>
 </html>
