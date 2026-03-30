@@ -63,6 +63,44 @@
       max-width: 100%;
       height: auto;
       margin-top: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .certificate:hover {
+      transform: scale(1.02);
+    }
+
+    /* ⭐⭐⭐ Lightbox (เพิ่มใหม่) */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding-top: 40px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+    }
+
+    .lightbox img {
+      margin: auto;
+      display: block;
+      max-width: 95%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.2);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     /* รองรับการเลื่อน */
@@ -89,10 +127,29 @@
       <p>รหัสใบรับรอง: 3-6743</p>
     </div>
 
-    <!-- รูปใบรับรอง -->
-    <img src="./3-6743.png" alt="ใบรับรอง 3-6743" class="certificate">
+    <!-- ⭐ รูปใบรับรองหลัก -->
+    <img src="./3-6743.png" alt="ใบรับรอง 3-6743" class="certificate" onclick="openLightbox()">
 
   </div>
+
+  <!-- ⭐⭐⭐ Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+
+    <!-- ⭐ ใช้ไฟล์ใหม่ที่คุณเพิ่ม -->
+    <img src="./3-6743-.png" id="lightbox-img">
+  </div>
+
+  <!-- ⭐⭐⭐ Script -->
+  <script>
+    function openLightbox(){
+      document.getElementById("lightbox").style.display = "block";
+    }
+
+    function closeLightbox(){
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
