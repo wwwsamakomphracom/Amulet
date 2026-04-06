@@ -66,16 +66,29 @@ body {
 
 <script>
 function searchCert() {
+  // รับค่าจากช่อง Input และตัดช่องว่างหน้า-หลังออก
   let value = document.getElementById("searchInput").value.trim();
+  
+  if (value === "") {
+    alert("กรุณากรอกเลขบัตร");
+    return;
+  }
 
+  // รายการตรวจสอบเลขบัตร
   if (value === "0975-33671") {
     window.location.href = "https://verify.amulettags.online/0975-33671/";
-  } else {
-    alert("ไม่พบข้อมูลเลขบัตรนี้");
+  } 
+  else if (value === "0821-98652") {
+    window.location.href = "https://verify.amulettags.online/0821-98652/";
+  }
+  else {
+    // ถ้าไม่ตรงกับเลขบัตรที่มีในระบบ
+    alert("ไม่พบข้อมูลเลขบัตรนี้ในระบบ");
   }
 }
 
-document.getElementById("searchInput").addEventListener("keypress", function(e) {
+// ฟังก์ชันสำหรับกด Enter แล้วให้ค้นหาทันที
+document.getElementById("searchInput").addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     searchCert();
   }
