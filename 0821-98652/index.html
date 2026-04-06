@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สมาคมพระเครื่อง - ใบรับรอง 0821-98652</title>
+  <style>
+    /* รีเซ็ตค่าเริ่มต้น */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Tahoma, sans-serif;
+      color: #fff;
+      background-color: #000; /* โทนมืด */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Navbar แบบง่าย */
+    .navbar {
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: #ffd700;
+    }
+
+    /* ส่วน header overlay ข้อความ */
+    .header {
+      text-align: center;
+      margin-top: 60px; /* เว้น navbar */
+      background: rgba(0,0,0,0.4);
+      width: 100%;
+      padding: 20px 10px;
+    }
+
+    .header h1 {
+      color: #ffd700;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    /* ภาพใบรับรอง */
+    .certificate {
+      width: auto;
+      max-width: 100%; /* ปรับให้พอดีกับหน้าจอแนวนอน */
+      height: auto;    /* ให้สูงตามสัดส่วนจริง */
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- แสดงภาพใบรับรองตามขนาดจริง -->
+  <img src="0821-98652.png" alt="ใบรับรอง 0821-98652" class="certificate">
+
+</body>
+</html>
